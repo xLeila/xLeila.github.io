@@ -1,0 +1,1183 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="flexbox css3 布局," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Leila's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="什么是 Flexbox ？Flexbox 是 flexible box 的简称（意思是“灵活的盒子容器”），是 CSS3 引入的新的布局模式。它决定了元素如何在页面上排列，使它们能在不同的屏幕尺寸和设备下可预测地展现出来。 它之所以被称为 Flexbox ，是因为它能够扩展和收缩 flex 容器内的元素，以最大限度地填充可用空间。与以前布局方式（如 table 布局和浮动元素内嵌块元素）相比，Fl">
+<meta name="keywords" content="flexbox css3 布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flexbox布局">
+<meta property="og:url" content="http://LeilaBlog.site/2017/08/22/flexbox布局/index.html">
+<meta property="og:site_name" content="Leila&#39;s blog">
+<meta property="og:description" content="什么是 Flexbox ？Flexbox 是 flexible box 的简称（意思是“灵活的盒子容器”），是 CSS3 引入的新的布局模式。它决定了元素如何在页面上排列，使它们能在不同的屏幕尺寸和设备下可预测地展现出来。 它之所以被称为 Flexbox ，是因为它能够扩展和收缩 flex 容器内的元素，以最大限度地填充可用空间。与以前布局方式（如 table 布局和浮动元素内嵌块元素）相比，Fl">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex1.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex2.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex3.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex4.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex5.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex6.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex7.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex8.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex9.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex10.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex11.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex12.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex13.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex14.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/flex15.png">
+<meta property="og:updated_time" content="2017-08-22T10:17:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="flexbox布局">
+<meta name="twitter:description" content="什么是 Flexbox ？Flexbox 是 flexible box 的简称（意思是“灵活的盒子容器”），是 CSS3 引入的新的布局模式。它决定了元素如何在页面上排列，使它们能在不同的屏幕尺寸和设备下可预测地展现出来。 它之所以被称为 Flexbox ，是因为它能够扩展和收缩 flex 容器内的元素，以最大限度地填充可用空间。与以前布局方式（如 table 布局和浮动元素内嵌块元素）相比，Fl">
+<meta name="twitter:image" content="http://oqt3f60vc.bkt.clouddn.com/flex1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://LeilaBlog.site/2017/08/22/flexbox布局/"/>
+
+
+
+
+
+  <title>flexbox布局 | Leila's blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ff56c334260a10704189e986eba39154";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <a href="https://github.com/xLeila"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leila's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Goals determine what you are going to be</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            Leila时光机
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            照片
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/leaveMassages" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="/categories/book-movie-music" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书影音
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LeilaBlog.site/2017/08/22/flexbox布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangxiaolei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leila's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">flexbox布局</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T14:08:46+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css-布局/" itemprop="url" rel="index">
+                    <span itemprop="name">css 布局</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/22/flexbox布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/22/flexbox布局/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/08/22/flexbox布局/" class="leancloud_visitors" data-flag-title="flexbox布局">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">&nbsp点击量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,735
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是-Flexbox-？"><a href="#什么是-Flexbox-？" class="headerlink" title="什么是 Flexbox ？"></a>什么是 Flexbox ？</h3><p>Flexbox 是 flexible box 的简称（意思是“灵活的盒子容器”），是 CSS3 引入的新的布局模式。它决定了元素如何在页面上排列，使它们能在不同的屏幕尺寸和设备下可预测地展现出来。</p>
+<p>它之所以被称为 Flexbox ，是因为它能够扩展和收缩 flex 容器内的元素，以最大限度地填充可用空间。与以前布局方式（如 table 布局和浮动元素内嵌块元素）相比，Flexbox 是一个更强大的方式：</p>
+<ul>
+<li>在不同方向排列元素</li>
+<li>重新排列元素的显示顺序</li>
+<li>更改元素的对齐方式</li>
+<li>动态地将元素装入容器</li>
+</ul>
+<h3 id="什么情况下不建议使用-Flexbox-？"><a href="#什么情况下不建议使用-Flexbox-？" class="headerlink" title="什么情况下不建议使用 Flexbox ？"></a>什么情况下不建议使用 Flexbox ？</h3><p>虽然 Flexbox 非常适合缩放，对齐和重新排序元素，但以下情况应该尽量避免使用 Flexbox 布局：</p>
+<ul>
+<li>整体页面布局</li>
+<li>完全支持旧浏览器的网站</li>
+</ul>
+<p>浏览器支持 Flexbox 的情况：</p>
+<p>旧版浏览器，如IE 11或更低版本，不支持或仅部分支持 Flexbox 。如果你想安全的使用页面正常呈现，你应该退回到其他的 CSS 布局方式，比如结合float 的 display: inline-block 或者 display: table 等。但是，如果您只针对现代浏览器，那么 Flexbox 绝对值得一试</p>
+<h3 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h3><p>Flexbox 术语<br>在 Flexbox 模型中，有三个核心概念：<br>– flex 项（也称 flex 子元素），需要布局的元素<br>– flex 容器，其包含 flex 项<br>– 排列方向（direction），这决定了 flex 项的布局方向（更多的文章叫主轴）</p>
+<p>最好的学习方式是从经验和例子中学习，所以让我们开始吧！</p>
+<p>1）创建一个 flex 容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">   display: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>要创建一个 flex 容器，您只需要将一个 display: flex 属性添加到一个元素上。默认情况下，所有的直接子元素都被认为是 flex 项，并从左到右依次排列在一行中。如果 flex 项的宽度总和大于容器，那么 flex 项将按比例缩小，直到它们适应 flex 容器宽度。</p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/flex1.png" alt=""></p>
+<p>2）将 flex 项排成一列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">   display: flex;</span><br><span class="line">   flex-direction: column;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/flex2.png" alt=""></p>
+<p>通过(在 flex 容器中)设置 flex-direction: column 使 flex 项垂直布局<br>也可以通过设置 flex-direction: column-reverse 或 flex-direction: row-reverse 来使 flex 项以相反的顺序排列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flex-container &#123;</span><br><span class="line">	display: flex;</span><br><span class="line">	flex-direction: column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/flex3.png" alt="flex3"></p>
+<h4 id="Level-2-—-新手"><a href="#Level-2-—-新手" class="headerlink" title="Level 2 — 新手"></a>Level 2 — 新手</h4><p>1）靠右对齐的 flex 项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">	display: flex;</span><br><span class="line">	justify-content: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>回想一下，每个 Flexbox 模型都有 flex 方向（主轴）。justify-content 用于指定 flex 项在 flex 方向（direction）上的对齐位置。在上面的例子中，justify-content:flex-end 表示 flex 项在水平方向上靠 flex 容器的末端对齐。这就是为什么他们被放在了右边。<br><img src="http://oqt3f60vc.bkt.clouddn.com/flex4.png" alt="flex4"></p>
+<p>2）居中对齐的 flex 项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">	display: flex;</span><br><span class="line">	justify-content: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/flex5.png" alt="flex5">;</p>
+<p>3）铺开的 flex 项<br>您可以通过使用以下 justify-content 属性的三个间距值之一来指定容器中 flex 项之间应显示多少空间：</p>
+<ul>
+<li>space-evenly : flex 容器起始边缘和第一个 flex 项之间的间距和每个相邻 flex 项之间的间距是相等。（注：该属性以前很少看到，原因是以前浏览器不支持，chrome 也是 60 版本之后才支持。延伸一下，align-content: space-evenly 也是这个逻辑，建议在 chrome 60 下查看 这个demo 。 ）</li>
+<li>space-between : 任何两个相邻 flex 项之间的间距是相同的，但不一定等于第一个/最后一个 flex 项与 flex 容器边缘之间的间距;起始边缘和第一个项目之间的间距和末端边缘和最后一个项目之间的间距是相等的。</li>
+<li>space-around : flex 容器中的每个 flex 项的每一侧间距都是相等的。请注意，这意味着两个相邻 flex 项之间的空间将是第一个/最后一个 flex 项与其最近边缘之间的空间的两倍。</li>
+</ul>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/flex6.png" alt="flex6"></p>
+<p>4）flex 项在交叉轴上的对齐<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">	display: flex;</span><br><span class="line">	justify-content: center;</span><br><span class="line">	align-items: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通常，我们想沿着 flex 方向（主轴）排列 flex 项，还可以在垂直于它的方向（交叉轴）上对齐 flex 项。通过设置 justify-content:center和align-items:center，可以使 flex 项水平和垂直放置在 flex 容器的中心。<br><img src="http://oqt3f60vc.bkt.clouddn.com/flex7.png" alt="flex7">)</p>
+<p>5）对齐某个特定的 flex 项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">	display: flex;</span><br><span class="line">	align-items: center;</span><br><span class="line">&#125;</span><br><span class="line">.flex-bottom &#123;</span><br><span class="line">  align-self: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以在某个特定的 flex 项上使用 align-self CSS 属性，来使该特定的 flex 项与容器中的其他 flex 项进行对齐。<br><img src="http://oqt3f60vc.bkt.clouddn.com/flex8.png" alt="flex8"></p>
+<h4 id="Level-3-—-中级"><a href="#Level-3-—-中级" class="headerlink" title="Level 3 — 中级"></a>Level 3 — 中级</h4><p>1）允许 flex 项多行/列排列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">	display: flex;</span><br><span class="line">	flex-wrap: wrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>默认情况下， flex 项不允许多行/列排列，如果 flex 容器尺寸对于所有 flex 项来说不够大，那么flex 项将被调整大小以适应单行或列排列。<br>通过添加 flex-wrap: wrap ，可以将溢出容器的 flex 项将被排列到另一行/列中<br><img src="http://oqt3f60vc.bkt.clouddn.com/flex9.png" alt="flex9"></p>
+<p>2）flex 项反向多行/列排列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">	display: flex;</span><br><span class="line">	flex-wrap: wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>flex-wrap:wrap-reverse 仍然使 flex 项以多行/列排列，但是它们从 flex 容器的末尾开始排列的。<br><img src="http://oqt3f60vc.bkt.clouddn.com/flex10.png" alt="flex10"></p>
+<p>3）多行/列排列的 flex 项在交叉轴上的对齐方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">	display: flex;</span><br><span class="line">	flex-wrap: wrap;</span><br><span class="line">	align-content: flex-start;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>默认情况下，当 flex 容器的交叉轴（cross axis）上存在多余空间时，您可以在 flex 容器上设置 align-content，以控制 flex 项在交叉轴（cross axis）上的对齐方式。可能的值是 flex-start，flex-end，center，space-between，space-around ，space-evenly 和 stretch（默认）<br><img src="http://oqt3f60vc.bkt.clouddn.com/flex11.png" alt="flex11"></p>
+<h4 id="Level-4-—-高级"><a href="#Level-4-—-高级" class="headerlink" title="Level 4 — 高级"></a>Level 4 — 高级</h4><p>1）拉伸 flex 项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">   display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item.nth-of-type(1)&#123;</span><br><span class="line">   flex-grow: 1;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item.nth-of-type(2) &#123;</span><br><span class="line">   flex-grow: 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>flex-grow 只有在 flex 容器中有剩余空间时才会生效。flex 项的 flex-grow 属性指定该 flex 项相对于其他 flex 项将拉伸多少，以填充 flex 容器。默认值为1。当设置为 0 时，该 flex 项将不会被拉伸去填补剩余空间。在这个例子中，两个项的比例是 1:2，意思是在被拉伸时，第一个 flex 项将占用 1/3，而第二个 flex 项将占据余下的空间</p>
+<p>这里特别要注意的是 flex-grow 控制的是 flex 项的拉伸比例，而不是占据 flex 容器的空间比例</p>
+<p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;flex-container&quot;&gt;  </span><br><span class="line">  &lt;div class=&quot;flex-item flex-item1&quot;&gt;1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;flex-item flex-item2&quot;&gt;2&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;flex-item flex-item3&quot;&gt;3&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;button class=&quot;w90&quot;&gt;容器宽度设置为初始宽度90px&lt;/button&gt;</span><br><span class="line">&lt;button class=&quot;w180&quot;&gt;容器宽度设置为：180px&lt;/button&gt;</span><br><span class="line">&lt;button class=&quot;w270&quot;&gt;容器宽度设置为：270px&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item1&#123;flex-grow: 0;&#125;</span><br><span class="line">.flex-item2&#123;flex-grow: 1;&#125;</span><br><span class="line">.flex-item3&#123;flex-grow: 2;&#125;</span><br><span class="line">/* 以下为辅助样式 */</span><br><span class="line"></span><br><span class="line">.flex-container&#123; </span><br><span class="line">  width:90px;</span><br><span class="line">  padding:10px;</span><br><span class="line">  background-color: #F0f0f0; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item&#123;</span><br><span class="line">  padding:20px 0;</span><br><span class="line">  text-align: center;</span><br><span class="line">  width:30px;</span><br><span class="line">  background-color: #B1FF84; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item:first-child&#123; </span><br><span class="line">  background-color: #F5DE25; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item:last-child&#123; </span><br><span class="line">  background-color: #90D9F7; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var $flexContainer=$(&quot;.flex-container&quot;)</span><br><span class="line">$(&quot;.w90&quot;).on(&quot;click&quot;,function()&#123;</span><br><span class="line">  $flexContainer.width(&quot;90px&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">$(&quot;.w180&quot;).on(&quot;click&quot;,function()&#123;</span><br><span class="line">  $flexContainer.width(&quot;180px&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">$(&quot;.w270&quot;).on(&quot;click&quot;,function()&#123;</span><br><span class="line">  $flexContainer.width(&quot;270px&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/flex12.png" alt="flex12"></p>
+<p>2）收缩元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item:nth-of-type(1) &#123;</span><br><span class="line">  flex-shrink: 1;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item:nth-of-type(2) &#123;</span><br><span class="line">  flex-shrink: 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>flex-shrink 只有在 flex 容器空间不足时才会生效。它指定 flex 项相对于其他 flex 项将缩小多少，以使 flex 项不会溢出 flex 容器。 默认值为 1。当设置为0时，该 flex 项将不会被收缩。在这个例子中，比例是1：2，意思是在收缩时，第一项将收缩 1/3 ，而第二个项目将被收缩 2/3 。愚人码头注： flex-shrink 和 flex-grow 正好相反</p>
+<p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;flex-container&quot;&gt;  </span><br><span class="line">  &lt;div class=&quot;flex-item flex-item1&quot;&gt;1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;flex-item flex-item2&quot;&gt;2&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;flex-item flex-item3&quot;&gt;3&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;button class=&quot;w90&quot;&gt;容器宽度设置为：90px&lt;/button&gt;</span><br><span class="line">&lt;button class=&quot;w180&quot;&gt;容器宽度设置为：180px&lt;/button&gt;</span><br><span class="line">&lt;button class=&quot;w270&quot;&gt;容器宽度设置为初始宽度270px&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item1&#123;flex-shrink: 0;&#125;</span><br><span class="line">.flex-item2&#123;flex-shrink: 1;&#125;</span><br><span class="line">.flex-item3&#123;flex-shrink: 2;&#125;</span><br><span class="line">/* 以下为辅助样式 */</span><br><span class="line"></span><br><span class="line">.flex-container&#123; </span><br><span class="line">  width:270px;</span><br><span class="line">  padding:10px;</span><br><span class="line">  background-color: #F0f0f0; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item&#123;</span><br><span class="line">  padding:20px 0;</span><br><span class="line">  text-align: center;</span><br><span class="line">  width:90px;</span><br><span class="line">  background-color: #B1FF84; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item:first-child&#123; </span><br><span class="line">  background-color: #F5DE25; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item:last-child&#123; </span><br><span class="line">  background-color: #90D9F7; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var $flexContainer=$(&quot;.flex-container&quot;)</span><br><span class="line">$(&quot;.w90&quot;).on(&quot;click&quot;,function()&#123;</span><br><span class="line">  $flexContainer.width(&quot;90px&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">$(&quot;.w180&quot;).on(&quot;click&quot;,function()&#123;</span><br><span class="line">  $flexContainer.width(&quot;180px&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">$(&quot;.w270&quot;).on(&quot;click&quot;,function()&#123;</span><br><span class="line">  $flexContainer.width(&quot;270px&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/flex13.png" alt="flex13"></p>
+<p>3）设置元素的大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item.nth-of-type(1) &#123;</span><br><span class="line">  flex-basis: 200px;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item.nth-of-type(2) &#123;</span><br><span class="line">  flex-basis: 10%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>您可以使用 flex-basis 定制 flex 项尺寸来代替元素的初始大小。默认情况下，其值为 flex-basis: auto，这意味该尺寸着从非 Flexbox CSS规则计算的。您还可以将其设置为某个绝对值或相对于 flex 容器百分比的值;例如 flex-basis:200px 和flex-basis:10％</p>
+<p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;flex-container&quot;&gt;  </span><br><span class="line">  &lt;div class=&quot;flex-item flex-item1&quot;&gt;1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;flex-item flex-item2&quot;&gt;2&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item1&#123;flex: 1 0 90px;&#125;</span><br><span class="line">.flex-item2&#123;flex: 2 0 10%;&#125;</span><br><span class="line">/* 以下为辅助样式 */</span><br><span class="line"></span><br><span class="line">.flex-container&#123; </span><br><span class="line">  width:200px;</span><br><span class="line">  padding:10px;</span><br><span class="line">  background-color: #F0f0f0; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item&#123;</span><br><span class="line">  padding:20px 0;</span><br><span class="line">  text-align: center;</span><br><span class="line">  background-color: #B1FF84; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item:first-child&#123; </span><br><span class="line">  background-color: #F5DE25; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item:last-child&#123; </span><br><span class="line">  background-color: #90D9F7; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/flex14.png" alt="flex14"></p>
+<p>4）将 flex-grow, flex-shrink, 和 flex-basis 放在一起<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">   display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item:nth-of-type(1) &#123;</span><br><span class="line">   flex: 1 0 100px;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item:nth-of-type(2) &#123;</span><br><span class="line">  flex: 2 0 10%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>flex 是 flex-grow，flex-shrink 和 flex-based 的缩写。在这个例子中，第一个 flex 项设置为flex-grow: 1，flex-shrink: 0，flex-basis: 100px，第二个 flex 项设置为flex-grow: 2，flex-shrink: 0，flex-basis: 10％<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;flex-container&quot;&gt;  </span><br><span class="line">  &lt;div class=&quot;flex-item flex-item1&quot;&gt;1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;flex-item flex-item2&quot;&gt;2&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">.flex-container &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.flex-item1&#123;flex: 1 0 90px;&#125;</span><br><span class="line">.flex-item2&#123;flex: 2 0 10%;&#125;</span><br><span class="line">/* 以下为辅助样式 */</span><br><span class="line"></span><br><span class="line">.flex-container&#123; </span><br><span class="line">  width:200px;</span><br><span class="line">  padding:10px;</span><br><span class="line">  background-color: #F0f0f0; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item&#123;</span><br><span class="line">  padding:20px 0;</span><br><span class="line">  text-align: center;</span><br><span class="line">  background-color: #B1FF84; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item:first-child&#123; </span><br><span class="line">  background-color: #F5DE25; </span><br><span class="line">&#125;</span><br><span class="line">.flex-container .flex-item:last-child&#123; </span><br><span class="line">  background-color: #90D9F7; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/flex15.png" alt="flex15"><br>分析一下上面的这个例子，由于在 flex 容器（200px）中存在剩余空间 (90px)，只有 flex-grow 才能起作用，flew-shrink 被忽略。第一个 flex 项的flex-grow 为 1，第2个 flex 项的flex-grow为 2，所以第1个 flex 项拉伸 30px，第2个 flex 项拉伸 60px</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>客官，赏一个吧~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oqt3f60vc.bkt.clouddn.com/wechat.jpg" alt="zhangxiaolei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/flexbox-css3-布局/" rel="tag"># flexbox css3 布局</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/15/css3三角形/" rel="next" title="css3三角形">
+                <i class="fa fa-chevron-left"></i> css3三角形
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/23/ajax经验总结/" rel="prev" title="ajax经验总结">
+                ajax经验总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://zxl-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zhangxiaolei" />
+          <p class="site-author-name" itemprop="name">zhangxiaolei</p>
+           
+              <p class="site-description motion-element" itemprop="description">To be a better me</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/Z-Leila" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5295149870/profile?rightmod=1&wvr=6&mod=personnumber" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59196dbe8d6d8100588313fd" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-group"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/ef5764c88470/timeline" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是-Flexbox-？"><span class="nav-number">1.</span> <span class="nav-text">什么是 Flexbox ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么情况下不建议使用-Flexbox-？"><span class="nav-number">2.</span> <span class="nav-text">什么情况下不建议使用 Flexbox ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#术语"><span class="nav-number">3.</span> <span class="nav-text">术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Level-2-—-新手"><span class="nav-number">3.1.</span> <span class="nav-text">Level 2 — 新手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Level-3-—-中级"><span class="nav-number">3.2.</span> <span class="nav-text">Level 3 — 中级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Level-4-—-高级"><span class="nav-number">3.3.</span> <span class="nav-text">Level 4 — 高级</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+    <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413812606&auto=0&height=66"></iframe>
+    </div>
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxiaolei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问用户：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">访问次数：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zxl-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://LeilaBlog.site/2017/08/22/flexbox布局/';
+          this.page.identifier = '2017/08/22/flexbox布局/';
+          this.page.title = 'flexbox布局';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zxl-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("B0sEo3Dcp8shIdhQAMX1UsF2-gzGzoHsz", "nXCJLkKot6EdDiY1R8eHgiPz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  <div class="bg_content">
+      <div class="landscape"></div>
+      <div class="filter"></div>
+      <canvas id="canvas"></canvas>
+  </div>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  <!-- 背景动画 -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+  
+  <!-- 更换的背景和背景随机色 -->
+  <script type="text/javascript" src="/js/src/canvas.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1263 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="面试经 常识," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Leila's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="应该知道的常识什么叫优雅降级和渐进增强优雅降级（graceful degradation）：一开始就构建站点的完整功能，然后针对浏览器测试和修复。渐进增强（progressive enhancement）：一开始只构建站点的最少特性，然后不断针对各浏览器追加功能。  使用优雅降级方案，Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。由于I">
+<meta name="keywords" content="面试经 常识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些常识">
+<meta property="og:url" content="http://LeilaBlog.site/2017/11/27/一些常识/index.html">
+<meta property="og:site_name" content="Leila&#39;s blog">
+<meta property="og:description" content="应该知道的常识什么叫优雅降级和渐进增强优雅降级（graceful degradation）：一开始就构建站点的完整功能，然后针对浏览器测试和修复。渐进增强（progressive enhancement）：一开始只构建站点的最少特性，然后不断针对各浏览器追加功能。  使用优雅降级方案，Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。由于I">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/type1.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/type2.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/type3.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/type4.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/type5.png">
+<meta property="og:image" content="http://www.runoob.com/http/http-status-codes.html">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/DOM1.png">
+<meta property="og:updated_time" content="2018-03-27T09:59:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一些常识">
+<meta name="twitter:description" content="应该知道的常识什么叫优雅降级和渐进增强优雅降级（graceful degradation）：一开始就构建站点的完整功能，然后针对浏览器测试和修复。渐进增强（progressive enhancement）：一开始只构建站点的最少特性，然后不断针对各浏览器追加功能。  使用优雅降级方案，Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。由于I">
+<meta name="twitter:image" content="http://oqt3f60vc.bkt.clouddn.com/type1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://LeilaBlog.site/2017/11/27/一些常识/"/>
+
+
+
+
+
+  <title>一些常识 | Leila's blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ff56c334260a10704189e986eba39154";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <a href="https://github.com/xLeila"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leila's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Goals determine what you are going to be</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            Leila时光机
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            照片
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/leaveMassages" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="/categories/book-movie-music" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书影音
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LeilaBlog.site/2017/11/27/一些常识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangxiaolei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leila's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一些常识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T13:00:16+08:00">
+                2017-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/27/一些常识/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/27/一些常识/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/27/一些常识/" class="leancloud_visitors" data-flag-title="一些常识">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">&nbsp点击量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  7,343
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  27
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="应该知道的常识"><a href="#应该知道的常识" class="headerlink" title="应该知道的常识"></a>应该知道的常识</h3><h4 id="什么叫优雅降级和渐进增强"><a href="#什么叫优雅降级和渐进增强" class="headerlink" title="什么叫优雅降级和渐进增强"></a>什么叫优雅降级和渐进增强</h4><p>优雅降级（graceful degradation）：一开始就构建站点的完整功能，然后针对浏览器测试和修复。<br>渐进增强（progressive enhancement）：一开始只构建站点的最少特性，然后不断针对各浏览器追加功能。</p>
+<ol>
+<li><p>使用优雅降级方案，Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。由于IE独特的盒模型布局问题，绝大多数Web设计师和开发者都通过专门的样式表或针对不同版本的IE的hack实践过优雅降级了；<br>使用优雅降级技术时，你必须首先完整的实现了网站，其中包括所有的功能和效果。然后再为那些无法支持所有功能的浏览器增加候选方案，使之在旧式浏览器上以某种形式降级体验却不至于完全失效。（和当初的兼容IE6）</p>
+</li>
+<li><p>渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能。渐进增强是值得所有开发者采用的做法。渐进增强方案并不假定所有用户都支持javascript，而总是提供一种候补方法，确保用户可以访问（主要的）内容。<br>使用渐进增强时，无需为了一个已成型的网站在旧式浏览器下正常工作而做逆向工程。首先，只需要为所有的设备和浏览器准备好清晰且语义化的HTML以及完善的内容，然后再以无侵入（unobtrusive）的方式向页面增加无害于基础浏览器的额外样式和功能。当浏览器升级时，它们会自动地呈现出来并发挥作用。<br>想让网站在任何环境下看起来都保持一致是不可能的，不管为此付出多少努力，结局依旧会令你失望。与其试图让IE看起来堪比年轻它十岁的浏览器，不如努力改善网站的可访问性，或是进行更多的可用性测试，而不仅仅是让页面看起来更靓一点。<br>某些CSS3特性在不支持它的浏览器中简直是无法模拟实现的，但若使用渐进增强，就无需为了能让你的网站适合所有人而放弃这些技术。仅仅因为部分人不愿或不能升级浏览器，却让使用新型浏览器的用户无法享受CSS3所提供的伟大技术，这是毫无道理可言的。<br>（先把已经都支持的属性都写上，再添加新式浏览器支持的属性，往页面增加无害于基础浏览器[比如最低级的IE系列]的额外样式和功能）</p>
+</li>
+</ol>
+<h4 id="css中link和import的区别"><a href="#css中link和import的区别" class="headerlink" title="css中link和import的区别"></a>css中link和import的区别</h4><p>有 4 种方式可以在 HTML 中引入 CSS。</p>
+<p>1.内联方式</p>
+<p>内联方式指的是直接在 HTML 标签中的 style 属性中添加 CSS。</p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;background: red&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这通常是个很糟糕的书写方式，它只能改变当前标签的样式，如果想要多个 <div> 拥有相同的样式，你不得不重复地为每个 <div> 添加相同的样式，如果想要修改一种样式，又不得不修改所有的 style 中的代码。很显然，内联方式引入 CSS 代码会导致 HTML 代码变得冗长，且使得网页难以维护。</div></div></p>
+<p>2.嵌入方式</p>
+<p>嵌入方式指的是在 HTML 头部中的”style”标签下书写 CSS 代码。</p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line"></span><br><span class="line">    .content &#123;</span><br><span class="line">        background: red;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure></p>
+<p>嵌入方式的 CSS 只对当前的网页有效。因为 CSS 代码是在 HTML 文件中，所以会使得代码比较集中，当我们写模板网页时这通常比较有利。因为查看模板代码的人可以一目了然地查看 HTML 结构和 CSS 样式。因为嵌入的 CSS 只对当前页面有效，所以当多个页面需要引入相同的 CSS 代码时，这样写会导致代码冗余，也不利于维护。</p>
+<p>3.链接方式</p>
+<p>链接方式指的是使用 HTML 头部的 <head> 标签引入外部的 CSS 文件。</head></p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这是最常见的也是最推荐的引入 CSS 的方式。使用这种方式，所有的 CSS 代码只存在于单独的 CSS 文件中，所以具有良好的可维护性。并且所有的 CSS 代码只存在于 CSS 文件中，CSS 文件会在第一次加载时引入，以后切换页面时只需加载 HTML 文件即可。</p>
+<p>4.导入方式</p>
+<p>导入方式指的是使用 CSS 规则引入外部 CSS 文件。</p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    @import url(style.css);</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p>区别:</p>
+<p>两者都是外部引用CSS的方式，但是存在一定的区别：</p>
+<p>区别1：link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。</p>
+<p>区别2：link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。</p>
+<p>区别3：link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。</p>
+<p>区别4：link支持使用Javascript控制DOM去改变样式；而@import不支持。</p>
+<h4 id="css浮动的工作原理-清除浮动的技巧"><a href="#css浮动的工作原理-清除浮动的技巧" class="headerlink" title="css浮动的工作原理  清除浮动的技巧"></a>css浮动的工作原理  清除浮动的技巧</h4><p>浮动可以理解为让某个div元素脱离标准流，漂浮在标准流之上，和标准流不是一个层次。</p>
+<p>元素浮动之前，也就是在标准流中，是竖向排列的，而浮动之后可以理解为横向排列。清除浮动可以理解为打破横向排列。</p>
+<p>清除浮动的关键字是clear，官方定义如下：<br>语法：<br>clear : none | left | right | both<br>取值：<br>none : 默认值。允许两边都可以有浮动对象<br>left : 不允许左边有浮动对象<br>right : 不允许右边有浮动对象<br>both : 不允许有浮动对象</p>
+<h4 id="怎么判断一个对象是不是数组类型？"><a href="#怎么判断一个对象是不是数组类型？" class="headerlink" title="怎么判断一个对象是不是数组类型？"></a>怎么判断一个对象是不是数组类型？</h4><p>1、从原型入手，Array.prototype.isPrototypeOf(obj);</p>
+<p>利用isPrototypeOf()方法，判定Array是不是在obj的原型链中，如果是，则返回true,否则false。<br><img src="http://oqt3f60vc.bkt.clouddn.com/type1.png" alt=""></p>
+<p>2、也可以从构造函数入手，obj instanceof Array</p>
+<p>先说说 typeof 和 instanceof 的区别？</p>
+<p>两者都可以用来判断变量，typeof会返回基本类型，如文章开头，我们很简单可以用</p>
+<p>typeof a != ‘undefined’ 判断a变量存在。而instanceof只会返回一个布尔值，那么我们试试，结果如下:<br><img src="http://oqt3f60vc.bkt.clouddn.com/type2.png" alt=""></p>
+<p>上面的方法其实也可以用对象constructor属性，因为在js中每个对象都有constructor属性,这种也常用作判断未知对象的类型。</p>
+<p>例如：typeof arr == “object” &amp;&amp; arr.constructor == Array; //先判断是对象再进一步判断。</p>
+<p>那样是不是这个方法就ok了？别开心那么早，坑总是会有的。</p>
+<p>在一些跨框架的页面中的数组，使用该方法可能不会那么顺利，原因是在不同的框架中创建的数组不会相互共享其prototype属性。</p>
+<p>问题总是要解决的，有没有更加精确的方法呢？==果真有啊！</p>
+<p>3、根据对象的class属性(类属性)，跨原型链调用toString()方法。</p>
+<p>解释一下，在js中一个对象一旦被创建，在内部会携带创建对象的类型名，一旦创建就不能被修改了。那么怎么获取这个对象的类型名呢？</p>
+<p>js中提供了，调用对象原型中的toString方法， Object.prototype.toString.call(obj)；因为很多对象继承的toString（）方法被重写了，为了能够调用正确的toString（）版本，也就是最原始的版本。可以使用Function.call()的方法，其中call可以这么理解，相当于obj去借用这个 Object.prototype.toString();<br><img src="http://oqt3f60vc.bkt.clouddn.com/type3.png" alt=""></p>
+<ol>
+<li>Object.prototype.toString.call(new Date());   //“[object Date]”</li>
+<li>Object.prototype.toString.call(Window);       //“[object window]”</li>
+<li>Object.prototype.toString.call(/./);          //“[object RegExp]”<br>那么有了这个方法，获取对象名可以这样获取：</li>
+</ol>
+<p>或者这么写：<br><img src="http://oqt3f60vc.bkt.clouddn.com/type4.png" alt=""></p>
+<p>function _getClass(o){<br>    if(o===null) return “Null”;<br>    if(o===undfined) return “undefined”;<br>    return Object.prototype.toString.call(o).slice(8,-1);<br>}</p>
+<p>4、Array.isArray()方法。</p>
+<p>其实js已经提供了判断是不是数组类型的方法，如下：<br><img src="http://oqt3f60vc.bkt.clouddn.com/type5.png" alt=""></p>
+<ol>
+<li>Array.isArray([1, 2, 3]);  // true</li>
+<li>Array.isArray({foo: 123}); // false</li>
+<li>Array.isArray(‘foobar’);   // false</li>
+<li>Array.isArray(undefined);  // false　　<br>在MDN中就比较了isArray和instanceof的区别，当Array.isArray()不可用的使用，MDN做了如下的补丁，说明还是比较推荐使用前面讲的第三种方法 Object.prototype.toString.call(obj)。</li>
+</ol>
+<h4 id="简述sessionStorage-localStorage-cookie-的区别？"><a href="#简述sessionStorage-localStorage-cookie-的区别？" class="headerlink" title="简述sessionStorage localStorage cookie 的区别？"></a>简述sessionStorage localStorage cookie 的区别？</h4><p>一.<br>共同点：都是保存在浏览器端，且同源的。<br>区别点：1. cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递。而sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。</p>
+<ol start="2">
+<li>cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下。存储大小限制也不同，cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据，如会话标识。<br>sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。数据有效期不同，</li>
+<li>sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。</li>
+<li>作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localStorage 在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的。</li>
+<li>Web Storage 支持事件通知机制，可以将数据更新的通知发送给监听者。Web Storage 的 api 接口使用更方便。</li>
+</ol>
+<p>sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。<br>而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</p>
+<p>二. web storage和cookie的区别</p>
+<p>Web Storage的概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。</p>
+<p>除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。</p>
+<p>但是Cookie也是不可以或缺的：Cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而Web Storage仅仅是为了在本地“存储”数据而生。</p>
+<p>Cookies:服务器和客户端都可以访问；大小只有4KB左右；有有效期，过期后将会删除；</p>
+<p>本地存储：只有本地浏览器端可访问数据，服务器不能访问本地存储直到故意通过POST或者GET的通道发送到服务器；每个域5MB；没有过期数据，它将保留知道用户从浏览器清除或者使用Javascript代码移除</p>
+<h4 id="简要说明http状态码"><a href="#简要说明http状态码" class="headerlink" title="简要说明http状态码"></a>简要说明http状态码</h4><p>当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。 </p>
+<p>常见的HTTP状态码：<br>200 - 请求成功<br>301 - 资源（网页等）被永久转移到其它URL<br>404 - 请求的资源（网页等）不存在<br>500 - 内部服务器错误</p>
+<p>查看此处 <img src="http://www.runoob.com/http/http-status-codes.html" alt="点击查看"></p>
+<p>HTTP状态码分类<br>HTTP状态码由三个十进制数字组成，第一个十进制数字定义了状态码的类型，后两个数字没有分类的作用。HTTP状态码共分为5种类型：<br>HTTP状态码分类<br>分类    分类描述<br>1<strong>    信息，服务器收到请求，需要请求者继续执行操作<br>2</strong>    成功，操作被成功接收并处理<br>3<strong>    重定向，需要进一步的操作以完成请求<br>4</strong>    客户端错误，请求包含语法错误或无法完成请求<br>5**    服务器错误，服务器在处理请求的过程中发生了错误</p>
+<p>100-199 用于指定客户端相应的某些动作。<br>200-299 用于表示请求成功。<br>300-399 用于已经移动的文件并且常被包含在定位头信息中指定新的地址信息。<br>400-499 用于指出客户端的错误。<br>500-599 用于支持服务器错误。</p>
+<h4 id="http头部与缓存有关有哪些"><a href="#http头部与缓存有关有哪些" class="headerlink" title="http头部与缓存有关有哪些"></a>http头部与缓存有关有哪些</h4><p>在请求一个静态文件的时候（图片，css，js）等，这些文件的特点是文件不经常变化，将这些不经常变化的文件存储起来，对客户端来说是一个优化用户浏览体验的方法。那么这个就是客户端缓存的意义了。<br>windows下客户端的缓存文件存放在临时文件夹中，但是这里有个问题就是这个缓存文件存放多久呢？这个是由服务端进行设置的。</p>
+<ol>
+<li>Expires/Cache-Control</li>
+</ol>
+<p>HTTP头中的Expires和Cache-Control就是完成这个事情的。</p>
+<p>当客户端第一次访问资源的时候，服务端在返回资源内容的同时也返回了Expires: Sun, 16 Oct 2016 05:43:02 GMT。</p>
+<p>服务端告诉浏览器： 你先把这个文件给我缓存起来，在这个过期时间之前，这个文件都不会变化了，你下次需要这个文件的时候，你就不要过来找我要了，你就去缓存中拿就好了，又快又好。</p>
+<p>浏览器回答说：诺。</p>
+<p>于是在第二次html页面中又要访问这个资源的时候，并且访问的日期在Sun, 16 Oct 2016 05:43:02 GMT之前，浏览器就不去服务器那边获取文件了，自己从缓存中自食其力了。</p>
+<p>但是呢，浏览器毕竟是在客户端的，客户端的时间可是不准确的，用户可以随着自己的喜好修改自己机器的时间，比如我把我机器的时间调成Sun, 16 Oct 2016 05:43:03 GMT，那么呢？我的浏览器就不会再使用缓存了，而每次都去服务器获取文件。于是，服务器怒了：给你个绝对时间，你由于环境被修改没法判断过期，那么我就给你相对时间吧。于是就返回了Cache-Control: max-age:600，浏览器你给我缓存个10分钟去。于是浏览器只有乖乖的缓存10分钟了。</p>
+<p>但是问题又来了，如果有的服务器同时设置了Expires和Cache-Control怎么办呢？（不是闲的没事干，而是由于Cache-Controll是HTTP1.1中才有的）那么就是根据更先进的设置Cache-Control来为标准。</p>
+<p>好了，现在有个问题，我有个文件可能时不时会更新，服务端非常希望客户端能时不时过来问一下这个文件是否过期，如果没有过期，服务端不返回数据给你，只告诉浏览器你的缓存还没有过期（304）。然后浏览器使用自己存储的缓存来做显示。这个就叫做条件请求。</p>
+<ol start="2">
+<li>Last-Modified/ If-Modify-since</li>
+</ol>
+<p>客户端第一次访问资源的时候，服务端返回资源内容的同时返回了Last-Modifed:Wed, 07 Aug 2013 15:32:18 GMT 服务端在告诉客户端：你获取的这个文件我最后的修改时间是Wed, 07 Aug 2013 15:32:18 GMT 。浏览器在获取这个文件存到缓存中的时候，给缓存中的文件同时记录上这个最后修改时间。</p>
+<p>第二次访问的时候（我们假设这里没有设置expires或者cache-control）。那么服务端访问资源的时候会带上If-Modify-since:Wed, 07 Aug 2013 15:32:18 GMT ；</p>
+<p>客户端询问服务端：喂，我需要的这个资源其实我这边已经有缓存了，我的缓存文件的最后修改时间是这个是，如果你那边的资源在这个时间以后没有修改的话，你就告诉我一下就好了，不需要返回实际的资源内容。反之，要是你有修改的话，你就把文件内容返回给我吧。<br>服务端回应说：哦。行为是看下资源是否在这个时间后没有修改过，如果没有修改返回个304告诉客户端，我没有修改过。如果有变化了，我就返回200，并且带上资源内容。<br>这个条件请求还有另外一种方法，打标签（Tag）</p>
+<ol start="3">
+<li>ETag/ If-None-Match。<br>第一次客户端访问资源的时候，服务端返回资源内容的同时返回了ETag：1234，告诉客户端：这个文件的标签是1234，我如果修改了我这边的资源的话，这个标签就会不一样了。</li>
+</ol>
+<p>第二次客户端访问资源的时候，由于缓存中已经有了Etag为1234的资源，客户端要去服务端查询的是这个资源有木有过期呢？所以带上了If-None-Match: 1234。告诉服务端：如果你那边的资源还是1234标签的资源，你就返回304告诉我，不需要返回资源内容了。如果不是的话，你再返回资源内容给我就行了。服务端就比较下Etag来看是返回304还是200。</p>
+<ol start="4">
+<li>各种刷新<br>三种方式<br>浏览器中写地址，回车<br>F5<br>Ctrl+F5</li>
+</ol>
+<p>浏览器url回车<br>浏览器发现缓存中有这个文件了，好了，就不发送任何请求了，直接去缓存中获取展现。（最快）</p>
+<p>F5刷新<br>F5就是告诉浏览器，别偷懒，好歹去服务器看看这个文件是否有过期了。于是浏览器就胆胆襟襟的发送一个请求带上If-Modify-since：Wed, 10 Aug 2013 15:32:18 GMT<br>然后服务器发现：诶，这个文件我在这个时间后还没修改过，不需要给你任何信息了，返回304就行了。于是浏览器获取到304后就去缓存中欢欢喜喜获取资源了。</p>
+<p>Ctrl+F5<br>这个可是要命了，告诉浏览器，你先把你缓存中的这个文件给我删了，然后再去服务器请求个完整的资源文件下来。于是客户端就完成了强行更新的操作…</p>
+<p>ETag实际上很少人使用，因为它的计算是使用算法来得出的，而算法会占用服务端计算的资源，所有服务端的资源都是宝贵的，所以就很少使用etag了。</p>
+<h4 id="模块化编程理解"><a href="#模块化编程理解" class="headerlink" title="模块化编程理解"></a>模块化编程理解</h4><p>什么是模块化？</p>
+<ol>
+<li>模块化就是为了减少系统耦合度，提高高内聚，减少资源循环依赖，增强系统框架设计。</li>
+<li>让开发者便于维护,同时也让逻辑相同的部分可复用</li>
+<li>模块化开发：针对js、css，以功能或业务为单元组织代码。js方面解决独立作用域、依赖管理、</li>
+<li>api暴露、按需加载与执行、安全合并等问题，css方面解决依赖管理、组件内部样式管理等问题。</li>
+<li>任何事物都有一个过程，那么模块化的过程通俗点讲就是：</li>
+</ol>
+<p>模块化的过程就是：</p>
+<p>1、拆分<br>将整个系统按功能,格式,加载顺序,继承关系分割为一个一个单独的部分.<br>注意:拆分的粒度问题,可复用问题,效率问题.如何这些问题处理的不好，就有可能出现不想要的后果。<br>2、归纳<br>将功能或特征相似的部分组合在一起,组成一个资源块.<br>3、总结<br>将每个资源块按找需求,功能场景以及目录约束放到固定的地方以供调用.<br>模块的历程</p>
+<p>模块化的发展也是从草根一步一步走过来的。从最开始到现在成熟方案：</p>
+<p>namespace<br>sass,less<br>AMD&amp;CMD<br>html模版<br>grunt,gulp,webpack<br>FIS,YUI,KISSY</p>
+<h4 id="原生js怎样添加、移除、移动、复制、创建和查找节点，获取元素属性"><a href="#原生js怎样添加、移除、移动、复制、创建和查找节点，获取元素属性" class="headerlink" title="原生js怎样添加、移除、移动、复制、创建和查找节点，获取元素属性"></a>原生js怎样添加、移除、移动、复制、创建和查找节点，获取元素属性</h4><p>（1）创建新节点</p>
+<p>var para=document.createElement(“p”); //创建新的 </p><p> 元素<br>var node=document.createTextNode(“这是新段落。”); //创建了一个文本节点<br>para.appendChild(node); //向 </p><p> 元素追加这个文本节点</p>
+<p>var element=document.getElementById(“div1”);//向一个已有的元素追加这个新元素<br>element.appendChild(para); //向这个已有的元素追加新元素<br>（2）添加、移除、替换、之前插入、之后插入、复制<br>      appendChild()<br>      removeChild()<br>      replaceChild()<br>      insertBefore()<br>      insertAfter()<br>      cloneNode()<br>（3）查找<br>      document.getElementsByTagName(“”)    //通过标签名称<br>      document.getElementsByName(“”)    //通过元素的Name属性的值<br>      document.getElementById(“”)    //通过元素Id，唯一性<br>      document.getElementsByClassName(“”);  //通过类查找<br>      document.querySelector(“”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;box-one&quot;&gt;</span><br><span class="line">&lt;p id=&quot;p1&quot;&gt;p1p1p1p1&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">//创建节点</span><br><span class="line">var parent=document.createElement(&quot;div&quot;);</span><br><span class="line">var text=document.createTextNode(&quot;这是第一个使用createTexxtNote创建的文本&quot;);</span><br><span class="line">parent.appendChild(text);</span><br><span class="line">//console.log(parent)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//向元素中添加节点</span><br><span class="line">var grandpa=document.querySelector(&quot;.box&quot;);</span><br><span class="line">//console.log(grandpa)</span><br><span class="line">grandpa.appendChild(parent);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//向元素后 添加节点</span><br><span class="line">var p=document.createElement(&apos;p&apos;);</span><br><span class="line">var html=document.createTextNode(&quot;在元素后边添加的代码&quot;);</span><br><span class="line">p.appendChild(html)</span><br><span class="line">insertAfter(p,grandpa);</span><br><span class="line">function insertAfter( newElement, targetElement )&#123; </span><br><span class="line">// newElement是要追加的元素 targetElement 是指定元素的位置 </span><br><span class="line">var grandpa = targetElement.parentNode; // 找到指定元素的父节点 </span><br><span class="line">if( grandpa.lastChild == targetElement )&#123; // 判断指定元素的是否是节点中的最后一个位置 如果是的话就直接使用appendChild方法 </span><br><span class="line">grandpa.appendChild( newElement, targetElement ); </span><br><span class="line">&#125;else&#123; </span><br><span class="line">grandpa.insertBefore( newElement, targetElement.nextSibling ); </span><br><span class="line">&#125;; </span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//向元素前 添加节点insertBefore</span><br><span class="line">var h6=document.createElement(&quot;h6&quot;);</span><br><span class="line">var htext=document.createTextNode(&quot;在元素之前添加h6&quot;);</span><br><span class="line">h6.appendChild(htext);</span><br><span class="line">//console.log(htext);</span><br><span class="line">console.log(grandpa)</span><br><span class="line">parent.parentNode.insertBefore(h6,parent);//运用同级的方法在同级元素之前插入</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//元素内部的前面插入节点insertBefore</span><br><span class="line">function inhoutEle() &#123; </span><br><span class="line">var oTest = document.getElementById(&quot;box-one&quot;); </span><br><span class="line">var newNode = document.createElement(&quot;div&quot;); </span><br><span class="line">var reforeNode = document.getElementById(&quot;p1&quot;); </span><br><span class="line">newNode.innerHTML = &quot; 元素内部的前面插入节点 &quot;; </span><br><span class="line">oTest.insertBefore(newNode,reforeNode); // 新建的元素节点插入到 id为p1的元素前面 </span><br><span class="line">&#125; inhoutEle()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//元素内部的后面插入节点appendChild</span><br><span class="line">function inqianEle() &#123; </span><br><span class="line">var oTest = document.getElementById(&quot;box-one&quot;); </span><br><span class="line">var newNode = document.createElement(&quot;div&quot;); </span><br><span class="line">var reforeNode = document.getElementById(&quot;p1&quot;); </span><br><span class="line">newNode.innerHTML = &quot; 元素内部的前面插入节点 &quot;; </span><br><span class="line">oTest.appendChild(newNode,reforeNode); // 新建的元素节点插入到 id为p1的元素前面 </span><br><span class="line">&#125; inqianEle()</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>insertBefore() 方法在您指定的已有子节点之前插入新的子节点。<br>语法<br>node.insertBefore(newnode,existingnode)<br>newnode    Node 对象    必需。需要插入的节点对象。<br>existingnode    Node object    可选。在其之前插入新节点的子节点。如果未规定，则 insertBefore 方法会在结尾插入 newnode。</p>
+<h4 id="DOM-事件模型是如何的，编写一个EventUtil工具类实现事件-。。理兼容？？"><a href="#DOM-事件模型是如何的，编写一个EventUtil工具类实现事件-。。理兼容？？" class="headerlink" title="DOM 事件模型是如何的，编写一个EventUtil工具类实现事件 。。理兼容？？"></a>DOM 事件模型是如何的，编写一个EventUtil工具类实现事件 。。理兼容？？</h4><ol>
+<li>DOM<br>首先，DOM全称是Document Object Model，即文档对象模型。DOM是W3C的标准，定义了访问 HTML 和 XML 文档的标准。</li>
+</ol>
+<blockquote>
+<p>“W3C 文档对象模型 （DOM） 是中立于平台和语言的接口，它允许程序和脚本动态地访问和更新文档的内容、结构和样式。”</p>
+</blockquote>
+<ol start="2">
+<li><p>DOM事件<br>DOM使Javascript有能力对HTML上的事件做出反应。这些事件包括鼠标键盘的点击事件、移动事件以及页面中内容的变化等。HTML元素事件是浏览器内在自动产生的,当有事件发生时html元素会向外界(这里主要指元素事件的订阅者)发出各种事件,如click,onmouseover,onmouseout等等。</p>
+</li>
+<li><p>DOM事件流<br>DOM的结构是一个树形，每当HTML元素产生事件时，该事件就会在树的根节点和元素节点之间传播，所有经过的节点都会收到该事件。</p>
+</li>
+<li><p>DOM事件模型<br>DOM事件模型分为两类：一类是IE所使用的冒泡型事件（Bubbling）；另一类是DOM标准定义的冒泡型与捕获型（Capture）的事件。除IE外的其他浏览器都支持标准的DOM事件处理模型。<br><img src="http://oqt3f60vc.bkt.clouddn.com/DOM1.png" alt="图片示例"></p>
+</li>
+<li><p>冒泡型事件处理模型（Bubbling）<br>如上图所示，冒泡型事件处理模型在事件发生时，首先在最精确的元素上触发，然后向上传播，直到根节点。反映到DOM树上就是事件从叶子节点传播到根节点。</p>
+</li>
+<li><p>捕获型事件处理模型（Captrue）<br>相反地，捕获型在事件发生时首先在最顶级的元素上触发，传播到最低级的元素上。在DOM树上的表现就是由根节点传播到叶子节点。</p>
+</li>
+<li><p>标准的DOM事件处理模型<br> 标准的事件处理模型分为三个阶段：<br> 3-1. 父元素中所有的捕捉型事件（如果有）自上而下地执行<br> 3-2. 目标元素的冒泡型事件（如果有）<br> 3-3. 父元素中所有的冒泡型事件（如果有）自下而上地执行</p>
+</li>
+<li>注册事件监听</li>
+</ol>
+<p>4-1. 传统方式的事件模型即直接在DOM元素上绑定事件处理器，例如—<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.onload=function()&#123;…&#125;</span><br><span class="line">obj.onmouseover=function(e)&#123;…&#125;</span><br><span class="line">obj.onclick=function()&#123;…&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先这种方式是无论在IE还是Firefox等其他浏览器上都可以成功运行的通用方式。这便是它最大的优势了，而且在Event处理函数内部的this变量无一例外的都只想被绑定的DOM元素，这使得Js程序员可以大大利用this关键字做很多事情。<br>　 至于它的缺点也很明显，就是传统方式只支持Bubbling，而不支持Capturing，并且一次只能绑定一个事件处理器在DOM元素上，无法实现多Handler绑定。最后就是function参数中的event参数只对非IE浏览器有效果( 因为IE浏览器有特制的window.event)。</p>
+<p>4-2. W3C (Firefox.e.g) Event Module<br>Firefox等浏览器很坚决的遵循W3C标准来制定浏览器事件模型，使用addEventListener和removeEventListener两个函数，看几个例子—<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;load&apos;,function()&#123;…&#125;,false);</span><br><span class="line">document.body.addEventListener(&apos;keypress&apos;,function&#123;…&#125;,false);</span><br><span class="line">obj.addEventListener(&apos;mouseover&apos;,MV,true);</span><br><span class="line">function MV()&#123;…&#125;</span><br></pre></td></tr></table></figure></p>
+<p>addEventListener带有三个参数，第一个参数是事件类型，就是我们熟知的那些事件名字去掉前面的’on’，第二个参数是处理函数，可以直接给函数字面量或者函数名，第三个参数是boolean值，表示事件是否支持Capturing。</p>
+<p>W3C的事件模型优点是Bubbling和Capturing都支持，并且可以在一个DOM元素上绑定多个事件处理器，各自并不会冲突。并且在处理函数内部，this关键字仍然可以使用只想被绑定的DOM元素。另外function参数列表的第一个位置(不管是否显示调用)，都永远是event对象的引用。</p>
+<p>至于它的缺点，很不幸的就只有在市场份额最大的IE浏览器下不可使用这一点。</p>
+<p>3、IE Event Module<br>IE自己的事件模型跟W3C的类似，但主要是通过attachEvent和detachEvent两个函数来实现的。依旧看几个例子吧—</p>
+<p>window.attachEvent(‘onload’,function(){…});<br>document.body.attachEvent(‘onkeypress’,myKeyHandler);<br>　　可以发现它跟W3C的区别是没有第三个参数，而且第一个表示事件类型的参数也必须把’on’给加上。这种方式的优点就是能绑定多个事件处理函数在同一个DOM元素上。</p>
+<p>　　至于它的缺点，为什么如今在实际开发中很少见呢？首先IE浏览器本身只支持Bubbling不支持Capturing；而且在事件处理的function内部this关键字也无法使用，因为this永远都只想window object这个全局对象。要想得到event对象必须通过window.event方式，最后一点，在别的浏览器中，它显然是无法工作的。</p>
+<p>4、html中设置锚点定位我知道的有几种方法</p>
+<p>4-1、使用id定位：<br><a href="#1F">去锚点1</a> </p>
+<p><div id="1F">锚点1</div><br>4-2、使用name定位：<br><a href="#5F">锚点5</a><br><a name="5F">1111111<br>4-3、使用js定位 </a></p>
+<li class="" onclick="javascript:document.getElementById('here').scrollIntoView()"></li> 
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>客官，赏一个吧~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oqt3f60vc.bkt.clouddn.com/wechat.jpg" alt="zhangxiaolei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试经-常识/" rel="tag"># 面试经 常识</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/27/js方法/" rel="next" title="js方法">
+                <i class="fa fa-chevron-left"></i> js方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/27/about-Vuejs心得/" rel="prev" title="about--Vuejs心得">
+                about--Vuejs心得 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://zxl-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zhangxiaolei" />
+          <p class="site-author-name" itemprop="name">zhangxiaolei</p>
+           
+              <p class="site-description motion-element" itemprop="description">To be a better me</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/Z-Leila" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5295149870/profile?rightmod=1&wvr=6&mod=personnumber" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59196dbe8d6d8100588313fd" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-group"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/ef5764c88470/timeline" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#应该知道的常识"><span class="nav-number">1.</span> <span class="nav-text">应该知道的常识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么叫优雅降级和渐进增强"><span class="nav-number">1.1.</span> <span class="nav-text">什么叫优雅降级和渐进增强</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css中link和import的区别"><span class="nav-number">1.2.</span> <span class="nav-text">css中link和import的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css浮动的工作原理-清除浮动的技巧"><span class="nav-number">1.3.</span> <span class="nav-text">css浮动的工作原理  清除浮动的技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么判断一个对象是不是数组类型？"><span class="nav-number">1.4.</span> <span class="nav-text">怎么判断一个对象是不是数组类型？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述sessionStorage-localStorage-cookie-的区别？"><span class="nav-number">1.5.</span> <span class="nav-text">简述sessionStorage localStorage cookie 的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简要说明http状态码"><span class="nav-number">1.6.</span> <span class="nav-text">简要说明http状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http头部与缓存有关有哪些"><span class="nav-number">1.7.</span> <span class="nav-text">http头部与缓存有关有哪些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化编程理解"><span class="nav-number">1.8.</span> <span class="nav-text">模块化编程理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原生js怎样添加、移除、移动、复制、创建和查找节点，获取元素属性"><span class="nav-number">1.9.</span> <span class="nav-text">原生js怎样添加、移除、移动、复制、创建和查找节点，获取元素属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM-事件模型是如何的，编写一个EventUtil工具类实现事件-。。理兼容？？"><span class="nav-number">1.10.</span> <span class="nav-text">DOM 事件模型是如何的，编写一个EventUtil工具类实现事件 。。理兼容？？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+    <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413812606&auto=0&height=66"></iframe>
+    </div>
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxiaolei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问用户：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">访问次数：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zxl-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://LeilaBlog.site/2017/11/27/一些常识/';
+          this.page.identifier = '2017/11/27/一些常识/';
+          this.page.title = '一些常识';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zxl-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("B0sEo3Dcp8shIdhQAMX1UsF2-gzGzoHsz", "nXCJLkKot6EdDiY1R8eHgiPz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  <div class="bg_content">
+      <div class="landscape"></div>
+      <div class="filter"></div>
+      <canvas id="canvas"></canvas>
+  </div>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  <!-- 背景动画 -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+  
+  <!-- 更换的背景和背景随机色 -->
+  <script type="text/javascript" src="/js/src/canvas.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1126 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css text-decoration linear-gradient," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Leila's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="文字修饰  text-decorationtext-decoration实际上text-decoration是一个复合属性，由line、style和color组成,可惜的是line只有underline(下划线)、overline(上划线)和line-through(删除线)。 思路首先要用两段渐变构造一个基本元素：’X’(这里我就不放图了)，下一步就比较重要了，我们要截取’X’的上半部分，得到一">
+<meta name="keywords" content="css text-decoration linear-gradient">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css3-textDecroration-nav">
+<meta property="og:url" content="http://LeilaBlog.site/2017/06/04/css3-textDecroration-nav/index.html">
+<meta property="og:site_name" content="Leila&#39;s blog">
+<meta property="og:description" content="文字修饰  text-decorationtext-decoration实际上text-decoration是一个复合属性，由line、style和color组成,可惜的是line只有underline(下划线)、overline(上划线)和line-through(删除线)。 思路首先要用两段渐变构造一个基本元素：’X’(这里我就不放图了)，下一步就比较重要了，我们要截取’X’的上半部分，得到一">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/text.jpg">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/text-shadow.jpg">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/strokeText.jpg">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/nav.gif">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/circle.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/shanxing.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/svg.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/SVG1.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/clip.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/clip3.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/clip-leaf.png">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/clip-transition.gif">
+<meta property="og:updated_time" content="2017-08-02T10:11:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css3-textDecroration-nav">
+<meta name="twitter:description" content="文字修饰  text-decorationtext-decoration实际上text-decoration是一个复合属性，由line、style和color组成,可惜的是line只有underline(下划线)、overline(上划线)和line-through(删除线)。 思路首先要用两段渐变构造一个基本元素：’X’(这里我就不放图了)，下一步就比较重要了，我们要截取’X’的上半部分，得到一">
+<meta name="twitter:image" content="http://oqt3f60vc.bkt.clouddn.com/text.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://LeilaBlog.site/2017/06/04/css3-textDecroration-nav/"/>
+
+
+
+
+
+  <title>css3-textDecroration-nav | Leila's blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ff56c334260a10704189e986eba39154";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <a href="https://github.com/xLeila"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leila's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Goals determine what you are going to be</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            Leila时光机
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            照片
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/leaveMassages" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="/categories/book-movie-music" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书影音
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LeilaBlog.site/2017/06/04/css3-textDecroration-nav/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangxiaolei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leila's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css3-textDecroration-nav</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-04T17:53:33+08:00">
+                2017-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/04/css3-textDecroration-nav/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/04/css3-textDecroration-nav/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/04/css3-textDecroration-nav/" class="leancloud_visitors" data-flag-title="css3-textDecroration-nav">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">&nbsp点击量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,543
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="文字修饰-text-decoration"><a href="#文字修饰-text-decoration" class="headerlink" title="文字修饰  text-decoration"></a>文字修饰  text-decoration</h2><h3 id="text-decoration"><a href="#text-decoration" class="headerlink" title="text-decoration"></a>text-decoration</h3><p>实际上text-decoration是一个复合属性，由line、style和color组成,可惜的是line只有underline(下划线)、overline(上划线)和line-through(删除线)。<br><img src="http://oqt3f60vc.bkt.clouddn.com/text.jpg" alt="img"></p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>首先要用两段渐变构造一个基本元素：’X’(这里我就不放图了)，下一步就比较重要了，我们要截取’X’的上半部分，得到一个’V’,从而结合repeat形成波浪线。下面是用scss写的一个mixin，方便以后使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@mixin waveline($color,$h) &#123;</span><br><span class="line">       position: relative;</span><br><span class="line">       &amp;::after &#123;</span><br><span class="line">           content: &apos;&apos;;</span><br><span class="line">           display: block;</span><br><span class="line">           position: absolute;</span><br><span class="line">           top: 100%;</span><br><span class="line">           left: 0;</span><br><span class="line">           width: 100%;</span><br><span class="line">           height: $h;</span><br><span class="line">           background: linear-gradient(135deg, transparent, transparent 45%, $color, transparent 55%, transparent 100%),</span><br><span class="line">                       linear-gradient(45deg, transparent, transparent 45%, $color, transparent 55%, transparent 100%);</span><br><span class="line">           background-size: $h * 2 $h * 2;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/*三角形*/</span><br><span class="line">// triangle</span><br><span class="line">@mixin triangle($direction, $size, $borderColor ) &#123;</span><br><span class="line">  content:&quot;&quot;;</span><br><span class="line">  height: 0;</span><br><span class="line">  width: 0;</span><br><span class="line"></span><br><span class="line">  @if $direction == top &#123;</span><br><span class="line">    border-bottom:$size solid $borderColor;</span><br><span class="line">    border-left:$size dashed transparent;</span><br><span class="line">    border-right:$size dashed transparent;</span><br><span class="line">  &#125; </span><br><span class="line">  @else if $direction == right &#123;</span><br><span class="line">    border-left:$size solid $borderColor;</span><br><span class="line">    border-top:$size dashed transparent;</span><br><span class="line">    border-bottom:$size dashed transparent;</span><br><span class="line">  &#125; </span><br><span class="line">  @else if $direction == bottom &#123;</span><br><span class="line">    border-top:$size solid $borderColor;</span><br><span class="line">    border-left:$size dashed transparent;</span><br><span class="line">    border-right:$size dashed transparent;</span><br><span class="line">  &#125; </span><br><span class="line">  @else if $direction == left &#123;</span><br><span class="line">    border-right:$size solid $borderColor;</span><br><span class="line">    border-top:$size dashed transparent;</span><br><span class="line">    border-bottom:$size dashed transparent;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个@mixin主要有三个变量：第一个是方向的，因为三角形根据箭头朝向有四种方向，我们对应常用的css属性top,right,bottom,left；第二个表示三角形的大小；第三个表示颜色。当然你可以挑你常用的那个设置为变量的默认值，那样调用常用的那个就比较简单了，直接@include triangle;就ok了。</p>
+<p>下面我们再来个关于css3的神来之笔的@mixin，在说这个之前，先说下前面的那个box-shadow的@mixin，我们里面的样式是一条一条写的，如-webkit-box-shadow:$shadow;-moz-box-shadow:$shadow;box-shadow:$shadow;，这得多山炮啊，一条一条来，不简洁，不科学。下面欢迎我们的prefixer这个@mixin，它对css3的前缀定义有画龙点睛之妙。</p>
+<p>//是否支持某个浏览器的前缀，如果你不想支持，可以设置为false<br>//—————————-<br>$prefix-for-webkit: true !default;<br>$prefix-for-mozilla: true !default;<br>$prefix-for-microsoft: true !default;<br>$prefix-for-opera: true !default;<br>$prefix-for-spec: true !default; // 标准版</p>
+<h2 id="text-shadow-3D文字"><a href="#text-shadow-3D文字" class="headerlink" title="text-shadow  3D文字"></a>text-shadow  3D文字</h2><p>text-shadow和box-shadow几乎差不多，它也支持逗号语法，所以它可以生成多个阴影<br><img src="http://oqt3f60vc.bkt.clouddn.com/text-shadow.jpg" alt="imgs"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@mixin threeDText($color) &#123;</span><br><span class="line">        text-shadow: 1px 1px $color, 2px 2px $color,</span><br><span class="line">                     3px 3px $color, 4px 4px $color,</span><br><span class="line">                     5px 5px $color, 6px 6px $color,</span><br><span class="line">                     7px 7px $color, 8px 8px $color;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="描边文字效果"><a href="#描边文字效果" class="headerlink" title="描边文字效果"></a>描边文字效果</h2><p><img src="http://oqt3f60vc.bkt.clouddn.com/strokeText.jpg" alt="imgs"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@mixin strokeText($w, $color) &#123;</span><br><span class="line">        text-shadow: $w 0 0 $color,</span><br><span class="line">                     -$w 0 0 $color,</span><br><span class="line">                     0 $w 0 $color,</span><br><span class="line">                     0 -$w 0 $color;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>让我们惊叹小小的属性，大大的用法</p>
+<h3 id="神奇的css3渐变"><a href="#神奇的css3渐变" class="headerlink" title="神奇的css3渐变"></a>神奇的css3渐变</h3><p>效果如图<br><img src="http://oqt3f60vc.bkt.clouddn.com/nav.gif" alt="img"><br>scss<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">@mixin menuaction($color) &#123;</span><br><span class="line">        background: linear-gradient($color 100%, transparent 100%) no-repeat center bottom / 100% 10%;</span><br><span class="line">        &amp;:hover &#123;</span><br><span class="line">            background-size: 100% 100%;</span><br><span class="line">            color: #fff;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">.nav li:nth-child(1)&#123;</span><br><span class="line">    @include menuaction(red);</span><br><span class="line">&#125;</span><br><span class="line">.nav li:nth-child(2)&#123;</span><br><span class="line">    @include menuaction(green);</span><br><span class="line">&#125;</span><br><span class="line">.nav li:nth-child(3)&#123;</span><br><span class="line">    @include menuaction(pink);</span><br><span class="line">&#125;</span><br><span class="line">.nav li:nth-child(4)&#123;</span><br><span class="line">    @include menuaction(grey);</span><br><span class="line">&#125;</span><br><span class="line">.nav &#123;</span><br><span class="line">    width: 320px;</span><br><span class="line">    height: 60px;</span><br><span class="line">    line-height: 60px;</span><br><span class="line">    padding: 10px;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">        li&#123;</span><br><span class="line">        width:25%;</span><br><span class="line">        display: inline-block;</span><br><span class="line">        float: left;</span><br><span class="line">        text-align: center;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;nav&quot;&gt;</span><br><span class="line">	&lt;li&gt;首页&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;前端&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;朝花夕拾&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;技术发展&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="SVG中的clip-path"><a href="#SVG中的clip-path" class="headerlink" title="SVG中的clip-path"></a>SVG中的clip-path</h3><p>SVG中，有个名叫<clippath>的元素，人如其名，其专门用来定义剪裁路径的。举个简单例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;defs&gt;&lt;!-- 定义 --&gt;</span><br><span class="line">  &lt;clipPath id=&quot;clipPath&quot;&gt;&lt;!-- 定义剪裁路径 --&gt;</span><br><span class="line">      &lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;80&quot; height=&quot;80&quot; /&gt;&lt;!-- 路径详细 --&gt;</span><br><span class="line">  &lt;/clipPath&gt;</span><br><span class="line">&lt;/defs&gt;</span><br></pre></td></tr></table></figure></clippath></p>
+<p>上面的<clippath>定义了一个80*80的矩形剪裁路径。OK，假设现在SVG中有个圆，SVG代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;circle cx=&quot;60&quot; cy=&quot;60&quot; r=&quot;50&quot; fill=&quot;#34538b&quot; /&gt;</span><br></pre></td></tr></table></figure></clippath></p>
+<p>按照我们浅显的认识，应该会出现一个填充某种颜色的圆，类似下截图效果:<br><img src="http://oqt3f60vc.bkt.clouddn.com/circle.png" alt="图示"><br>但是，如果此时该圆同时设置了clip-path属性，且值指向的就是上面定义的剪裁路径#clipPath呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;circle cx=&quot;60&quot; cy=&quot;60&quot; r=&quot;50&quot; fill=&quot;#34538b&quot; clip-path=&quot;url(#clipPath)&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>则，十五的圆被剪裁成了银杏叶：<br><img src="http://oqt3f60vc.bkt.clouddn.com/shanxing.png" alt="图示"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg&gt;</span><br><span class="line">    &lt;defs&gt;</span><br><span class="line">      &lt;clipPath id=&quot;clipPath&quot;&gt;</span><br><span class="line">          &lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;80&quot; height=&quot;80&quot; /&gt;</span><br><span class="line">      &lt;/clipPath&gt;</span><br><span class="line">    &lt;/defs&gt;</span><br><span class="line">    &lt;circle cx=&quot;60&quot; cy=&quot;60&quot; r=&quot;50&quot; fill=&quot;#34538b&quot; clip-path=&quot;url(#clipPath)&quot; /&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure></p>
+<p>跟<g>, <symbol>等元素类似，<clippath>元素里面除了rect元素, 还可以是circle, ellipse, line, polyline, polygon, …等等，甚至是text文本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg&gt;</span><br><span class="line">    &lt;defs&gt;</span><br><span class="line">        &lt;clipPath id=&quot;clipPath&quot;&gt;</span><br><span class="line">            &lt;text x=&quot;10&quot; y=&quot;50&quot; style=&quot;font-size: 20px;&quot;&gt;一步之遥&lt;/text&gt;</span><br><span class="line">        &lt;/clipPath&gt;</span><br><span class="line">    &lt;/defs&gt;</span><br><span class="line">    &lt;g style=&quot;clip-path: url(#clipPath);&quot;&gt;</span><br><span class="line">        &lt;circle cx=&quot;60&quot; cy=&quot;60&quot; r=&quot;50&quot; fill=&quot;#34538b&quot; /&gt;</span><br><span class="line">        &lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;60&quot; height=&quot;90&quot; style=&quot;fill:#cd0000;&quot;/&gt;</span><br><span class="line">    &lt;/g&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure></clippath></symbol></g></p>
+<p>Chrome浏览器下的文字剪裁极具马赛克风格，如图所示:<br><img src="http://oqt3f60vc.bkt.clouddn.com/svg.png" alt="图示"><br>而其他浏览器，例如IE浏览器，则表现正常:<br><img src="http://oqt3f60vc.bkt.clouddn.com/SVG1.png" alt="图示"><br>上面列举了“矩形剪裁”和“文本剪裁”两个例子，大家有木有发现在应用clip-path属性的时候有什么差别？<br>前者直接标签属性；后者则是style样式设置（红色高亮代码）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clip-path=&quot;url(#clipPath)&quot;</span><br><span class="line">style=&quot;clip-path: url(#clipPath);&quot;</span><br></pre></td></tr></table></figure></p>
+<p>style可以设置，也就是意味着，我们可以直接在CSS代码中使用clip-path属性！</p>
+<h3 id="CSS中的clip-path"><a href="#CSS中的clip-path" class="headerlink" title="CSS中的clip-path"></a>CSS中的clip-path</h3><ol>
+<li>clip-path与clip<br>CSS本身就有剪裁属性clip, “CSS clip:rect矩形剪裁功能及一些应用介绍”一文，不过，需要在position为absolute后者fixed时候才有作用。</li>
+</ol>
+<p>那本文主角clip-path与clip又是什么关系呢？</p>
+<p>据说由于clip是扶不起的阿斗，于是W3弃之，开始培养clip-path为新一代的代言人。实际上，clip在可用性隐藏领域是独领风骚的！好吧，既然群众总是迷恋于浮于表面的东西，clip-path肯定不会像clip一样，慢慢变成沾满灰尘的半岛铁盒的。</p>
+<p>自然，clip-path要想取代clip，第1步就是要实现clip应有的功能，方法值有所变化，不是rect了，而是inset. 看下面的代码对比：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.clip-me &#123;  </span><br><span class="line">  /* 被抛弃的剪裁 */</span><br><span class="line">  position: absolute; /* absolute或fixed定位是必须的 */</span><br><span class="line">  clip: rect(30px 200px 200px 20px); /* 或&quot;auto&quot; */</span><br><span class="line"></span><br><span class="line">  /* 如今的剪裁 (无需定位属性) */</span><br><span class="line">  clip-path: inset(30px 200px 200px 20px); /* 或&quot;none&quot; */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>按照常识理解，四个方位值含义应该和传统clip: rect()是一模一样滴（参考下图示意，若还不开窍，去CSS clip一文看详解）：<br><img src="http://oqt3f60vc.bkt.clouddn.com/clip.png" alt="图示"><br>但是，注意前方高能！根据我在Chrome浏览器下的测试（目前为数不多支持clip-path:inset()的浏览器）下的测试，clip-path:inset()4个值的含义与传统clip: rect()是不一样的！</p>
+<p>或许是目前的Chrome还不是很规范，但是，至少，当下，两者是有差别的<br>例如，上面.clip-me {} 对应CSS代码应用到图片上，则会是这样子，一个剪裁，一个木有（涂白是为了节约图片大小约37K）：<br>!(图示)[<a href="http://oqt3f60vc.bkt.clouddn.com/clip2.png]" target="_blank" rel="noopener">http://oqt3f60vc.bkt.clouddn.com/clip2.png]</a><br>已知，此妹子图片尺寸是256 * 191，此时，如果我们clip-path:inset()如下设置，则结果大不同：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.clip-me &#123;</span><br><span class="line">    clip-path: inset(30px 56px 0 20px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>则是下面这样：<br><img src="http://oqt3f60vc.bkt.clouddn.com/clip3.png" alt="图示"><br>会看到剪裁区域大小都一样了！诶？我们不禁疑问，clip-path:inset()四个值的玄机在哪里？很简单，虽然四个值代表的方位是一样的，分别是上边缘、右边缘、下边缘和左边缘；但是，值大小对应的则是距离原始元素的4个边的距离（传统clip是对应“上/左”2个边距离）。加减示意下就是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clip: rect(30px 200px 200px 20px)</span><br><span class="line">=</span><br><span class="line">clip-path: inset(30px (256-200)px (191-200)px 20px)</span><br></pre></td></tr></table></figure></p>
+<p>作为新时代的宠儿，自然inset不能就矩形剪裁这么点花样，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.clip-path &#123;</span><br><span class="line">    -webkit-clip-path: inset(10% round 10% 50% 10% 50%);</span><br><span class="line">            clip-path: inset(10% round 10% 50% 10% 50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>会让图片剪裁成这样子：<br><img src="http://oqt3f60vc.bkt.clouddn.com/clip-leaf.png" alt="图示"></p>
+<ol start="2">
+<li>clip-path与SVG clip-path<br>clip-path除了作为clip的替身，还是SVG clip-path属性的延伸。于是，SVG中玩得比较开心的东西CSS中也同样适用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.clip-me &#123; </span><br><span class="line">  /* 剪裁路径来自内联SVG &lt;clipPath&gt;元素 */</span><br><span class="line">  clip-path: url(#c1); </span><br><span class="line"></span><br><span class="line">  /* 路径来自外部SVG */</span><br><span class="line">  clip-path: url(path.svg#c1);</span><br><span class="line"></span><br><span class="line">  /* 多边形 */</span><br><span class="line">  clip-path: polygon(5% 5%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);</span><br><span class="line"></span><br><span class="line">  /* 圆 */</span><br><span class="line">  clip-path: circle(30px at 35px 35px);</span><br><span class="line"></span><br><span class="line">  /* 椭圆 */</span><br><span class="line">  clip-path: ellipse(65px 30px at 125px 40px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>看上去好NB, 但是，兼容性是很糟糕的现状。IE浏览器全军覆没。FireFox浏览器目前(v36)仅支持url()解析, Chrome浏览器要领先不少（同样有iOS Safari 7.1+, Android Browser 4.4+），不仅支持全部的图形解析，还支持内联SVG的url(#foo)解析，但是，外部SVG文件的url()解析还不支持。同时，目前(v42)部分特性需要添加-webkit-私有前缀的，如上面介绍的inset</p>
+<p>当图形元素变成CSS clip-path的嫁衣时候，语法会有些变化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.clip-examples &#123;</span><br><span class="line">  clip-path: rectangle(x, y, width, height, rounded-x, rounded-y)  </span><br><span class="line">  clip-path: inset-rectangle(from top, from right, from bottom, from left, rounded-x, rounded-y)   /* 应使用inset()替换之~ */</span><br><span class="line">  clip-path: polygon(a, bunch, of, points)</span><br><span class="line">  clip-path: circle(radius at x, y)</span><br><span class="line">  clip-path: ellipse(radius-x, radius-y at x, y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>clip-path在CSS语法中游走的时候，也传承了CSS3的一些高级特性，比方说transition过渡和animation动画，例如下面这个效果：<br><img src="http://oqt3f60vc.bkt.clouddn.com/clip-transition.gif" alt="图示"><br>别小看上面的效果，如果是纯粹的CSS技术，还真实现不了这般效果，因为总会有些位移（不服你可以挑战），只能使用这种剪裁或者mask遮罩实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.clip-path &#123;</span><br><span class="line">    transition: 0.4s cubic-bezier(1, -1, 0, 2);</span><br><span class="line">    -webkit-clip-path: circle(180px at 128px 95px);</span><br><span class="line">    clip-path: circle(180px at 128px 95px);</span><br><span class="line">&#125;</span><br><span class="line">.clip-path:hover &#123;</span><br><span class="line">    -webkit-clip-path: circle(95px at 128px 95px);</span><br><span class="line">    clip-path: circle(95px at 128px 95px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>svg代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.clip-path &#123;</span><br><span class="line">    transition: 0.4s cubic-bezier(1, -1, 0, 2);</span><br><span class="line">    -webkit-clip-path: circle(180px at 128px 95px);</span><br><span class="line">    clip-path: circle(180px at 128px 95px);</span><br><span class="line">&#125;</span><br><span class="line">.clip-path:hover &#123;</span><br><span class="line">    -webkit-clip-path: circle(95px at 128px 95px);</span><br><span class="line">    clip-path: circle(95px at 128px 95px);</span><br><span class="line">&#125;</span><br><span class="line">SVG代码：</span><br><span class="line">&lt;strong&gt;鼠标hover:&lt;/strong&gt;</span><br><span class="line">&lt;p&gt;&lt;img src=&quot;mm1.jpg&quot; class=&quot;clip-path&quot;&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>客官，赏一个吧~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oqt3f60vc.bkt.clouddn.com/wechat.jpg" alt="zhangxiaolei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css-text-decoration-linear-gradient/" rel="tag"># css text-decoration linear-gradient</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/02/css-checkbox-input-radio/" rel="next" title="css-checkbox-input-radio">
+                <i class="fa fa-chevron-left"></i> css-checkbox-input-radio
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/05/js-loop/" rel="prev" title="js-loop">
+                js-loop <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://zxl-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zhangxiaolei" />
+          <p class="site-author-name" itemprop="name">zhangxiaolei</p>
+           
+              <p class="site-description motion-element" itemprop="description">To be a better me</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/Z-Leila" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5295149870/profile?rightmod=1&wvr=6&mod=personnumber" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59196dbe8d6d8100588313fd" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-group"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/ef5764c88470/timeline" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文字修饰-text-decoration"><span class="nav-number">1.</span> <span class="nav-text">文字修饰  text-decoration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#text-decoration"><span class="nav-number">1.1.</span> <span class="nav-text">text-decoration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">1.1.1.</span> <span class="nav-text">思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-shadow-3D文字"><span class="nav-number">2.</span> <span class="nav-text">text-shadow  3D文字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#描边文字效果"><span class="nav-number">3.</span> <span class="nav-text">描边文字效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#神奇的css3渐变"><span class="nav-number">3.1.</span> <span class="nav-text">神奇的css3渐变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG中的clip-path"><span class="nav-number">3.2.</span> <span class="nav-text">SVG中的clip-path</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS中的clip-path"><span class="nav-number">3.3.</span> <span class="nav-text">CSS中的clip-path</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+    <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413812606&auto=0&height=66"></iframe>
+    </div>
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxiaolei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问用户：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">访问次数：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zxl-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://LeilaBlog.site/2017/06/04/css3-textDecroration-nav/';
+          this.page.identifier = '2017/06/04/css3-textDecroration-nav/';
+          this.page.title = 'css3-textDecroration-nav';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zxl-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("B0sEo3Dcp8shIdhQAMX1UsF2-gzGzoHsz", "nXCJLkKot6EdDiY1R8eHgiPz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  <div class="bg_content">
+      <div class="landscape"></div>
+      <div class="filter"></div>
+      <canvas id="canvas"></canvas>
+  </div>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  <!-- 背景动画 -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+  
+  <!-- 更换的背景和背景随机色 -->
+  <script type="text/javascript" src="/js/src/canvas.js"></script>
+
+</body>
+</html>

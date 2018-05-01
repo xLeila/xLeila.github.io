@@ -1,0 +1,1108 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Leila's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="web前端开发工程师 pc端 - 页面  包括用户点拉拖拽的效果 关注用户体验  用户心理  是否用户需要的？or 用户认为合理 所谓交互移动 - 页面 用户体验的问题学什么才能做出来精美的作品？1）兴趣浓厚2）肯做练习 多敲敲代码3）css语言熟练掌握         xhtml css2 一两节课写的的js练习比在公司的2个月的js代码都多 只要课后 必有练习要有练习 必有批改 学什么东西才能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js动画效果">
+<meta property="og:url" content="http://LeilaBlog.site/2017/08/24/js动画效果/index.html">
+<meta property="og:site_name" content="Leila&#39;s blog">
+<meta property="og:description" content="web前端开发工程师 pc端 - 页面  包括用户点拉拖拽的效果 关注用户体验  用户心理  是否用户需要的？or 用户认为合理 所谓交互移动 - 页面 用户体验的问题学什么才能做出来精美的作品？1）兴趣浓厚2）肯做练习 多敲敲代码3）css语言熟练掌握         xhtml css2 一两节课写的的js练习比在公司的2个月的js代码都多 只要课后 必有练习要有练习 必有批改 学什么东西才能">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-31T01:56:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js动画效果">
+<meta name="twitter:description" content="web前端开发工程师 pc端 - 页面  包括用户点拉拖拽的效果 关注用户体验  用户心理  是否用户需要的？or 用户认为合理 所谓交互移动 - 页面 用户体验的问题学什么才能做出来精美的作品？1）兴趣浓厚2）肯做练习 多敲敲代码3）css语言熟练掌握         xhtml css2 一两节课写的的js练习比在公司的2个月的js代码都多 只要课后 必有练习要有练习 必有批改 学什么东西才能">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://LeilaBlog.site/2017/08/24/js动画效果/"/>
+
+
+
+
+
+  <title>js动画效果 | Leila's blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ff56c334260a10704189e986eba39154";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <a href="https://github.com/xLeila"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leila's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Goals determine what you are going to be</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            Leila时光机
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            照片
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/leaveMassages" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="/categories/book-movie-music" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书影音
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LeilaBlog.site/2017/08/24/js动画效果/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangxiaolei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leila's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js动画效果</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T12:00:07+08:00">
+                2017-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/24/js动画效果/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/24/js动画效果/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/08/24/js动画效果/" class="leancloud_visitors" data-flag-title="js动画效果">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">&nbsp点击量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,219
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>web前端开发工程师</p>
+<p>pc端 - 页面  包括用户点拉拖拽的效果 关注用户体验  用户心理  是否用户需要的？or 用户认为合理 所谓交互<br>移动 - 页面</p>
+<p>用户体验的问题<br>学什么才能做出来精美的作品？<br>1）兴趣浓厚<br>2）肯做练习 多敲敲代码<br>3）css语言熟练掌握         xhtml css2</p>
+<p>一两节课写的的js练习比在公司的2个月的js代码都多</p>
+<p>只要课后 必有练习<br>要有练习 必有批改</p>
+<p>学什么东西才能进行前端开发？<br>1）软件 —— 写代码的编辑器  (DW  sublime )<br>           浏览器(chrom ie firefox apple)<br>           浏览器插件F12<br>           ps<br>2）编程语言 花100%的精力去学习<br>            html5       超文本标记语言 和浏览器打交道（沟通的）<br>            css3        修饰装扮<br>            JavaScript  脚本语言(行为)</p>
+<p>硬指标！专业的前端工程师</p>
+<p>ps技术:切图(抠图),测量,图片简单处理  -&gt; 前端开发<br>1）设计师给的psd文件<br>2）印屏幕(PrtSrc Sysrq)<br>3）浏览器（Chrome）插件</p>
+<p>按 F 后可以自由托动到任何地方<br>F8 信息面板调出来<br>左右箭头 1px的移动<br>shift + 左右箭头 10px的移动<br>height = 高度 + 边框<br>ctrl + w 关闭当前窗口</p>
+<p>！！！<br>前端工作1px都不差<br>(1) 量高度 宽度 不连边框border<br>(2) 背景渐变可以截个1px的背景 然后background:url() repeat-x;设置渐变背景 repeat-x默认也是沿着x轴平铺的<br>(3) 保存为web所用格式 ctrl+shift+alt+s gif格式比较小 png-24较大点<br>(4) 小图标 也可以用 background:url() #f1f1f1 no-repeat 12px 16px; </p>
+<p>border-top-color</p>
+<p>js实现原理</p>
+<p>写一个js效果的步骤：<br>每个页面都有js<br>1.先实现布局  布局要正确<br>2.实现原理<br>3.了解js语法</p>
+<p>保持随时写随时测的习惯</p>
+<p>）某元素消失移除视线<br>1）display:none        显示为无 (不占文档流)<br>2）visibility:hidden   隐藏 (占据文档流)<br>3）width / height<br>4）opacity改变<br>5）left  top<br>6）那一个白色的div盖住它<br>7）margin负值</p>
+<p>）js中获取元素<br>取id名称来获取元素<br>document get element by id()<br>document.getElementById<br>）js事件<br>鼠标事件 键盘事件 表单事件 系统事件 自定义事件(三击事件)<br>onclick<br>onmouseover<br>onmouseout<br>onmousedown<br>onmouseup<br>dbclick<br>onmousemove  抚摸事件<br>）如何添加事件<br>元素.onmouseover</p>
+<p>函数 理解为命名 做一些事情<br>function aaa(){<br>   …..<br>}<br>函数执行<br>1.直接调用 abc()<br>2.事件调用：元素.事件 = 函数名  (oDIV.onclick = abc;)</p>
+<p>长的东西要进行命名，命名有规则<br>onload         加载完以后执行<br>wndow.onload = 事情<br>img.onload<br>body.onload<br>….<br>匿名函数<br>元素.时间 = 匿名函数<br>function(){} 匿名函数</p>
+<p>属性读操作：获取 找到<br>元素.属性名</p>
+<p>属性写操作：(“添加”)  替换  修改<br>元素.属性名 = 新的值</p>
+<p>oImg.src = oText.value;<br>oP.innerHTML             读取元素内所有的html内容  可写文字和html标签<br>oP.innerHTML = 新的值    替换元素内所有的html内容<br>oP.innerHTML = oText.value;<br>oText.vaule = ‘’;</p>
+<p>oDiv里面的东西 = 自己+其他的东西<br>oDiv.innerHTML = oDiv.innerHTML + oSpan.innerHTML + oText.value<br>oDiv.innerHTML += oSpan.innerHTML + oText.value<br>oText.value = ‘’</p>
+<p>每次加2<br>num = num + 2;<br>num += 2</p>
+<p>var num = 15;<br>oBtn.click = function(){<br>   num ++;<br>   oP.style.fontSize = num + ‘px’;<br>   oP.className = ‘red’;<br>}<br>把red类先写好样式 </p>
+<p>前端开发ie6~8</p>
+<p>所有的相对路径, 颜色值 innerHTML的值 都不要拿来做判断 (有兼容性问题)</p>
+<p>oDiv.style.styleFloat = ‘left’;  ie   (styleFloat)<br>oDiv.style.cssFloat = ‘left’;    非ie (cssFloat)</p>
+<p>.后面的值无法修改<br>[]里面的值可以随意变  值若要改变就可以写成[]</p>
+<p>js中可以把.替换成[] 无兼容性问题</p>
+<p>oDiv.style.width = oVal.value<br>.后面的值无法修改<br>oDiv.style.oAttr.value = oVal.value =&gt; style=”oAttr.value” 是错误的啊<br>所以我们要用[]<br>[]里面是字符串<br>oDiv.style[‘height’] = oVal.value;<br>oDiv.style[oAttr.value] = oVal.value;<br>oBtn[‘click’] = function()<br>var oBtn = document<a href="&#39;attr&#39;">‘getElementById’</a></p>
+<p>技术上：必须能做到掌握兼容性(兼容性问题的解决方案)<br>需求上：商量着来(提供最准确的解决方案)</p>
+<p>alert(‘钱钱去哪去哪’ + oText.value + ‘不过’)</p>
+<h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><p>if里面的 =赋值  == 判断  oText.value == ‘’<br>if(条件){<br>   ….<br>}</p>
+<p>if(条件){<br>   ….<br>}else{<br>   ….<br>}</p>
+<p>if(条件1){<br>  ….<br>}else if(条件2){<br>  ….<br>}else if(条件3){<br>  ….<br>}else if(条件4){<br>   ….<br>}else{<br>  ….<br>}</p>
+<p>var flag = ture;</p>
+<p>oBtn.click = function(){<br>    if(flag){<br>      oImg.src = ‘img/1.jpg’<br>      flag = false;<br>    }else{<br>      oImg.src = ‘img/3.jpg’<br>      flag = true ;<br>   }<br>}</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>push 从最后添加  向数组的末尾添加一个或多个元素并返回新的长度<br>pop  从最后移除  删除数组的最后一个元素并返回删除的元素</p>
+<p>unshift 从前面添加   并返回新的长度<br>shift 从前面移除     并返回删除的元素  ( 把数组的第一个元素从其中删除,并返回第一个元素的值)</p>
+<p>filter:alpha(opacity:90); opacity:0.9;<br>测试:<br>alert(1);带确定按钮的警告框<br>alert(‘ok’)<br>alert(“ok”)  字符串</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>客官，赏一个吧~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oqt3f60vc.bkt.clouddn.com/wechat.jpg" alt="zhangxiaolei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/23/ajax经验总结/" rel="next" title="ajax经验总结">
+                <i class="fa fa-chevron-left"></i> ajax经验总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/27/pug语法/" rel="prev" title="pug语法">
+                pug语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://zxl-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zhangxiaolei" />
+          <p class="site-author-name" itemprop="name">zhangxiaolei</p>
+           
+              <p class="site-description motion-element" itemprop="description">To be a better me</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/Z-Leila" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5295149870/profile?rightmod=1&wvr=6&mod=personnumber" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59196dbe8d6d8100588313fd" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-group"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/ef5764c88470/timeline" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断"><span class="nav-number">1.</span> <span class="nav-text">判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+    <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413812606&auto=0&height=66"></iframe>
+    </div>
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxiaolei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问用户：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">访问次数：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zxl-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://LeilaBlog.site/2017/08/24/js动画效果/';
+          this.page.identifier = '2017/08/24/js动画效果/';
+          this.page.title = 'js动画效果';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zxl-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("B0sEo3Dcp8shIdhQAMX1UsF2-gzGzoHsz", "nXCJLkKot6EdDiY1R8eHgiPz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  <div class="bg_content">
+      <div class="landscape"></div>
+      <div class="filter"></div>
+      <canvas id="canvas"></canvas>
+  </div>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  <!-- 背景动画 -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+  
+  <!-- 更换的背景和背景随机色 -->
+  <script type="text/javascript" src="/js/src/canvas.js"></script>
+
+</body>
+</html>

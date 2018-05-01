@@ -1,0 +1,1184 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Leila's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="日常实用css布局技巧汇总12345678910111213141516171819202122232425262728293031323334353637383940414243 1.单行完整显示，多行省略显示。　　.box &amp;#123;　　　　width: 100px;　　　　 //必要　　　　display: -webkit-box;    //必要　　　　font-size: 14px;">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css">
+<meta property="og:url" content="http://LeilaBlog.site/2017/11/27/css/index.html">
+<meta property="og:site_name" content="Leila&#39;s blog">
+<meta property="og:description" content="日常实用css布局技巧汇总12345678910111213141516171819202122232425262728293031323334353637383940414243 1.单行完整显示，多行省略显示。　　.box &amp;#123;　　　　width: 100px;　　　　 //必要　　　　display: -webkit-box;    //必要　　　　font-size: 14px;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/css%E6%9C%AA%E7%9F%A5%E5%B1%9E%E6%80%A7.webp">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/css%E7%9A%84currentColor.webp">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9.webp">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/css%E7%9A%84selection.webp">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/%E5%85%BC%E5%AE%B9%E6%80%A72.webp">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/%E5%85%BC%E5%AE%B9%E6%80%A73.webp">
+<meta property="og:updated_time" content="2018-02-27T04:02:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css">
+<meta name="twitter:description" content="日常实用css布局技巧汇总12345678910111213141516171819202122232425262728293031323334353637383940414243 1.单行完整显示，多行省略显示。　　.box &amp;#123;　　　　width: 100px;　　　　 //必要　　　　display: -webkit-box;    //必要　　　　font-size: 14px;">
+<meta name="twitter:image" content="http://oqt3f60vc.bkt.clouddn.com/css%E6%9C%AA%E7%9F%A5%E5%B1%9E%E6%80%A7.webp">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://LeilaBlog.site/2017/11/27/css/"/>
+
+
+
+
+
+  <title>css | Leila's blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ff56c334260a10704189e986eba39154";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <a href="https://github.com/xLeila"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leila's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Goals determine what you are going to be</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            Leila时光机
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            照片
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/leaveMassages" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="/categories/book-movie-music" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书影音
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LeilaBlog.site/2017/11/27/css/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangxiaolei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leila's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T12:50:41+08:00">
+                2017-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css属性杂点/" itemprop="url" rel="index">
+                    <span itemprop="name">css属性杂点</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/27/css/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/27/css/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/27/css/" class="leancloud_visitors" data-flag-title="css">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">&nbsp点击量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  4,035
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="日常实用css布局技巧汇总"><a href="#日常实用css布局技巧汇总" class="headerlink" title="日常实用css布局技巧汇总"></a>日常实用css布局技巧汇总</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"> 1.单行完整显示，多行省略显示。</span><br><span class="line"></span><br><span class="line">　　.box &#123;</span><br><span class="line">　　　　width: 100px;　　　　 //必要</span><br><span class="line">　　　　display: -webkit-box;    //必要</span><br><span class="line">　　　　font-size: 14px;</span><br><span class="line">　　　　line-height: 20px;</span><br><span class="line">　　　　text-overflow: ellipsis;  //必要</span><br><span class="line">　　　　-webkit-line-clamp: 2;  //必要</span><br><span class="line">　　　　-webkit-box-orient: vertical;  //必要</span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">2.对高度不定的容器设置背景(可能滚动)　</span><br><span class="line"></span><br><span class="line">　　.container &#123;</span><br><span class="line"></span><br><span class="line">　　　　width: 100%;</span><br><span class="line"></span><br><span class="line">　　　　position: relative;    //absolute也能达到效果，视具体情况而定</span><br><span class="line"></span><br><span class="line">　　　　top: 0;</span><br><span class="line"></span><br><span class="line">　　　　bottom: 0;</span><br><span class="line"></span><br><span class="line">　　　　min-height: 100%;</span><br><span class="line"></span><br><span class="line">　　　　background-color: #f1f1f1;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">3.单行完整显示，多行正常换行</span><br><span class="line"></span><br><span class="line">　　.box&#123;</span><br><span class="line"></span><br><span class="line">　　　　width: 100px;       //必要</span><br><span class="line"></span><br><span class="line">　　　　word-warp: break-word;   //必要</span><br><span class="line"></span><br><span class="line">　　　　word-break: break-all;      //必要</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="background-size背景图片尺寸属性"><a href="#background-size背景图片尺寸属性" class="headerlink" title="background-size背景图片尺寸属性"></a>background-size背景图片尺寸属性</h3><ul>
+<li>background-size 可以设置背景图片的大小，数值包括 长度length和百分比percentage。 并且会根据背景原点位置 background-origin 设置其图片覆盖的范围。background-size属性：</li>
+</ul>
+<p>属性名:    background-size</p>
+<p><strong> 属性值:     <code>&lt;bg-size&gt;</code>其中 bg-size = [ <length> | <percentage> | auto ]{1,2} | cover | contain </percentage></length></strong></p>
+<p>初始值:    auto auto</p>
+<p>应用于:    所有元素</p>
+<p>继承性:    无</p>
+<p>百分比:    见下文注解</p>
+<p>计算值:    根据指定</p>
+<ul>
+<li>语法解释</li>
+</ul>
+<ol>
+<li>length，percentage，根据给定长度值或者百分比来调整背景图片大小。auto为默认值，这三个值最小可重复一次，最大重复两次。对于这些值有以下解释：<br>第一个值为设置图片宽度，第二个值为图片的高度；但是不管是用什么值，都不能为负值<br>假如只给定一个值，那么第二个自动的为 ‘auto’；<br>假如指定为 percentage百分比值，那么背景图大小是根据相对的背景区域来做调整，这个背景区域是由background-origin来来决定的。这在上面已经有提到过了关于图片原点的讨论。这里有必要提到 假如background-attachment:fixed，那么其背景相对区域就是初始包含块也就是视窗<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">**  一个值: 这个值指定图片的宽度，那么第二个值为auto  **</span><br><span class="line">background-size: auto</span><br><span class="line">background-size: 50%</span><br><span class="line">background-size: 3em</span><br><span class="line">background-size: 12px</span><br><span class="line"></span><br><span class="line">** 两个值: 第一个值指定图片的宽度，第二个值指定图片的高度 **</span><br><span class="line">background-size: 50% auto</span><br><span class="line">background-size: 3em 25%</span><br><span class="line">background-size: auto 6px</span><br><span class="line">background-size: auto auto</span><br><span class="line">** 多重背景，请用逗号隔开，在CSS语法中凡语法后跟*或者#，都是可以无限重复的，但是必须用逗号隔开。 **</span><br><span class="line">background-size: auto, auto     /* 不要跟background-size: auto auto混淆了 */</span><br><span class="line">background-size: 50%, 25%, 25%</span><br><span class="line">background-size: 6px, auto, contain</span><br><span class="line"></span><br><span class="line">background-size: inherit</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.contain，按比例调整背景图片，使得其图片宽高比自适应整个元素的背景区域的宽高比，因此假如指定的图片尺寸过大，而背景区域的整体宽高不能恰好包含背景图片的话，那么其背景某些区域可能会有空白。看以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.im-com&#123;</span><br><span class="line">    width:200px;</span><br><span class="line">    height:50px;    </span><br><span class="line">    background:url(http://img.xiaoho.com/mystar/mada4.jpg) no-repeat top left scroll;   /*图片的宽高为440*440，而元素相对区域高度为50*/ </span><br><span class="line">    background-size:contain;</span><br><span class="line">&#125;</span><br><span class="line">.im-com-1&#123;</span><br><span class="line">    width:50px;</span><br><span class="line">    height:100px;   </span><br><span class="line">    background:url(http://img.xiaoho.com/mystar/mada4.jpg) no-repeat top left scroll;   /*元素相对区域宽度为50*/ </span><br><span class="line">    background-size:contain;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>/<em> CSS3background-size背景图片尺寸属性 当图片恰好自适应铺满元素的宽度或者高度，那么元素的会有空白处存在，也就是图中红色框框都显示了空白。</em>/</p>
+<p>3.cover，按比例调整背景图片，这个属性值跟contain正好相反，背景图片会按照比如自适应铺满整个背景区域。假如背景区域不足以包含背景图片的话，那么背景图片就会被咔嚓。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.im-com&#123;</span><br><span class="line">    width:200px;</span><br><span class="line">    height:50px;    </span><br><span class="line">    background:url(http://img.xiaoho.com/mystar/mada4.jpg) no-repeat top left scroll;   /*图片的宽高为440*440，而元素相对区域高度为50*/ </span><br><span class="line">    background-size:cover;</span><br><span class="line">&#125;</span><br><span class="line">.im-com-1&#123;</span><br><span class="line">    width:50px;</span><br><span class="line">    height:100px;   </span><br><span class="line">    background:url(http://img.xiaoho.com/mystar/mada4.jpg) no-repeat top left scroll;   /*元素相对区域宽度为50*/ </span><br><span class="line">    background-size:cover;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>/<em> CSS3background-size背景图片尺寸属性 当使用了 cover 这个值的时候，那么正好就跟contain相反，其会正好覆盖整个背景相对区域，但是背景图片的某些部分就看不见，如下图的狗的下半身和右侧身体显示不全。</em>/</p>
+<p>/<em> 说说背景图片计算值 </em>/<br>假如说只是拿单一的数值或者具体数值来解释那理解起来应该不难，但假如用混合长度来说，可能会有点一下子明白不上来<br>先声明：所有的元素的尺寸为100*100</p>
+<p>100% 100%背景图片将铺满整个内容区，假如说元素有固有宽高，那么背景图片铺满整个100*100背景区域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    background-image: url(plasma.png);</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">    background-size: 100% 100%;</span><br><span class="line">    background-origin: content-box &#125;</span><br><span class="line">背景图片调整为宽度为50*50，但是背景图片的原点位置为边框box而不是padding-box</span><br><span class="line">p &#123;</span><br><span class="line">    background-image: url(tubes.png);</span><br><span class="line">    background-size: 50% auto;</span><br><span class="line">    background-origin: border-box &#125;</span><br><span class="line">背景图片尺寸调整为15*15</span><br><span class="line">para &#123;</span><br><span class="line">    background-size: 15px 15px;</span><br><span class="line">    background-image: url(tile.png)&#125;</span><br><span class="line">这是默认值，也就是auto auto，此时背景图片的尺寸将会是跟图片的固有尺寸一样.</span><br><span class="line"></span><br><span class="line">body &#123;</span><br><span class="line">    background-size: auto;            /* 默认值 */</span><br><span class="line">    background-image: url(flower.png) &#125;</span><br><span class="line">假如两个都是百分比，此时图片就会根据背景区域来按照宽高比自适应，此处背景图片为20*30，但是因为背景重复用了 &apos;round&apos;循环，因此背景区域高度划分了3个33.3等高区域，所以背景图片会自适应调整为20*33.3</span><br><span class="line">p &#123;</span><br><span class="line">    background-image: url(chain.png);</span><br><span class="line">    background-repeat: no-repeat round;</span><br><span class="line">    background-size: 20% 30% </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>border-radius用于设置HTML元素的圆角效果，但只有IE9、chorme及firefox浏览器支持该属性，IE8及以下浏览器不兼容也不支持border-radius属性</p>
+<p>letter-spacing  设置对象中的文字(汉字和字母)之间的间隔。 效果eg：这 里 是 C S S W e b<br>word-spacing    设置对象中的英文单词之间的间隔。         效果eg：css web design</p>
+<p>水平<br>background-repeat:repeat-x; 不写的话默认也是向x轴平铺<br>background-position: x y<br>                    bottom left(也可识别 最好不要这样)<br>                    left  center right<br>                    top   center bottom<br>                    center 0px  (将完整的一张图片放到背景的中间  左右该留多少多少)<br>background-attachment:fixed (背景固定)</p>
+<p>也可以复合样式<br>background：gray url() no-repeat 100px 0px scroll/fixed ;</p>
+<p>border:1px solid red;<br>border:1px dashed red;  虚线<br>border:1px dotted red;  点化线有兼容问题  有时圆点  有时方点</p>
+<p>多余的文字…显示<br> /<em><br>    1、得是以配置为inline-block的元素，或默认以block呈现的div、p元素<br>    2、强制不换行<br>    3、固定宽度<br>    4、超出部分隐藏<br>    5、超出部分以’…’结尾  
+</em>/<br>    display: inline-block;<br>    white-space: nowrap;<br>    width: 140px;<br>    overflow: hidden;<br>    text-overflow:ellipsis;  </p>
+<h3 id="user-select-none"><a href="#user-select-none" class="headerlink" title="user-select:none"></a>user-select:none</h3><p>user-select：none | text | all | element<br>默认值：text<br>适用于：除替换元素外的所有元素<br>继承性：无<br>动画性：否<br>计算值：指定值</p>
+<ol>
+<li>取值：<br>none：<br>文本不能被选择<br>text：<br>可以选择文本<br>all：<br>当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素。<br>element：<br>可以选择文本，但选择范围受元素边界的约束</li>
+<li>说明：<br>设置或检索是否允许用户选中文本。</li>
+<li>浏览器的支持性<br>IE6-9不支持该属性，但支持使用标签属性 onselectstart=”return false;” 来达到 user-select:none 的效果；Safari和Chrome也支持该标签属性；<br>直到Opera12.5仍然不支持该属性，但和IE6-9一样，也支持使用私有的标签属性 unselectable=”on” 来达到 user-select:none 的效果；unselectable 的另一个值是 off；<br>除Chrome和Safari外，在其它浏览器中，如果将文本设置为 -ms-user-select:none;，则用户将无法在该文本块中开始选择文本。不过，如果用户在页面的其他区域开始选择文本，则用户仍然可以继续选择将文本设置为 -ms-user-select:none; 的区域文本；<br>对应的脚本特性为userSelect。<h3 id="resize属性"><a href="#resize属性" class="headerlink" title="resize属性"></a>resize属性</h3>resize 属性规定是否可由用户调整元素的尺寸。<br>注释：如果希望此属性生效，需要设置元素的 overflow 属性，值可以是 auto、hidden 或 scroll。</li>
+<li>语法<br>resize: none|both|horizontal|vertical;</li>
+<li>值于描述<br>none——用户无法调整元素的尺寸。<br>both——用户可调整元素的高度和宽度。<br>horizontal——用户可调整元素的宽度。<br>vertical——用户可调整元素的高度。</li>
+</ol>
+<h3 id="webkit-touch-callout"><a href="#webkit-touch-callout" class="headerlink" title="-webkit-touch-callout"></a>-webkit-touch-callout</h3><p>-webkit-touch-callout 是一个 不规范的属性（unsupported WebKit property），它没有出现在 CSS 规范草案中。<br>/<em> 当你触摸并按住触摸目标时候，禁止或显示系统默认菜单。</em>/ 在iOS上，当你触摸并按住触摸的目标，比如一个链接，Safari浏览器将显示链接有关的系统默认菜单。这个属性可以让你禁用系统默认菜单。</p>
+<p>2017/12/4</p>
+<h3 id="暖人心却鲜为人知的CSS属性"><a href="#暖人心却鲜为人知的CSS属性" class="headerlink" title="暖人心却鲜为人知的CSS属性"></a>暖人心却鲜为人知的CSS属性</h3><ol>
+<li>attr<br>CSS表达式 attr() 用来获取选择到的元素的某一HTML属性值，并用于其样式。它也可以用于伪元素，属性值采用伪元素所依附的元素。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;p data-unit=&quot;℃&quot;&gt;当前温度36&lt;/P&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">[data-unit]:after&#123;</span><br><span class="line">    content:attr(data-unit);</span><br><span class="line">    color:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/css%E6%9C%AA%E7%9F%A5%E5%B1%9E%E6%80%A7.webp" alt="css Attr属性"><br>IE只有IE11才支持，其他浏览器可以安全使用</p>
+<h3 id="currentColor"><a href="#currentColor" class="headerlink" title="currentColor"></a>currentColor</h3><p>currentColor不是一个css属性，而是color的属性值。它返回当前的标签所继承的文字颜色。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;outside&quot;&gt;</span><br><span class="line">   &lt;div class=&quot;inside&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.outside&#123;</span><br><span class="line">    width:200px;</span><br><span class="line">    height:200px;</span><br><span class="line">    color:blue;</span><br><span class="line">    backgroud-color:yellow;</span><br><span class="line">&#125;</span><br><span class="line">.inside&#123;</span><br><span class="line">    width:100px;</span><br><span class="line">    height:100px;</span><br><span class="line">    color:red;</span><br><span class="line">    background-color:pink;</span><br><span class="line">    border:1px solid currentColor;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/css%E7%9A%84currentColor.webp" alt="currentColor属性"><br>可以看出，最终.inside的border颜色为red，即当前元素的color值。<br>IE只有IE11才支持，其他浏览器可以安全使用</p>
+<h3 id="user-select"><a href="#user-select" class="headerlink" title="user-select"></a>user-select</h3><p>控制选取能否被选择. (可以禁止用户选中内容)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.disable-select&#123;</span><br><span class="line">    -webkit-user-select:none;</span><br><span class="line">    -moz-user-select:none;</span><br><span class="line">    user-select:none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>浏览器兼容：</p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9.webp" alt=""></p>
+<h3 id="selection"><a href="#selection" class="headerlink" title="selection"></a>selection</h3><p>::selection CSS伪元素应用于文档中被用户高亮的部分（比如使用鼠标或其他选择设备选中的部分）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;选中这行文字&lt;/p&gt;</span><br><span class="line">&lt;!-- 选中文字渲染成黑色背景白色前景 --&gt;</span><br><span class="line">p::-moz-selection&#123;</span><br><span class="line">    color:white;</span><br><span class="line">    background:block;</span><br><span class="line">&#125;</span><br><span class="line">p::selection&#123;</span><br><span class="line">    color:white;</span><br><span class="line">    background:black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/css%E7%9A%84selection.webp" alt=""></p>
+<p>浏览器兼容性：</p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/%E5%85%BC%E5%AE%B9%E6%80%A72.webp" alt=""></p>
+<h3 id="will-change"><a href="#will-change" class="headerlink" title="will-change"></a>will-change</h3><p>CSS 属性 will-change 为web开发者提供了一种告知浏览器该元素会有哪些变化的方法，这样浏览器可以在元素属性真正发生变化之前提前做好对应的优化准备工作。 这种优化可以将一部分复杂的计算工作提前准备好，使页面的反应更为快速灵敏。</p>
+<p>这个属性作用很单纯，就是“增强页面渲染性能”。那它是如何增强的呢？</p>
+<p>当我们通过某些行为（点击、移动或滚动）触发页面进行大面积绘制的时候，浏览器往往是没有准备的，只能被动使用CPU去计算与重绘，由于没有事先准备，应付渲染够呛，于是掉帧，于是卡顿。而will-change则是真正的行为触发之前告诉浏览器：“浏览器同学，我待会儿就要变形了，你心理和生理上都准备准备”。于是乎，浏览器同学把GPU给拉上了，从容应对即将到来的变形。</p>
+<p>这其实很好理解的，对吧，提前预约从容不迫；突然造访手忙脚乱。</p>
+<p>MDN上显示该属性语法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/* 关键字值 */</span><br><span class="line">will-change: auto;</span><br><span class="line">will-change: scroll-position;</span><br><span class="line">will-change: contents;</span><br><span class="line">will-change: transform;        /* &lt;custom-ident&gt;示例 */</span><br><span class="line">will-change: opacity;          /* &lt;custom-ident&gt;示例 */</span><br><span class="line">will-change: left, top;        /* 两个&lt;animateable-feature&gt;示例 */</span><br><span class="line"></span><br><span class="line">/* 全局值 */</span><br><span class="line">will-change: inherit;</span><br><span class="line">will-change: initial;</span><br><span class="line">will-change: unset;</span><br></pre></td></tr></table></figure></p>
+<p>其中：<br>auto就跟width:auto一样，实际上没什么卵用，昨天嘛，估计就是用来重置其他比较屌的值。</p>
+<p>scroll-position告诉浏览器，我要开始翻滚了。</p>
+<p>contents告诉浏览器，内容要动画或变化了。</p>
+<p><code>&lt;custom-ident&gt;</code>顾名思意，自定义的识别。非规范称呼，应该是MDN自己的称呼，以后可能会明确写入规范。比方说animation的名称，计数器counter-reset, counter-increment定义的名称等等。</p>
+<p>上面展示了2个例子，一个是transform一个是opacity，都是CSS3动画常用属性。如果给定的属性是缩写，则所有缩写相关属性变化都会触发。同时不能是以下这些关键字值：unset, initial, inherit, will-change, auto, scroll-position, 或 contents.</p>
+<p><code>&lt;animateable-feature&gt;</code>可动画的一些特征值。比方说left, top, margin之类。移动端，非transform, opacity属性的动画性能都是低下的，所以都是建议避免使用left/top/margin之流进行唯一等。但是，如果你觉得自己是margin属性奶大的，非要使用之，试试加个will-change:margin说不定也会很流畅（移动端目前支持还不是很好）。</p>
+<p>就目前而言，使用的基本上都是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.example &#123;</span><br><span class="line">  will-change: transform;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>will-change虽然可以加速，但是，一定一定要适度使用。那种全局都开启will-change等待模式的做法，无疑是死路一条。尼玛，用脚趾头想想也知道，你让浏览器各个元素都随时GPU渲染加速待命，还是妥妥搞死！</p>
+<p>说到这里，想到了移动端的GPU加速。很多自以为然的同学写CSS3动画的时候，或者静态属性的时候，动不动就把translateZ之类GPU hack属性写上。同学们啊，GPU这玩意提高页面渲染性能它是有代价的呀，什么代价呢，就是手机的电量。你真以为有“既要马儿跑，又要马儿不吃草”的好事情啊！</p>
+<p>平时，我们一般地CSS动画，平常的渲染处理，手机都是可以比较流畅的。完全没有必要以牺牲其他东西来实现。手机上的电量弥足珍贵。如果发现(尤其Android)机子h5页面不流畅，找找看是不是动画属性使用问题，或者非可视动画层没隐藏等等原因。</p>
+<p>回到will-change. 同样的，will-change的使用也要谨慎，遵循最小化影响原则，所以，一开始的例子，才使用伪元素去搞，独立渲染（虽然我没看出来这个梗在什么地方）。</p>
+<p>不要这样直接写在默认状态中，因为will-change会一直挂着：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.will-change &#123;</span><br><span class="line">  will-change: transform;</span><br><span class="line">  transition: transform 0.3s;</span><br><span class="line">&#125;</span><br><span class="line">.will-change:hover &#123;</span><br><span class="line">  transform: scale(1.5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以让父元素hover的时候，声明will-change，这样，移出的时候就会自动remove，触发的范围基本上是有效元素范围。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.will-change-parent:hover .will-change &#123;</span><br><span class="line">  will-change: transform;</span><br><span class="line">&#125;</span><br><span class="line">.will-change &#123;</span><br><span class="line">  transition: transform 0.3s;</span><br><span class="line">&#125;</span><br><span class="line">.will-change:hover &#123;</span><br><span class="line">  transform: scale(1.5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果使用JS添加will-change, 事件或动画完毕，一定要及时remove. 比方说点击某个按钮，其他某个元素进行动画。点击按钮(click)，要先按下(mousedown)再抬起才出发。因此，可以mousedown时候打声招呼, 动画结束自带回调，于是（示意，不要在意细节）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dom.onmousedown = function() &#123;</span><br><span class="line">    target.style.willChange = &apos;transform&apos;;</span><br><span class="line">&#125;;</span><br><span class="line">dom.onclick = function() &#123;</span><br><span class="line">    // target动画哔哩哔哩...</span><br><span class="line">&#125;;</span><br><span class="line">target.onanimationend = function() &#123;</span><br><span class="line">    // 动画结束回调，移除will-change</span><br><span class="line">    this.style.willChange = &apos;auto&apos;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>等。</p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2015/11/css3-will-change-improve-paint/" target="_blank" rel="noopener">《使用CSS3 will-change提高页面滚动、动画等渲染性能》</a></p>
+<p>浏览器兼容性</p>
+<p><img src="http://oqt3f60vc.bkt.clouddn.com/%E5%85%BC%E5%AE%B9%E6%80%A73.webp" alt=""></p>
+<p><a href="http://www.css88.com/book/css/" target="_blank" rel="noopener">css手册全集详解</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>客官，赏一个吧~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oqt3f60vc.bkt.clouddn.com/wechat.jpg" alt="zhangxiaolei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/27/mouse事件/" rel="next" title="mouse事件">
+                <i class="fa fa-chevron-left"></i> mouse事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/27/js方法/" rel="prev" title="js方法">
+                js方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://zxl-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zhangxiaolei" />
+          <p class="site-author-name" itemprop="name">zhangxiaolei</p>
+           
+              <p class="site-description motion-element" itemprop="description">To be a better me</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/Z-Leila" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5295149870/profile?rightmod=1&wvr=6&mod=personnumber" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59196dbe8d6d8100588313fd" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-group"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/ef5764c88470/timeline" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#日常实用css布局技巧汇总"><span class="nav-number">1.</span> <span class="nav-text">日常实用css布局技巧汇总</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#background-size背景图片尺寸属性"><span class="nav-number">2.</span> <span class="nav-text">background-size背景图片尺寸属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#user-select-none"><span class="nav-number">3.</span> <span class="nav-text">user-select:none</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resize属性"><span class="nav-number">4.</span> <span class="nav-text">resize属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webkit-touch-callout"><span class="nav-number">5.</span> <span class="nav-text">-webkit-touch-callout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暖人心却鲜为人知的CSS属性"><span class="nav-number">6.</span> <span class="nav-text">暖人心却鲜为人知的CSS属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#currentColor"><span class="nav-number">7.</span> <span class="nav-text">currentColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#user-select"><span class="nav-number">8.</span> <span class="nav-text">user-select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection"><span class="nav-number">9.</span> <span class="nav-text">selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#will-change"><span class="nav-number">10.</span> <span class="nav-text">will-change</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+    <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413812606&auto=0&height=66"></iframe>
+    </div>
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxiaolei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问用户：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">访问次数：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zxl-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://LeilaBlog.site/2017/11/27/css/';
+          this.page.identifier = '2017/11/27/css/';
+          this.page.title = 'css';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zxl-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("B0sEo3Dcp8shIdhQAMX1UsF2-gzGzoHsz", "nXCJLkKot6EdDiY1R8eHgiPz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  <div class="bg_content">
+      <div class="landscape"></div>
+      <div class="filter"></div>
+      <canvas id="canvas"></canvas>
+  </div>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  <!-- 背景动画 -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+  
+  <!-- 更换的背景和背景随机色 -->
+  <script type="text/javascript" src="/js/src/canvas.js"></script>
+
+</body>
+</html>

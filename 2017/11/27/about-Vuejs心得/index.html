@@ -1,0 +1,1265 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Vuejs," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Leila's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content=".trimv-model.trim 去除输入框的空格 input绑定数据 v-model 绑定用户去输入的数据 在绑定的input框中填充从后台接口获取的数据时,如何让他在别的输入框变化的时候不会重新覆盖输入框里的数据   坑：参考登陆时验证码captch所对应的captch_key案例1234567891011&amp;lt;div&amp;gt;   &amp;lt;input type=&amp;quot;hidden&amp;q">
+<meta name="keywords" content="Vuejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="about--Vuejs心得">
+<meta property="og:url" content="http://LeilaBlog.site/2017/11/27/about-Vuejs心得/index.html">
+<meta property="og:site_name" content="Leila&#39;s blog">
+<meta property="og:description" content=".trimv-model.trim 去除输入框的空格 input绑定数据 v-model 绑定用户去输入的数据 在绑定的input框中填充从后台接口获取的数据时,如何让他在别的输入框变化的时候不会重新覆盖输入框里的数据   坑：参考登陆时验证码captch所对应的captch_key案例1234567891011&amp;lt;div&amp;gt;   &amp;lt;input type=&amp;quot;hidden&amp;q">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-28T08:35:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about--Vuejs心得">
+<meta name="twitter:description" content=".trimv-model.trim 去除输入框的空格 input绑定数据 v-model 绑定用户去输入的数据 在绑定的input框中填充从后台接口获取的数据时,如何让他在别的输入框变化的时候不会重新覆盖输入框里的数据   坑：参考登陆时验证码captch所对应的captch_key案例1234567891011&amp;lt;div&amp;gt;   &amp;lt;input type=&amp;quot;hidden&amp;q">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://LeilaBlog.site/2017/11/27/about-Vuejs心得/"/>
+
+
+
+
+
+  <title>about--Vuejs心得 | Leila's blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ff56c334260a10704189e986eba39154";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <a href="https://github.com/xLeila"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leila's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Goals determine what you are going to be</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            Leila时光机
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            照片
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/leaveMassages" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="/categories/book-movie-music" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书影音
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LeilaBlog.site/2017/11/27/about-Vuejs心得/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangxiaolei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leila's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">about--Vuejs心得</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T13:07:57+08:00">
+                2017-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/27/about-Vuejs心得/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/27/about-Vuejs心得/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/27/about-Vuejs心得/" class="leancloud_visitors" data-flag-title="about--Vuejs心得">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">&nbsp点击量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  6,999
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  28
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="trim"><a href="#trim" class="headerlink" title=".trim"></a>.trim</h3><p>v-model.trim 去除输入框的空格</p>
+<h3 id="input绑定数据"><a href="#input绑定数据" class="headerlink" title="input绑定数据"></a>input绑定数据</h3><ol>
+<li>v-model 绑定用户去输入的数据</li>
+<li>在绑定的input框中填充从后台接口获取的数据时,如何让他在别的输入框变化的时候不会重新覆盖输入框里的数据   坑：参考登陆时验证码captch所对应的captch_key案例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">   &lt;input type=&quot;hidden&quot; v-model=&quot;form.captcha_key&quot; id=&quot;captcha_key&quot; name=&quot;captcha_key&quot; value=&quot;&quot;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">js</span><br><span class="line">data () &#123;</span><br><span class="line">	var captcha_key = parseInt(Math.random()*899999 + 100000);</span><br><span class="line">&#125;</span><br><span class="line">return&#123;</span><br><span class="line">	captcha_key:captcha_key</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="父子传递数据-vue2-0父子组件以及非父子组件如何通信"><a href="#父子传递数据-vue2-0父子组件以及非父子组件如何通信" class="headerlink" title="父子传递数据   vue2.0父子组件以及非父子组件如何通信"></a>父子传递数据   vue2.0父子组件以及非父子组件如何通信</h3><p>1.父调用子的方法</p>
+<p>父组件中(引进子组件)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;followSheet ref=&quot;profileA&quot;&gt;&lt;/followSheet&gt;</span><br><span class="line"></span><br><span class="line">js</span><br><span class="line"></span><br><span class="line">follow () &#123;</span><br><span class="line">  this.$refs.profileA.getData();</span><br><span class="line">  // 清空文本框里的值</span><br><span class="line">  this.$refs.profileA.clear();</span><br><span class="line">  this.followVisible = false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>子组件中(写上函数方法即可)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">getData ()&#123;</span><br><span class="line">  var apiurl = this.$http.defaults.baseURL + &apos;Sheet/followSheet&apos;;</span><br><span class="line">  var session_key = getCookie(&apos;session_key&apos;);</span><br><span class="line">  var param = &#123;</span><br><span class="line">    id: this.$route.params.id,</span><br><span class="line">    session_key : getCookie(&apos;session_key&apos;),</span><br><span class="line">    expect_time:formatDateTime(this.form.expect_time),</span><br><span class="line">    remark:this.form.remark,</span><br><span class="line">  &#125;;</span><br><span class="line">  param.sign = getSign(param);</span><br><span class="line">  this.$http.post(apiurl,param).then((response) =&gt; &#123;</span><br><span class="line">    var result = response.data;</span><br><span class="line">    console.log(result);</span><br><span class="line">    if(parseInt(result.code) === 200)&#123;</span><br><span class="line">      var obj = result.data;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">      this.$message.error(&apos;跟进失败&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;).catch(function(error)&#123;</span><br><span class="line">    this.$message.error(error.message);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>还有其他方法补充中。。。</p>
+<p>子组件通过$emit触发父组件的事件，$emit后面的参数是向父组件传参，</p>
+<ol start="2">
+<li>子调用父的方法</li>
+</ol>
+<ol start="3">
+<li>父组件传递数据给子组件<br>父组件数据如何传递给子组件呢？可以通过props属性来实现<br>父组件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">  &lt;child :child-msg=&quot;msg&quot;&gt;&lt;/child&gt;//这里必须要用 - 代替驼峰</span><br><span class="line">&lt;/parent&gt;</span><br><span class="line"> </span><br><span class="line">data()&#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    msg: [1,2,3]</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>子组件通过props来接收数据:<br>方式1：props: [‘childMsg’]<br>方式2:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  childMsg: Array //这样可以指定传入的类型，如果类型不对，会警告</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>方式3：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  childMsg: &#123;</span><br><span class="line">    type: Array,</span><br><span class="line">    default: [0,0,0] //这样可以指定默认的值</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样呢，就实现了父组件向子组件传递数据</p>
+<p>4.子组件与父组件的通信</p>
+<p>子组件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div @click=&quot;up&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"> </span><br><span class="line">methods: &#123;</span><br><span class="line">  up() &#123;</span><br><span class="line">    this.$emit(&apos;upup&apos;,&apos;hehe&apos;); //主动触发upup方法，&apos;hehe&apos;为向父组件传递的数据</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>父组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;child @upup=&quot;change&quot; :msg=&quot;msg&quot;&gt;&lt;/child&gt; //监听子组件触发的upup事件,然后调用change方法</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">methods: &#123;</span><br><span class="line">  change(msg) &#123;</span><br><span class="line">    this.msg = msg;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="兄弟组件传递数据-XX-bus"><a href="#兄弟组件传递数据-XX-bus" class="headerlink" title="兄弟组件传递数据  XX bus"></a>兄弟组件传递数据  XX bus</h3><ol start="5">
+<li>非父子组件通信<br>如果2个组件不是父子组件那么如何通信呢？这时可以通过eventHub来实现通信.<br>所谓eventHub就是创建一个事件中心，相当于中转站，可以用它来传递事件和接收事件.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let Hub = new Vue(); //创建事件中心</span><br></pre></td></tr></table></figure>
+<p>组件1触发：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div @click=&quot;eve&quot;&gt;&lt;/div&gt;</span><br><span class="line">methods: &#123;</span><br><span class="line">  eve() &#123;</span><br><span class="line">    Hub.$emit(&apos;change&apos;,&apos;hehe&apos;); //Hub触发事件</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>组件2接收:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line">created() &#123;</span><br><span class="line">  Hub.$on(&apos;change&apos;, () =&gt; &#123; //Hub接收事件</span><br><span class="line">    this.msg = &apos;hehe&apos;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样就实现了非父子组件之间的通信了.原理就是把Hub当作一个中转站！</p>
+<ol>
+<li>父子组件传递，父向子传递采用props，子向父采用事件emit</li>
+<li>非父子组件的传递，全局Event bus，new一个vue的实例，采用事件的方式通信，再者采用vuex全局状态管理</li>
+</ol>
+<h3 id="常见问题汇总Q50个"><a href="#常见问题汇总Q50个" class="headerlink" title="常见问题汇总Q50个"></a>常见问题汇总Q50个</h3><p>Q1:data functions should return an object这个问题是 Vue 实例内,单组件的data必须返回一个对象;如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  name: &apos;page-router-view&apos;,</span><br><span class="line">      data () &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        tabs: [</span><br><span class="line">          &#123;</span><br><span class="line">            title: &apos;财务信息&apos;,</span><br><span class="line">            url: &apos;/userinfo&apos;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            title: &apos;帐号信息&apos;,</span><br><span class="line">            url: &apos;/userinfo/base&apos;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为什么要 return 一个数据对象呢?<br>官方解释如下:  data 必须声明为返回一个初始数据对象的函数，因为组件可能被用来创建多个实例。如果 data 仍然是一个纯粹的对象，则所有的实例将共享引用同一个数据对象！<br>简言之,组件复用下,不会造成数据同时指向一处,造出牵一发而动全身的破问题…</p>
+<p>Q2: 给组件内的原生控件添加事件,怎么不生效了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--比如用了第三方框架,或者一些封装的内置组件; 然后想绑定事件--&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--// 错误例子1--&gt;</span><br><span class="line">&lt;el-input placeholder=&quot;请输入特定消费金额 &quot; @mouseover=&quot;test()&quot;&gt;&lt;/el-input&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--// 错误例子2--&gt;</span><br><span class="line">&lt;router-link :to=&quot;item.menuUrl&quot; @click=&quot;toggleName=&apos;&apos;&quot;&gt;</span><br><span class="line">  &lt;i :class=&quot;[&apos;fzicon&apos;,item.menuIcon]&quot;&gt;&lt;/i&gt;</span><br><span class="line">  &lt;span&gt;&#123;&#123;item.menuName&#125;&#125;&lt;/span&gt;</span><br><span class="line">&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--上面的两个例子都没法触发事件!!!--&gt;</span><br><span class="line">&lt;!--究其原因,少了一个修饰符 .native--&gt;</span><br><span class="line">&lt;router-link :to=&quot;item.menuUrl&quot; @click.native=&quot;toggleName=&apos;&apos;&quot;&gt;</span><br><span class="line">  &lt;i :class=&quot;[&apos;fzicon&apos;,item.menuIcon]&quot;&gt;&lt;/i&gt;</span><br><span class="line">  &lt;span&gt;&#123;&#123;item.menuName&#125;&#125;&lt;/span&gt;</span><br><span class="line">&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--明明官方文档有的,一堆人不愿意去看,,Fuck--&gt;</span><br><span class="line">&lt;!--https://cn.vuejs.org/v2/guide/components.html#给组件绑定原生事件--&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Q3: 用了 axios , 为什么 IE 浏览器不识别(IE9+)<br>IE 整个家族都不支持 promise, 解决方案:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install es6-promise</span><br><span class="line"></span><br><span class="line">// 在 main.js 引入即可</span><br><span class="line">// ES6的polyfill</span><br><span class="line">require(&quot;es6-promise&quot;).polyfill();</span><br></pre></td></tr></table></figure></p>
+<p>Q4: 在函数内用了this.xxx=,为什么抛出Cannot set property ‘xxx’ of undefined;这又是this的套路了..this是和当前运行的上下文绑定的…<br>一般你在axios或者其他 promise , 或者setInterval 这些默认都是指向最外层的全局钩子.<br>简单点说:”最外层的上下文就是 window,vue内则是 Vue 对象而不是实例!”;<br>解决方案:</p>
+<p>暂存法: 函数内先缓存 this , let that = this;(let是 es6, es5用 var)<br>箭头函数: 会强行关联当前运行区域为 this 的上下文;</p>
+<p>this的知识, 读”&lt;&lt;你不知道的 JS 系列&gt;&gt;”最为合适了,里面讲的很清楚</p>
+<p>Q5: @click.prevent,v-demo.a.b;就拿这两个例子来说吧.</p>
+<p>@click.prevent : 事件+修饰符 , 作用就是点击但又阻止默认行为<br>v-demo.a.b: 自定义指令+修饰符. 具体看你什么指令了,修饰符的作用大多是给事件增加一些确切的拓展功能</p>
+<p>比如阻止事件冒泡,阻止默认行为,访问到原生控件,结合键盘快捷键等等<br>传送门:<a href="https://cn.vuejs.org/v2/guide/events.html#事件修饰符" target="_blank" rel="noopener">事件修饰符</a>;<br>可以自定义修饰符么?也是可以的..<br>可以通过全局 config.keyCodes 对象自定义键值修饰符别名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 阻止单击事件继续传播 --&gt;</span><br><span class="line">&lt;a v-on:click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 提交事件不再重载页面 --&gt;</span><br><span class="line">&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 修饰符可以串联 --&gt;</span><br><span class="line">&lt;a v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 添加事件监听器时使用事件捕获模式 --&gt;</span><br><span class="line">&lt;!-- 即内部元素触发的事件先在此处处理，然后才交由内部元素自身进行处理 --&gt;</span><br><span class="line">&lt;div v-on:click.capture=&quot;doThis&quot;&gt;...&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 只当在 event.target 是当前元素自身时触发处理函数 --&gt;</span><br><span class="line">&lt;!-- 即事件不是从内部元素触发的 --&gt;</span><br><span class="line">&lt;div v-on:click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 点击事件将只会触发一次 --&gt;</span><br><span class="line">&lt;a v-on:click.once=&quot;doThis&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Q6: 引入的小图片渲染出来却是 data:image/png;base64xxxxxxxx这个是 webpack 里面的对应插件处理的.<br>对于小于多少 K 以下的图片(规定的格式)直接转为 base64格式渲染;<br>具体配置在webpack.base.conf.js里面的 rules里面的 url-loader<br>这样做的好处:在网速不好的时候先于内容加载和减少http的请求次数来减少网站服务器的负担。</p>
+<p>Q7: Component template shold contain exactly one root element.If you are useing v-if on multiple elements , xxxxx</p>
+<p>大体就是说,单组件渲染 DOM 区域必须要有一个根元素,不能出现同级元素.可以用v-if和v-else-if指令来控制其他元素达到并存的状态<br>换个直白的解释,就是有一个唯一的父类,包裹者;</p>
+<p>比如一个 div(父包含块) 内部多少个同级或者嵌套都行,但是最外层元素不能出现同级元素!!!!</p>
+<p>这个坑纠结了好久的啊啊啊</p>
+<p>Q8: 跨域问题怎么破!比如No ‘Access-Control-Allow-Origin’ header is present on the requested resource.这种问题老生常谈<br>1: CORS , 前后端都要对应去配置,IE10+<br>2: nginx 反向代理,一劳永逸  &lt;– 线上环境可以用这个<br>线下开发模式,比如你用了vue-cli, 里面的 webpack 有引入了proxyTable的东西,也可以做接口反向代理<br>// 在 config 目录下的index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">proxyTable: &#123;</span><br><span class="line">  &quot;/bp-api&quot;: &#123;</span><br><span class="line">    target: &quot;http://new.d.st.cn&quot;,</span><br><span class="line">    changeOrigin: true,</span><br><span class="line">    // pathRewrite: &#123;</span><br><span class="line">    //   &quot;^/bp-api&quot;: &quot;/&quot;</span><br><span class="line">    // &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// target : 就是 api 的代理的实际路径</span><br><span class="line">// changeOrigin: 就是是变源,必须是...</span><br><span class="line">// pathRewrite : 就是路径重定向,一看就知道</span><br></pre></td></tr></table></figure></p>
+<p>当然还有依旧坚挺的jsonp大法!不过局限性比较多,比较适合一些特殊的信息获取!</p>
+<p>Q9: 我需要遍历的数组值更新了,值也赋值了,为什么视图不更新!!!那是因为有局限性啊,官方文档也说的很清楚,只有一些魔改的之后的方法提供跟原生一样的使用姿势(却又可以触发视图更新);<br>一般我们更常用(除了魔改方法)的手段是使用:this.$set(obj,item,value);<br>传送门:<a href="https://cn.vuejs.org/v2/guide/list.html#数组更新检测" target="_blank" rel="noopener">数组更新检测(触发视图更新)</a></p>
+<p>Q10: 为什么我的组件间的样式不能继承或者覆写啊!!!单组件开发模式下,请确认是否开启了 CSS模块化功能!!<br>也就是 <strong> scoped </strong> (vue-cli 里面配置了,只要加入这个属性就自动启用)<br><code>&lt;style lang=&quot;scss&quot; scoped&gt;&lt;/style&gt;</code><br>为什么不能继承或者覆写呢,那时因为每个类或者 id 乃至标签都会给自动在css后面添加hash!<br>比如<br>// 写的时候是这个<br><code>.trangle{}</code></p>
+<p>// 编译过后,加上了 hash<br><code>.trangle[data-v-1ec35ffc]{}</code>这些都是在 css-loader 里面配置!!!<br>这样就相同的类名也不能继承了</p>
+<p>Q11: 路由模式改为history后,除了首次启动首页没报错,刷新访问路由都报错!<br>必须给对应的服务端配置查询的主页面..也可以认为是主路由入口的引导<br>传送门 : <a href="https://router.vuejs.org/zh-cn/essentials/history-mode.html" target="_blank" rel="noopener">Vue-Router history Mode</a></p>
+<p>Q12: 想拦截页面,或者在页面进来之前做一些事情,可以么?</p>
+<p>Of course !!</p>
+<p>各种路由器的钩子!! 传送门: <a href="https://router.vuejs.org/zh-cn/advanced/navigation-guards.html" target="_blank" rel="noopener">导航守卫</a>;</p>
+<p>当然,记忆滚动的位置也可以做到,详情翻翻里面的文档</p>
+<p>Q13: Uncaught ReferenceError: xxx is not define</p>
+<ul>
+<li>实例内的 data 对应的变量没有声明</li>
+<li>你导入模块报这个错误,那是导出没写好</li>
+</ul>
+<p>Q14: Error in render function:”Type Error: Cannot read property ‘xxx’ of undefined”这种问题大多都是初始化的姿势不对;<br>比如引入echart这些…仔细去了解下生命周期,再来具体初始化;<br>vue 组件有时候也会(嵌套组件或者 props传递初始化)..也是基本这个问题</p>
+<p>Q15: npm run build之后不能直接访问</p>
+<p>最起码得在本地搭个服务器才能访问</p>
+<p>Q16: CSS background 引入图片打包后,访问路径错误因为打包后图片是在根目录下,你用相对路径肯定报错啊….你可以魔改 webpack 的配置文件里面的static为./static…但是不建议<br>你若是把图片什么丢到assets目录下,然后相对路径,打包后是正常的</p>
+<p>Q17: Unexpected tab charater这些</p>
+<p>一般是你用脚手架初始化的时候开了 eslint ;</p>
+<p>要么遵循规则,要么改变规则;</p>
+<p>要么直接把 webpack 里面的 eslint 检测给关闭了 (安装的时候)</p>
+<p>Q18: Failed to mount component: template or render function not defined</p>
+<p>组件挂载失败,问题只有这么几个</p>
+<ul>
+<li>组件没有正确引入; </li>
+<li>挂载点顺序错了了;</li>
+</ul>
+<p>Q19: Unknown custom element: <xxx> - did you register the component correctly?组件没有正确引入或者正确使用,依次确认</xxx></p>
+<ul>
+<li>写好组件</li>
+<li>导入对应的组件</li>
+<li>在 components 内声明</li>
+<li>在 dom 区域声明标签</li>
+</ul>
+<p>Q20: axios的 post 请求后台接受不到!</p>
+<p>axios默认是 json 格式提交,确认后台是否做了对应的支持;</p>
+<p>若是只能接受传统的表单序列化,就需要自己写一个转义的方法…</p>
+<p>当然还有一个更加省事的方案,装一个小模块qs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">npm install qs -S</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 然后在对应的地方转就行了..单一请求也行,拦截器也行...我是写在拦截器的.</span><br><span class="line">// 具体可以看看我 axios 封装那篇文章</span><br><span class="line"></span><br><span class="line">//POST传参序列化(添加请求拦截器)</span><br><span class="line">Axios.interceptors.request.use(</span><br><span class="line">  config =&gt; &#123;</span><br><span class="line">    // 在发送请求之前做某件事</span><br><span class="line">    if (</span><br><span class="line">      config.method === &quot;post&quot;</span><br><span class="line">    ) &#123;</span><br><span class="line">      // 序列化</span><br><span class="line">      config.data = qs.stringify(config.data); // ***** 这里转义</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 若是有做鉴权token , 就给头部带上token</span><br><span class="line">    if (localStorage.token) &#123;</span><br><span class="line">      config.headers.Authorization = localStorage.token;</span><br><span class="line">    &#125;</span><br><span class="line">    return config;</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    Message(&#123;</span><br><span class="line">      //  饿了么的消息弹窗组件,类似toast</span><br><span class="line">      showClose: true,</span><br><span class="line">      message: error,</span><br><span class="line">      type: &quot;error.data.error.message&quot;</span><br><span class="line">    &#125;);</span><br><span class="line">    return Promise.reject(error.data.error.message);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>Q21: Invalid prop: type check failed for prop “xxx”. Expected Boolean, got String.<br>这种问题一般就是组件内的 props 类型已经设置了接受的范围类型,而你传递的值却又不是它需要的类型</p>
+<p>Q22: 过滤器可以用于DOM区域结合指令么?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 不行,看下面的错误例子</span><br><span class="line">&lt;li v-for=&quot;(item,index) in range | sortByDesc | spliceText&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line"></span><br><span class="line">// `vue2+`的指令只能用语 mustache`&#123;&#123;&#125;&#125;` , 正确姿势如下:</span><br><span class="line"></span><br><span class="line">&lt;span&gt;&#123;&#123; message | capitalize &#125;&#125;&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Q23: […Array],…mapState,[SOME_MUTATION] (state) {},increment ({ commit }) {}这种写法是???!</p>
+<p>ES6+(ES2015)的基础啊啊..<br>上面依次:数组解构,对象解构,对象风格函数,对象解构赋值传递</p>
+<p>Q24: Vue 网站为什么 UC 访问一片空白亦或者flex布局错乱!! emmmm…. UC 号称移动界的 IE 这称号不是白叫的</p>
+<p>flexbox 布局错乱,一般是你没有把兼容方案写上..就是带各种前缀,复合属性拆分<br>看看这篇文章:<a href="http://blog.csdn.net/crper/article/details/51902681" target="_blank" rel="noopener">移动端爬坑记 — （1）布局与样式上的奇葩偶遇</a>, 最好就用插件来代替人力吧,,引入 autoprefixer, 写上兼容范围就好了.</p>
+<p>UC访问空白, 有一种情况绝对会造成,那就是 ES6的代码降级不够彻底. 其他情况可能就是路由配置问题(自己去排除)<br>现在的开发都推荐按需引入,靠babel-preset-env 来控制,以达到打包体积减小.<br>但是这样做的后果,有些内核比较老的不适用emmm<br>所以最好把代码完全 ES5话!!记住有些特性不能乱使用,没有对应的 polyfill,比如 ES6 的proxy</p>
+<p>Q24:this.$set | this.$xxx 这个 $ 是个什么意思?是 jQuery的么,会冲突么?  不会的！.<br>Vue 的$和 jQuery 的$并没有半毛钱的关系,就跟javascript和java一样.<br>Vue 的$是封装了一些 vue 的内建函数,然后导出以$开头…这显然并不是 jQuery的专利;<br>jQuery 的$是选择器!!取得 DOM区域…两者的作用完全不一致!</p>
+<p>Q25 : 组件的通讯有哪几种啊!!!  上面详细有解释啦</p>
+<p>基本最常用的是这三种;</p>
+<p>父传子: props<br>子传父: emit<br>兄弟通讯:<br>event bus: 就是找一个中间组件来作为信息传递中介<br>vuex: 信息树<br>传送门:<br><a href="https://cn.vuejs.org/v2/guide/components.html" target="_blank" rel="noopener">基本通讯</a><br><a href="https://vuex.vuejs.org/zh-cn/intro.html" target="_blank" rel="noopener">Vuex</a></p>
+<p>Q26: vuex的用户信息为什么还要存一遍在浏览器里(sessionStorage or localStorage)</p>
+<p>因为 vuex的 store 不敌刷新啊.<br>保存在浏览器的缓存内,若用户刷新的话,值再取一遍;</p>
+<p>Q27:线上若是 nginx,如何部署?以及反向代理这些!!</p>
+<p>传送门:<a href="https://juejin.im/post/58bfc412da2f60124db5999a" target="_blank" rel="noopener">一篇不大靠谱的nginx 1.11.10配置文件</a></p>
+<p>Q28: npm run dev 报端口错误!Error: listen EADDRINUSE :::8080<br>自己用 webpack搭脚手架的都不用说了;</p>
+<p>Vue-cli 里面的 webpack 配置: config/index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dev: &#123;</span><br><span class="line">  env: require(&quot;./dev.env&quot;),</span><br><span class="line">  port: 8080, //  这里这里,若是这个端口已经给系统的其他程序占用了.改我改我!!!!!!</span><br><span class="line">  autoOpenBrowser: true,</span><br><span class="line">  assetsSubDirectory: &quot;static&quot;,</span><br><span class="line">  assetsPublicPath: &quot;/&quot;,</span><br><span class="line">  proxyTable: &#123;</span><br><span class="line">    &quot;/bp-api&quot;: &#123;</span><br><span class="line">      target: &quot;http://new.d.st.cn&quot;,</span><br><span class="line">      changeOrigin: true,</span><br><span class="line">      // pathRewrite: &#123;</span><br><span class="line">      //   &quot;^/bp-api&quot;: &quot;/&quot;</span><br><span class="line">      // &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p>
+<p>Q29: 什么时候用v-if,什么用 v-show!我们先来说说两者的核心差异;</p>
+<p>v-if : DOM 区域没有生成,没有插入文档..等条件成立的时候才动态插入到页面!<br>有些需要遍历的数组对象或者值,最好用这个控制,等到拿到值才处理遍历,不然一些操作过快的情况会报错,比如数据还没请求到!</p>
+<p>v-show: DOM 区域在组件渲染的时候同时渲染了,只是单纯用 css 隐藏了（等同于 display:none）<br>对于下拉菜单,折叠菜单这些数据基本不怎么变动.用这个最合适了..而且可以改善用户体验,因为它不会导致页面的重绘,DOM 操作会! </p>
+<p>简言之: DOM结构不怎么变化的用v-show, 数据需要改动很大或者布局改动的用v-if</p>
+<p>Q30: <template>是什么,html5的标签么?<br>是的..html5的标签还真有这么一个.传送门:<a href="https://caniuse.com/#search=template" target="_blank" rel="noopener">Can I Use:template</a><br><strong> <a href="https://caniuse.com/" target="_blank" rel="noopener">查询h5标签是否可用</a> </strong><br>不过 Vue 的 template 有点不一样,不是去给浏览器解析的….你可以理解为一个临时标签,用来方便你写循环,判断的….因为最终 template 不会解析到浏览器的页面,他只是在 Vue 解析的过程充当一个包裹层!最终我们看到的是内部处理后的组合的 DOM 结构! enen就是这样子~~</template></p>
+<p>Q31:the “scope” attribute for scoped slots …. replaced by “slot-scope” since 2.5<br>这个问题只出现老项目升级到 vue2.5+的时候, 提示就是 scope 现在要用 slot-scope 来代替,但是 scope 暂时可以用,以后会移除</p>
+<p>Q32: Uncaught ReferenceError : Vue is not defined!</p>
+<p>依次排除:</p>
+<ul>
+<li>Vue是否正确引入!</li>
+<li>Vue是否正确实例化!</li>
+<li>Vue 用的姿势是否正确(比如你直接一个 Vue 的变量!!!刚好又没定义,,具体问题具体分析吧)</li>
+</ul>
+<p>Q33: ERROR in static/js/xxxxxxx.js from UglifyJs我知道其中一种情况会报这种情况,就是你引入的 js,是直接引入压缩版本后的 js(xxx.min.js);然后 webpack 内又启用了 UglifyJs(压缩 JS的), 二重压缩大多都会报错!!<br>解决方案:引入标准未压缩的 JS</p>
+<p>Q34:props不使用:(v-bind)可以传递值么!</p>
+<p>可以,只是默认传递的类型会被解析成字符串!<br>若是要传递其他类型,该绑定还是绑定!!</p>
+<p>Q35: Uncaught TypeError : Cannot set property xxx which has only a getter</p>
+<p>这个问题就是你要操作的属性只允许 getter,不允许 setter;</p>
+<p>Q36: 单组件中里面的 import xxx from ‘@/components/layout/xxx’中的@是什么!这是 webpack 方面的知识,<br>webpack可以配置alias(也就是路径别名), linux 或者 mac 都知道<br>依旧如上,会自己搭脚手架的不用我说了…看看 vue-cli 里面的;<br>文件名: build -&gt; webpack.base.conf.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">    extensions: [&quot;.js&quot;, &quot;.vue&quot;, &quot;.json&quot;], // 可以导入的时候忽略的拓展名范围</span><br><span class="line">    alias: &#123;</span><br><span class="line">      vue$: &quot;vue/dist/vue.esm.js&quot;,  </span><br><span class="line">      &quot;@&quot;: resolve(&quot;src&quot;),  // 这里就是别名了,比如@就代表直接从/src 下开始找起!!!</span><br><span class="line">      &quot;~&quot;: resolve(&quot;src/components&quot;)</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+<p>Q37: SCSS(SASS) 还是 less,stylus 好!!三者都是预处理器;<br>scss 出现最久,能做的功能比较多,但是若是普通的嵌套写法,继承,mixin 啊.<br>这三个都差不多..会其中一个其他两个的粗浅用法基本也会了.不过!!!!<br>写法有些差异:</p>
+<ul>
+<li>scss: 写法上是像 css 靠齐 </li>
+<li>sass : 其实也就是 scss , 只是写法不一样…靠的是缩进</li>
+<li>less : 跟 css 基本靠齐</li>
+<li>stylus : 一样,靠缩进..跟pug(Jade)一样</li>
+</ul>
+<p>使用环境的差异:</p>
+<ul>
+<li>scss 可以借助 ruby 或者 node-sass 编译</li>
+<li>less 可以用 less.js 或者对应的 loader 解析</li>
+<li>stylus 只能借助 loader 解析,它的出现就是基于 node 的</li>
+</ul>
+<p>也有一个后起之秀,主打解耦,插件化的!!! 那就是PostCSS,这个是后处理器!!!</p>
+<p>Q38:Failed to compile with x errors : This  dependency was not found !编译错误,对应的依赖没找到!!!<br>解决如下:</p>
+<p>知道缺少对应的模块,直接装进去<br>若是一个你已经安装的大模块(比如 axios)里面的子模块(依赖包)出了问题,卸载重装整个大模块.因为你补全不一定有用!</p>
+<p>Q39: 为什么我的 npm 或者 yarn 安装依赖会生成 lock文件,有什么用!lock 文件的作用是统一版本号,这对团队协作有很大的作用;<br>若是没有 lock 锁定,根据package.json里面的^,~这些..<br>不同人,不同时间安装出来的版本号不一定一致;<br>有些包甚至有一些breaking change(破坏性的更新),造成开发很难顺利进行!!!</p>
+<p>Q40: 组件可以缓存么?可以,用keep-alive;<br>不过是有代码的..占有内存会多了…所以无脑的缓存所有组件!!!别说性能好了..切换几次,有些硬件 hold不住的,浏览器直接崩溃或者卡死..<br>所以keep-alive一般缓存都是一些列表页,不会有太多的操作,更多的只是结果集的更换..<br>给路由的组件meta增加一个标志位,结合v-if就可以按需加上缓存了</p>
+<p>Q41:package.json里面的dependencies 和devDependencies的差异!其实不严格的话,没有特别的差异;若是严格,遵循官方的理解;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dependencies : 存放线上或者业务能访问的核心代码模块,比如 vue,vue-router;</span><br><span class="line">devDependencies: 处于开发模式下所依赖的开发模块,也许只是用来解析代码,转义代码,但是不产生额外的代码到生产环境, 比如什么babel-core这些</span><br><span class="line"></span><br><span class="line">如何把包安装到对应的依赖下呢?</span><br><span class="line"></span><br><span class="line">npm install --save xxxx        // dependencies</span><br><span class="line">npm install --save-dev xxxx    // devDependencies</span><br><span class="line"></span><br><span class="line">//也能用简易的写法(i:install,-S:save,-D:save-dev)</span><br><span class="line"></span><br><span class="line">npm i -S xxxx   // npm install --save xxxx</span><br><span class="line">npm i -D xxxx   // npm install --save-dev xxxx</span><br></pre></td></tr></table></figure></p>
+<p>Q42: 安装chromedriver报错!!姿势没错啊npm i -D chromedriver<br>恩,伟大的GFW…..解决方案:指定国内的源安装就可以了<br>npm install –save-dev chromedriver –chromedriver_cdnurl=<a href="http://cdn.npm.taobao.org/dist/chromedriver" target="_blank" rel="noopener">http://cdn.npm.taobao.org/dist/chromedriver</a></p>
+<p>Q43:Vue ,React, Angular的比较!<br>Vue属于渐进式开发,传统开发过渡 MVVM 模式的小伙伴,Vue 比较好上手,学习成本比较低基础比较好的,有折腾精神的,可以选择NG5或者React 16;<br>NG5需要学习typescript和rxjs,还用到比较多的新东西,比如装饰器,后端的注入概念.ng有自己的一整套 MVVM 流程;</p>
+<p>而Vue和React核心只是view,可以搭配自己喜欢的</p>
+<p>React的写法偏向函数式写法,还有 jsx,官方自己有 flow,当然也能搭配ts,我也没怎么接触..所以也有一定的学习成本;</p>
+<p>至于哪个比较好!!! 某大神说：“告诉你..若是只会一个框架,那不是一个合格的前端;”<br>人家要的是动手能力,解决能力!!!!技术和待遇是成正比的!!<br><del>颜值和背景,学历,口才可以加分..但是这些条件你必须要有的基础下才能考虑这些!!!</del></p>
+<p>Q44: 有个复杂组件需要有新增和编辑的功能同时存在,但是字段要保持不变性怎么破<br>A：字段保持不变性怎么理解呢? 就是说比如新增和编辑同时共享一份 data;<br>有一种就是路由变了,组件渲染同一个(不引起组件的重新渲染和销毁!),但是功能却不同(新增和编译)..<br>比如从编辑切到新增,data必须为空白没有赋值的,等待我们去赋值;<br>这时候有个东西就特别适合了,那就是immutable-js;<br>这个东西可以模拟数据的唯一性!或者叫做不变性!</p>
+<p>Q45:”首屏加载比较慢!!怎么破!打包文件文件比较大”依次排除和确认:</p>
+<p>减少第三方库的使用,比如jquey这些都可以不要了,很少操作 dom,而且原生基本满足开发<br>若是引入moment这些,webpack 排除国际化语言包<br>webpack 常规压缩js,css, 愿意折腾的还可以引入 dll 这些<br>路由组件采用懒加载<br>加入路由过渡和加载等待效果,虽然不能解决根本,但起码让人等的舒心一点不是么!!!</p>
+<p>整体下来,打包之后一般不会太大;<br>但是倘若想要更快?那就只能采用服务端渲染(SSR)了,可以避免浏览器去解析模板和指令这些;直接返回一个 html ….还能 SEO…</p>
+<p>Q46: Vue SPA 没法做优化(SEO)!有解决方案么</p>
+<p>是的,SSR(服务端渲染就能满足你的需求),因为请求回来就是一个处理完毕的 html</p>
+<p>现在 vue 的服务端开发框架有这么个比较流行,如下</p>
+<p>传送门:<a href="https://zh.nuxtjs.org" target="_blank" rel="noopener">Nuxt.js</a></p>
+<p>Q47: Vue可以写 hybird App 么!</p>
+<p>当然可以,两个方向.</p>
+<ul>
+<li><a href="https://cordova.apache.org/" target="_blank" rel="noopener">codorva</a> + <a href="https://github.com/rigor789/nativescript-vue" target="_blank" rel="noopener">nativescript</a></li>
+<li><a href="https://weex.apache.org/cn/guide/index.html" target="_blank" rel="noopener">Weex</a></li>
+</ul>
+<p>Q48: Vue 可以写桌面端么?</p>
+<p>当然可以,有electron和node-webkit(nw);</p>
+<p>我只了解过electron;</p>
+<p><a href="https://electronjs.org" target="_blank" rel="noopener">electron</a><br><a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener">electron-vue</a>: Vue-cli 针对 electron 的脚手架模板</p>
+<p>Q49: Vue开发,项目中还需要 jQuery么分情况探讨:</p>
+<ul>
+<li>若是老项目,只是单纯引入 Vue 简化开发的,依旧用吧…</li>
+<li>重构项目?或者发起新项目的,其实没必要.开发思路不一样,<strong> 很多以前用 DOM 操作的现在基本可以数据驱动实现 </strong>,而少量迫不得已的DOM 操作原生就能搞定…而且能减小打包体积,速度又快,何乐而不为!!!</li>
+</ul>
+<p>Q50:Vue PC(桌面)端,M(mobile:移动)端,用什么 UI 框架好啊!!!</p>
+<p>PC</p>
+<p>我推荐的只有两个 element UI 和 iview</p>
+<p>Mobile</p>
+<p><a href="http://mint-ui.github.io/docs/#/" target="_blank" rel="noopener">mintui</a><br><a href="https://vux.li/demos/v2/?x-page=v2-doc-home#/" target="_blank" rel="noopener">Vux</a></p>
+<p>当然还有很多,但是基本用户的认知度都不高,这三个比较流行</p>
+<p>Q51: Vue可以写微信小程序么,怎么搞起</p>
+<p>可以的,社区也有人出了对应的解决方案,比如比较流行的方案wepy;<br>wepy你也可以理解为一个脚手架,让你的写小程序的方式更贴近你用vue-cli写 vue 的感觉…</p>
+<p>传送门:<a href="https://wepyjs.github.io/wepy/#/" target="_blank" rel="noopener">wepy</a></p>
+<p>Q52:想要 mock 数据,直接请求 json文件 为什么不行!</p>
+<p>当然不行,浏览器安全机制不允许,JS天生不能越权(NodeJS不能单纯说是JS)</p>
+<p>你要 mock 数据,一般都有比较成熟的方案…传送门:</p>
+<p><a href="https://github.com/nuysoft/Mock" target="_blank" rel="noopener">Mock</a><br><a href="https://github.com/easy-mock/easy-mock" target="_blank" rel="noopener">Easy Mock</a></p>
+<h3 id="Vue-最近的动态"><a href="#Vue-最近的动态" class="headerlink" title="Vue 最近的动态"></a>Vue 最近的动态</h3><p>据说 Vue 3 打算用Proxy拦截器来做数据拦截及响应..这样可以检测到更多数据类型的响应;不过 IE系列全军覆没,polyfill 都不行<br>Vue 目前最新 2.5.3 核心库已适配 typescript 2.6; 但是周边库没跟上(比如第三方的 UI 框架,没有更新对应的 d.ts编译器会报错)..若是组件基本都是自己去写,用 ts+vue开发已经没什么特别的坑了…</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>问题就汇总了这么多…还有一些以前看到了.但是忘记了..想不起来了…后续有看到再补上.</p>
+<p>Github案例<br>学习 jQuery 或者原生 JS<br>jQuery还有很多公司在用,源码可以学习的地方很多;<br>原生 js 是根本,不管是哪个前端框架,最终都是 js 实现的;只有基础扎实,才能学的比较深…<br>框架只是加快开发,提高效率,但不是你在这一行长期立足的根本;<br>前端的人不仅需要宽度,也要深度…这样才能走的更远….</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>客官，赏一个吧~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oqt3f60vc.bkt.clouddn.com/wechat.jpg" alt="zhangxiaolei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vuejs/" rel="tag"># Vuejs</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/27/一些常识/" rel="next" title="一些常识">
+                <i class="fa fa-chevron-left"></i> 一些常识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/11/bookList/" rel="prev" title="书单要读">
+                书单要读 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://zxl-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zhangxiaolei" />
+          <p class="site-author-name" itemprop="name">zhangxiaolei</p>
+           
+              <p class="site-description motion-element" itemprop="description">To be a better me</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/Z-Leila" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5295149870/profile?rightmod=1&wvr=6&mod=personnumber" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59196dbe8d6d8100588313fd" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-group"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/ef5764c88470/timeline" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#trim"><span class="nav-number">1.</span> <span class="nav-text">.trim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input绑定数据"><span class="nav-number">2.</span> <span class="nav-text">input绑定数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父子传递数据-vue2-0父子组件以及非父子组件如何通信"><span class="nav-number">3.</span> <span class="nav-text">父子传递数据   vue2.0父子组件以及非父子组件如何通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兄弟组件传递数据-XX-bus"><span class="nav-number">4.</span> <span class="nav-text">兄弟组件传递数据  XX bus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见问题汇总Q50个"><span class="nav-number">5.</span> <span class="nav-text">常见问题汇总Q50个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-最近的动态"><span class="nav-number">6.</span> <span class="nav-text">Vue 最近的动态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+    <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413812606&auto=0&height=66"></iframe>
+    </div>
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxiaolei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问用户：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">访问次数：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zxl-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://LeilaBlog.site/2017/11/27/about-Vuejs心得/';
+          this.page.identifier = '2017/11/27/about-Vuejs心得/';
+          this.page.title = 'about--Vuejs心得';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zxl-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("B0sEo3Dcp8shIdhQAMX1UsF2-gzGzoHsz", "nXCJLkKot6EdDiY1R8eHgiPz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  <div class="bg_content">
+      <div class="landscape"></div>
+      <div class="filter"></div>
+      <canvas id="canvas"></canvas>
+  </div>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  <!-- 背景动画 -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+  
+  <!-- 更换的背景和背景随机色 -->
+  <script type="text/javascript" src="/js/src/canvas.js"></script>
+
+</body>
+</html>

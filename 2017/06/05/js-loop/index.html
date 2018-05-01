@@ -1,0 +1,1131 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javaScript 循环 遍历," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Leila's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="导读遍历数组或对象是一名程序员的基本素养之一. 然而遍历却不是一件简单的事, 优秀的程序员知道怎么去选择合适的遍历方法, 优化遍历效率. 走进JavaScript遍历的世界, 分析JS循环.js有两种数据需要经常遍历 数组(Array) 对象(Object)8种方法遍历元素 for forEach map $.each $(selector).each while for in every12va">
+<meta name="keywords" content="javaScript 循环 遍历">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js-loop">
+<meta property="og:url" content="http://LeilaBlog.site/2017/06/05/js-loop/index.html">
+<meta property="og:site_name" content="Leila&#39;s blog">
+<meta property="og:description" content="导读遍历数组或对象是一名程序员的基本素养之一. 然而遍历却不是一件简单的事, 优秀的程序员知道怎么去选择合适的遍历方法, 优化遍历效率. 走进JavaScript遍历的世界, 分析JS循环.js有两种数据需要经常遍历 数组(Array) 对象(Object)8种方法遍历元素 for forEach map $.each $(selector).each while for in every12va">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-06-05T08:37:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js-loop">
+<meta name="twitter:description" content="导读遍历数组或对象是一名程序员的基本素养之一. 然而遍历却不是一件简单的事, 优秀的程序员知道怎么去选择合适的遍历方法, 优化遍历效率. 走进JavaScript遍历的世界, 分析JS循环.js有两种数据需要经常遍历 数组(Array) 对象(Object)8种方法遍历元素 for forEach map $.each $(selector).each while for in every12va">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://LeilaBlog.site/2017/06/05/js-loop/"/>
+
+
+
+
+
+  <title>js-loop | Leila's blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ff56c334260a10704189e986eba39154";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <a href="https://github.com/xLeila"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leila's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Goals determine what you are going to be</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            Leila时光机
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            照片
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/leaveMassages" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="/categories/book-movie-music" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书影音
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LeilaBlog.site/2017/06/05/js-loop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangxiaolei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leila's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js-loop</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-05T16:31:03+08:00">
+                2017-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/05/js-loop/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/05/js-loop/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/05/js-loop/" class="leancloud_visitors" data-flag-title="js-loop">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">&nbsp点击量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,727
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><h5 id="遍历数组或对象是一名程序员的基本素养之一-然而遍历却不是一件简单的事-优秀的程序员知道怎么去选择合适的遍历方法-优化遍历效率-走进JavaScript遍历的世界-分析JS循环"><a href="#遍历数组或对象是一名程序员的基本素养之一-然而遍历却不是一件简单的事-优秀的程序员知道怎么去选择合适的遍历方法-优化遍历效率-走进JavaScript遍历的世界-分析JS循环" class="headerlink" title="遍历数组或对象是一名程序员的基本素养之一. 然而遍历却不是一件简单的事, 优秀的程序员知道怎么去选择合适的遍历方法, 优化遍历效率. 走进JavaScript遍历的世界, 分析JS循环."></a>遍历数组或对象是一名程序员的基本素养之一. 然而遍历却不是一件简单的事, 优秀的程序员知道怎么去选择合适的遍历方法, 优化遍历效率. 走进JavaScript遍历的世界, 分析JS循环.</h5><h2 id="js有两种数据需要经常遍历"><a href="#js有两种数据需要经常遍历" class="headerlink" title="js有两种数据需要经常遍历"></a>js有两种数据需要经常遍历</h2><ul>
+<li>数组(Array)</li>
+<li>对象(Object)<h2 id="8种方法遍历元素"><a href="#8种方法遍历元素" class="headerlink" title="8种方法遍历元素"></a>8种方法遍历元素</h2></li>
+<li>for</li>
+<li>forEach</li>
+<li>map</li>
+<li>$.each</li>
+<li>$(selector).each</li>
+<li>while</li>
+<li>for in</li>
+<li>every<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var array = [&quot;囚徒&quot;,&quot;过客&quot;,&quot;领袖&quot;];  //职场3种人</span><br><span class="line">var o = &#123;0:&quot;linda&quot;,1:&quot;style&quot;,2:&quot;nick&quot;,length:3&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>语法: for(初始化; 循环执行条件; 每遍历一个元素后做的事情;){}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;       //循环置于闭包之内</span><br><span class="line">  for(var i=0,length=array.length;i&lt;length;i++)&#123;//缓存数组长度</span><br><span class="line">      console.log(array[i]);//内部方法若有可能相互影响,也要置于闭包之内</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>for 只能遍历数组 不能遍历对象<br>需要注意两点：</p>
+<ul>
+<li>为了避免遍历时执行多遍计算数组长度的操作, 影响效率, 建议在循环开始以变量的形式缓存下数组长度, 若在循环内部有可能改变数组长度, 请务必慎重处理, 避免数组越界</li>
+<li>for循环内部定义的变量会直接暴露在外(如 i,循环退出后,i变量将等于数组长度, 后续代码将能访问到 i 变量的值), 因此建议将for循环置于闭包内. 特别要注意的是: <strong> 如果在循环内部, 前一个元素的遍历有可能影响到后一个元素的遍历, 那么for循环内部方法也需要置于闭包之内 </strong></li>
+</ul>
+<h3 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h3><p>语法: for(var item in array){}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(var item in array)&#123;</span><br><span class="line">  console.log(item);</span><br><span class="line">&#125;//0 1 2</span><br><span class="line">for(var item in o)&#123;</span><br><span class="line">  console.log(item);</span><br><span class="line">&#125;//0 1 2 length</span><br></pre></td></tr></table></figure></p>
+<p>for in 可用于遍历数组和对象, 但它输出的只是数组的索引和对象的key, 我们可以通过索引和key取到对应的值. 如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(var item in array)&#123;</span><br><span class="line">  console.log(array[item]);</span><br><span class="line">&#125;//&quot;囚徒&quot; &quot;过客&quot; &quot;领袖&quot;</span><br><span class="line">for(var item in o)&#123;</span><br><span class="line">  console.log(o[item]);</span><br><span class="line">&#125;//&quot;linda&quot; &quot;style&quot; &quot;nick&quot; &quot;length&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p>语法: array.forEach(function(item){}), 参数item表示数组每一项的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">array.forEach(function(item)&#123;</span><br><span class="line">  if(item==&quot;囚徒&quot;)</span><br><span class="line">    return;//这里只能使用return跳过当前元素处理</span><br><span class="line">  console.log(item);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>forEach回调function默认有三个参数: item, index, array</p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>即Array.prototype.map,该方法只支持数组<br>语法: array.map(callback,[thisArg]) map方法使用其提供函数的每次返回结果生成一个新的数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var array = [1, 4, 9];</span><br><span class="line">var roots = array.map(Math.sqrt);//map包裹方法名 sqrt=平方</span><br><span class="line">// roots is now [1, 2, 3], array is still [1, 4, 9]</span><br><span class="line">var array = [1, 4, 9];</span><br><span class="line">var doubles = array.map(function(num) &#123;//map包裹方法实体</span><br><span class="line">  return num * 2;</span><br><span class="line">&#125;);</span><br><span class="line">// doubles is now [2, 8, 18]. array is still [1, 4, 9]</span><br></pre></td></tr></table></figure></p>
+<p>由于map方法被设计成支持 [鸭式辨型][] , 该方法也可以用来处理形似数组的对象, 例如 NodeList<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var elems = document.querySelectorAll(&apos;select option:checked&apos;);</span><br><span class="line">var values = Array.prototype.map.call(elems, function(obj) &#123;</span><br><span class="line">  return obj.value;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>甚至还可以用来处理字符串, 如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var map = Array.prototype.map;</span><br><span class="line">var array = map.call(&apos;Hello 中国&apos;, function(x) &#123; </span><br><span class="line">  return x.charCodeAt(0);</span><br><span class="line">&#125;);</span><br><span class="line">console.log(array);</span><br><span class="line">//[72, 101, 108, 108, 111, 32, 20013, 22269]</span><br></pre></td></tr></table></figure></p>
+<p>map处理字符串的方式多种多样, 例如 反转等.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;12345&apos;;</span><br><span class="line">var output = Array.prototype.map.call(str, function(x) &#123;</span><br><span class="line">  return x;</span><br><span class="line">&#125;).reverse().join(&apos;&apos;);</span><br><span class="line">console.log(output);//54321</span><br></pre></td></tr></table></figure></p>
+<p>将字符串数组转换为数字数组, 只需一条语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log([&apos;1&apos;, &apos;2&apos;, &apos;3&apos;].map(Number));    //[1,2,3]</span><br></pre></td></tr></table></figure></p>
+<h3 id="each"><a href="#each" class="headerlink" title="$.each"></a>$.each</h3><p>array|o  代表是数组或对象<br>语法: $.each(array|o, function(i, ele){}) 支持数组和对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$.each(array, function(i, ele)&#123;</span><br><span class="line">  console.log(i,ele,this==ele);</span><br><span class="line">&#125;);</span><br><span class="line">//0 &quot;囚徒&quot; true</span><br><span class="line">//1 &quot;过客&quot; true</span><br><span class="line">//2 &quot;领袖&quot; true</span><br><span class="line"></span><br><span class="line">$.each(o, function(i, ele)&#123;</span><br><span class="line">  console.log(i,ele,this==ele);</span><br><span class="line">&#125;);</span><br><span class="line">//0 &quot;linda&quot; true</span><br><span class="line">//1 &quot;style&quot; true</span><br><span class="line">//2 &quot;nick&quot; true</span><br></pre></td></tr></table></figure></p>
+<p> this对象 指向当前属性的值<br> 参考jquery API<br> $.each() 方法会迭代jQuery对象中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数)。更重要的是，回调函数是在当前DOM元素为上下文的语境中触发的。因此关键字 this 总是指向这个元素。</p>
+<p> 结合jquery源码, 当对象中存在length属性时, $.each 内部使用for循环去遍历对象, 否则它将使用for in循环去遍历, 因此$.each遍历对象遵循如下规律:</p>
+<ul>
+<li>如果对象中存在 length 属性, 遍历深度以length属性为准, 即length多大, 遍历多少个元素</li>
+<li>如果对象中不存在 length 属性, 遍历深度以实际内部属性个数为准<br>$.each的具体使用过程中还有以下几点需要注意</li>
+<li>使用 return 或者 return true 为跳过一个元素，继续执行后面的循环</li>
+<li>使用 return false 为终止循环的执行, 这是因为在 jquery.each 中, 若返回值指定为false, 才跳出循环, 如果感兴趣请翻看 jquery.each 源码</li>
+<li><p>无法使用 break 与 continue 来跳过循环</p>
+<h3 id="selecter-each"><a href="#selecter-each" class="headerlink" title="$(selecter).each"></a>$(selecter).each</h3><p>语法: $(selecter|array|o).each(function(i, ele){}) 支持数组和对象, 该方法基本上与$.each方法相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> $(&apos;div&apos;).each(function(i,ele)&#123;</span><br><span class="line">  console.log(this,i,this == ele);</span><br><span class="line">&#125;);</span><br><span class="line">//dom... 0 dom.... true</span><br><span class="line">$(array).each(function(i,ele)&#123;//处理数组</span><br><span class="line">  if(this == &quot;领袖&quot;)</span><br><span class="line">      console.log(this,i,this == ele);</span><br><span class="line">&#125;);</span><br><span class="line">//String &#123;0: &quot;领&quot;, 1: &quot;袖&quot;, length: 2, [[PrimitiveValue]]: &quot;领袖&quot;&#125; 2 true</span><br><span class="line">$(o).each(function(i,ele)&#123;//处理对象</span><br><span class="line">  if(this == &quot;nick&quot;)</span><br><span class="line">      console.log(this,i,this == ele);</span><br><span class="line">&#125;);</span><br><span class="line">//String &#123;0: &quot;n&quot;, 1: &quot;i&quot;, 2: &quot;c&quot;, 3: &quot;k&quot;, length: 4, [[PrimitiveValue]]: &quot;nick&quot;&#125; 2 true</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>dom表示div元素, 由于this恒等ele, 说明this也表示div元素, 所以this并不是jquery对象, 而是普通的DOM对象(可以在this上随意使用DOM方法).<br>** 使用$(selecter).each方法,要注意:</p>
+<ul>
+<li>i: 即序列值 ele: 表示当前被遍历的DOM元素</li>
+<li>this 表示当前被遍历的DOM元素，不能调用jQuery方法, 如需调用jquery方法需要用$符号包裹.如, $(this)<h3 id="while-do-while"><a href="#while-do-while" class="headerlink" title="while  do/while"></a>while  do/while</h3>语法: do{…}while(true);<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">### do while</span><br><span class="line">(function() &#123;</span><br><span class="line">    var i = 0,</span><br><span class="line">        len = array.length;</span><br><span class="line">    do &#123;</span><br><span class="line">        if (i == 2) &#123;</span><br><span class="line">            break; // 循环被终止, 此处如果是continue就会造成循环无法退出</span><br><span class="line">        &#125;;</span><br><span class="line">        console.log(&apos;array[&apos;+ i +&apos;]:&apos; + array[i]);</span><br><span class="line">        i++;//此句建议放置循环while头部</span><br><span class="line">    &#125; while(i&lt;len);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="every"><a href="#every" class="headerlink" title="every"></a>every</h3><p>Array.prototype.every, 该方法同上述map方法也只支持数组<br>arr.every(callback[, thisArg]) every 方法用于检验数组中的每一项是否符合某个条件, 若符合则放回true, 反之则返回false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function isBigEnough(element, index, array) &#123;</span><br><span class="line">  return element &gt;= 10;</span><br><span class="line">&#125;</span><br><span class="line">[12, 5, 8, 130, 44].every(isBigEnough);   // false</span><br><span class="line">[12, 54, 18, 130, 44].every(isBigEnough); // true</span><br></pre></td></tr></table></figure></p>
+<p>运行速度大致排序为:</p>
+<ol>
+<li>for 与 do while</li>
+<li>forEach map every (这3个不相上下,可认为运行速度差不多)</li>
+<li>$.each</li>
+<li>$(e).each</li>
+<li>for in</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>客官，赏一个吧~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oqt3f60vc.bkt.clouddn.com/wechat.jpg" alt="zhangxiaolei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javaScript-循环-遍历/" rel="tag"># javaScript 循环 遍历</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/04/css3-textDecroration-nav/" rel="next" title="css3-textDecroration-nav">
+                <i class="fa fa-chevron-left"></i> css3-textDecroration-nav
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/20/span-文本内容超过宽度自动换行/" rel="prev" title="span 文本内容超过宽度自动换行">
+                span 文本内容超过宽度自动换行 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://zxl-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zhangxiaolei" />
+          <p class="site-author-name" itemprop="name">zhangxiaolei</p>
+           
+              <p class="site-description motion-element" itemprop="description">To be a better me</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/Z-Leila" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5295149870/profile?rightmod=1&wvr=6&mod=personnumber" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59196dbe8d6d8100588313fd" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-group"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/ef5764c88470/timeline" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#遍历数组或对象是一名程序员的基本素养之一-然而遍历却不是一件简单的事-优秀的程序员知道怎么去选择合适的遍历方法-优化遍历效率-走进JavaScript遍历的世界-分析JS循环"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">遍历数组或对象是一名程序员的基本素养之一. 然而遍历却不是一件简单的事, 优秀的程序员知道怎么去选择合适的遍历方法, 优化遍历效率. 走进JavaScript遍历的世界, 分析JS循环.</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js有两种数据需要经常遍历"><span class="nav-number">2.</span> <span class="nav-text">js有两种数据需要经常遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8种方法遍历元素"><span class="nav-number">3.</span> <span class="nav-text">8种方法遍历元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for"><span class="nav-number">3.1.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-in"><span class="nav-number">3.2.</span> <span class="nav-text">for in</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-number">3.3.</span> <span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">3.4.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#each"><span class="nav-number">3.5.</span> <span class="nav-text">$.each</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selecter-each"><span class="nav-number">3.6.</span> <span class="nav-text">$(selecter).each</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while-do-while"><span class="nav-number">3.7.</span> <span class="nav-text">while  do/while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#every"><span class="nav-number">3.8.</span> <span class="nav-text">every</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+    <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413812606&auto=0&height=66"></iframe>
+    </div>
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxiaolei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问用户：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">访问次数：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zxl-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://LeilaBlog.site/2017/06/05/js-loop/';
+          this.page.identifier = '2017/06/05/js-loop/';
+          this.page.title = 'js-loop';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zxl-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("B0sEo3Dcp8shIdhQAMX1UsF2-gzGzoHsz", "nXCJLkKot6EdDiY1R8eHgiPz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  <div class="bg_content">
+      <div class="landscape"></div>
+      <div class="filter"></div>
+      <canvas id="canvas"></canvas>
+  </div>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  <!-- 背景动画 -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+  
+  <!-- 更换的背景和背景随机色 -->
+  <script type="text/javascript" src="/js/src/canvas.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1230 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="rem 移动端布局," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Leila's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="pc端网站与移动端(手机)网站区别 pc端的事件不适合在移动端用,比如click(会有300毫秒延迟),移动端上用ontouchstart(手指按下),ontouchmove(手指移动),ontouchend,但是注意的是在Google模拟器下使用on的方式添加touch事件会无效,具体怎么解决这种问题,可以通过addEventListener()的绑定方式,注意用此方法监听事件时,就不要带on,">
+<meta name="keywords" content="rem 移动端布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端">
+<meta property="og:url" content="http://LeilaBlog.site/2017/07/25/移动端/index.html">
+<meta property="og:site_name" content="Leila&#39;s blog">
+<meta property="og:description" content="pc端网站与移动端(手机)网站区别 pc端的事件不适合在移动端用,比如click(会有300毫秒延迟),移动端上用ontouchstart(手指按下),ontouchmove(手指移动),ontouchend,但是注意的是在Google模拟器下使用on的方式添加touch事件会无效,具体怎么解决这种问题,可以通过addEventListener()的绑定方式,注意用此方法监听事件时,就不要带on,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/%E7%A7%BB%E5%8A%A8%E7%AB%AF100%25%E5%B8%83%E5%B1%80.gif">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/%E7%A7%BB%E5%8A%A8%E7%AB%AFflex%E5%B8%83%E5%B1%80.gif">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/%E7%A7%BB%E5%8A%A8%E7%AB%AFflex%E5%B8%83%E5%B1%80.gif">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/mate%E6%A0%87%E7%AD%BE%E9%80%82%E5%BA%94.gif">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/rem%E9%80%82%E9%85%8D%E7%A7%BB%E5%8A%A8%E7%AB%AF.gif">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/Koala.gif">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/%E5%AE%89%E8%A3%85cssrem%E7%A8%8B%E5%BA%8F%E5%8C%85.gif">
+<meta property="og:image" content="http://oqt3f60vc.bkt.clouddn.com/cssrem%E8%BD%AC%E6%8D%A2.gif">
+<meta property="og:updated_time" content="2017-07-25T09:04:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端">
+<meta name="twitter:description" content="pc端网站与移动端(手机)网站区别 pc端的事件不适合在移动端用,比如click(会有300毫秒延迟),移动端上用ontouchstart(手指按下),ontouchmove(手指移动),ontouchend,但是注意的是在Google模拟器下使用on的方式添加touch事件会无效,具体怎么解决这种问题,可以通过addEventListener()的绑定方式,注意用此方法监听事件时,就不要带on,">
+<meta name="twitter:image" content="http://oqt3f60vc.bkt.clouddn.com/%E7%A7%BB%E5%8A%A8%E7%AB%AF100%25%E5%B8%83%E5%B1%80.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://LeilaBlog.site/2017/07/25/移动端/"/>
+
+
+
+
+
+  <title>移动端 | Leila's blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ff56c334260a10704189e986eba39154";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <a href="https://github.com/xLeila"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leila's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Goals determine what you are going to be</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            Leila时光机
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            照片
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/leaveMassages" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="/categories/book-movie-music" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书影音
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LeilaBlog.site/2017/07/25/移动端/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangxiaolei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leila's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动端</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T10:13:13+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/移动端/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/25/移动端/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/25/移动端/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/07/25/移动端/" class="leancloud_visitors" data-flag-title="移动端">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">&nbsp点击量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  4,350
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  20
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="pc端网站与移动端-手机-网站区别"><a href="#pc端网站与移动端-手机-网站区别" class="headerlink" title="pc端网站与移动端(手机)网站区别"></a>pc端网站与移动端(手机)网站区别</h3><ul>
+<li>pc端的事件不适合在移动端用,比如click(会有300毫秒延迟),移动端上用ontouchstart(手指按下),ontouchmove(手指移动),ontouchend,但是注意的是在Google模拟器下使用on的方式添加touch事件会无效,具体怎么解决这种问题,可以通过addEventListener()的绑定方式,注意用此方法监听事件时,就不要带on,具体见下代码所示</li>
+<li>针对移动端一像素偏差问题,与像素比有关系,也就是所谓的物理像素(分辨率)与独立像素(屏幕的宽度),pc端一像素就是一像素,但是在移动端1像素,有时就不是一像素,也许是两像素,三像素的<blockquote>
+<p>通过添加伪类的方式,同时改变transform:scale(0.5),缩小为一半<br>设置div宽度为1像素,同时设置IE怪异盒模型,box-sizing:border-box<br>一像素的背景图片替代</p>
+</blockquote>
+</li>
+<li>手机网站不适合用作响应式,比如:bootstrap等,因为它很重,不轻量,在pc端网络带宽下加载还是可以的,但是在移动端,就很耗性能来,耗流量,耗电..太过于臃肿,而影响网页的加载</li>
+<li>布局方面,移动端,少用浮动,会破坏文档流,不易拓展,多用Flex布局,移动端上Ie怪异盒模型也是很常用,对于改变元素位置,通常用translate,而不用定位,改变left,top值</li>
+<li>在移动端,通常用rem(root 根节点根据html的字体大小计算其他元素尺寸),或者100%</li>
+</ul>
+<h3 id="做适配的原因"><a href="#做适配的原因" class="headerlink" title="做适配的原因"></a>做适配的原因</h3><ul>
+<li>为了适应各个移动终端设备屏幕尺寸,完美的呈现应有的布局效果</li>
+<li>手机端上的响应式不能用在手机app上,非常耗性能,耗流量,耗电</li>
+<li>各个移动端设备,分辨率大小不一致,网页铺满整个屏幕,并在各种分辨下等比例缩放,不失真</li>
+<li>h5页面直接可以在安卓,ios上引用(也就是所谓的混合hybrid App,指的是开发一个App一部分功能用native构建,一部分功能用html5构建,套壳,比如:phoneGap(Cordova))</li>
+</ul>
+<h3 id="如何做适配-有哪些适配方案"><a href="#如何做适配-有哪些适配方案" class="headerlink" title="如何做适配,有哪些适配方案"></a>如何做适配,有哪些适配方案</h3><ul>
+<li>流式布局,视口(viewport)宽度与设备等宽,做自适应,100%或者具体像素值</li>
+<li>固定高度,宽度百分比适配,flex布局,这种方式比较适合布局均匀,适合100%布局,内容结构不复杂</li>
+<li>固定宽度,设定一个标准值(比如以640为准),改变缩放比例(动态的创建meta标签,改变缩放比例)</li>
+<li>rem做适配,在不同的设备上显示不同的效果</li>
+<li>像素比适配:像素比 = 物理像素/独立像素(这种比较繁琐,难以理解,以后再详谈)</li>
+</ul>
+<h3 id="用100-布局适配"><a href="#用100-布局适配" class="headerlink" title="用100%布局适配"></a>用100%布局适配</h3><ul>
+<li>用100%布局适配<blockquote>
+<p>适合页面内容结构均匀分配,固定高度,结构不是很复杂,注意要设置viewport视口内容宽度等于设备的宽度</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>html内容结构样式代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no&quot;&gt;</span><br><span class="line">  &lt;title&gt;固定高度,宽度自适应,100%比做适配&lt;/title&gt;</span><br><span class="line">  &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">           *&#123;</span><br><span class="line">              padding:0;</span><br><span class="line">              margin:0;</span><br><span class="line">          &#125;</span><br><span class="line">          body&#123;</span><br><span class="line">              font-size:16px;</span><br><span class="line">              overflow:hidden;</span><br><span class="line">              -webkit-box-sizing:border-box;</span><br><span class="line">              box-sizing:border-box; </span><br><span class="line">          &#125;</span><br><span class="line">          /*left start*/</span><br><span class="line">          .left&#123;</span><br><span class="line">               width:40px;        /*两边固定宽度,中间自适应*/</span><br><span class="line">               height:40px;       /*高度可以不加,由内容填充*/</span><br><span class="line">               position:absolute;</span><br><span class="line">               left:0;</span><br><span class="line">               top:0;</span><br><span class="line">               background:red;</span><br><span class="line">               text-align:center;</span><br><span class="line">               line-height:40px;</span><br><span class="line">           &#125;</span><br><span class="line">           /*left end*/</span><br><span class="line">           /*center start*/</span><br><span class="line">           .center&#123;</span><br><span class="line">               width:100%;        /*宽度不固定*/</span><br><span class="line">               background:orange;</span><br><span class="line">               height:40px; </span><br><span class="line">               margin-left:40px;</span><br><span class="line">           &#125;</span><br><span class="line">           .center input&#123;</span><br><span class="line">               width:100%;</span><br><span class="line">               height:40px;</span><br><span class="line">               outline:none;</span><br><span class="line">           &#125;</span><br><span class="line">           /*center end*/</span><br><span class="line">           /*right start*/</span><br><span class="line">           .right&#123;</span><br><span class="line">               width:40px;       /*两边固定宽度,中间自适应*/</span><br><span class="line">               height:40px;      /*高度可以不可,由内容填充*/</span><br><span class="line">               text-align:center;</span><br><span class="line">               line-height:40px;</span><br><span class="line">               position:absolute;</span><br><span class="line">               right:0;</span><br><span class="line">               top:0;</span><br><span class="line">               background:green;</span><br><span class="line">           &#125;</span><br><span class="line">             /*right end*/</span><br><span class="line">             /*banner adv start*/</span><br><span class="line">           .banner&#123;</span><br><span class="line">               width:100%;</span><br><span class="line">               height:200px;</span><br><span class="line">               background:pink;</span><br><span class="line">               text-align:center;</span><br><span class="line">               line-height:200px;</span><br><span class="line">           &#125;</span><br><span class="line">           /*banner adv end*/</span><br><span class="line">           /*list start*/</span><br><span class="line">           .list&#123;</span><br><span class="line">               overflow:hidden;</span><br><span class="line">           &#125;   </span><br><span class="line">           .list div&#123;</span><br><span class="line">                width:20%;</span><br><span class="line">                height:90px;</span><br><span class="line">                float:left;</span><br><span class="line">                text-align:center;</span><br><span class="line">                line-height:90px;</span><br><span class="line">           &#125;</span><br><span class="line">           .list div:nth-of-type(1)&#123;</span><br><span class="line">               background:orange;</span><br><span class="line">           &#125;</span><br><span class="line">           .list div:nth-of-type(2)&#123;</span><br><span class="line">               background:#80B3FF;</span><br><span class="line">           &#125;</span><br><span class="line">           .list div:nth-of-type(3)&#123;</span><br><span class="line">               background:#1BA260;</span><br><span class="line">           &#125;</span><br><span class="line">           .list div:nth-of-type(4)&#123;</span><br><span class="line">               background:#F2A196;</span><br><span class="line">           &#125;</span><br><span class="line">           .list div:nth-of-type(5)&#123;</span><br><span class="line">               background:#FFCE42;</span><br><span class="line">           &#125;</span><br><span class="line">           .listTwo&#123;</span><br><span class="line">               margin:15px 0 0 0;</span><br><span class="line">           &#125;</span><br><span class="line">             /*list end*/</span><br><span class="line">             /*con start*/</span><br><span class="line">           .con&#123;</span><br><span class="line">               width:100%;</span><br><span class="line">               height:200px;</span><br><span class="line">               overflow:hidden;     /*子元素使用来浮动,父元素记得清除浮动*/</span><br><span class="line">               text-align:center;</span><br><span class="line">               line-height:200px;</span><br><span class="line">           &#125;</span><br><span class="line">           .left-80&#123;</span><br><span class="line">               width:80%;</span><br><span class="line">               height:100%;  /*想要一个元素在页面中显示必须得给元素高度,继承父元素*/</span><br><span class="line">               float:left;</span><br><span class="line">               background:#B0E24A;</span><br><span class="line">           &#125;</span><br><span class="line">           .right-20&#123;</span><br><span class="line">               width:20%;</span><br><span class="line">               height:100%; /*高度100%,继承父元素的高度*/</span><br><span class="line">               float:right;</span><br><span class="line">               background:#6C6863;</span><br><span class="line">           &#125;</span><br><span class="line">           /*con end*/</span><br><span class="line"></span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- header start --&gt;</span><br><span class="line">    &lt;header&gt;</span><br><span class="line">            &lt;div class=&quot;left&quot;&gt;左边&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;center&quot;&gt;</span><br><span class="line">                &lt;form&gt;</span><br><span class="line">                     &lt;input type=&quot;search&quot; name=&quot;&quot;&gt;</span><br><span class="line">                &lt;/form&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;right&quot;&gt;右边&lt;/div&gt;</span><br><span class="line">    &lt;/header&gt;</span><br><span class="line">    &lt;!-- header end --&gt;</span><br><span class="line">    &lt;!-- banner adv start --&gt;</span><br><span class="line">    &lt;div class=&quot;banner&quot;&gt;adv&lt;/div&gt;</span><br><span class="line">    &lt;!-- banner adv end --&gt;</span><br><span class="line">    &lt;!-- 列表list start --&gt;</span><br><span class="line">    &lt;div class=&quot;list&quot;&gt;</span><br><span class="line">            &lt;div&gt;1&lt;/div&gt; </span><br><span class="line">            &lt;div&gt;2&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;3&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;4&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;5&lt;/div&gt;  </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;list listTwo&quot;&gt;</span><br><span class="line">            &lt;div&gt;6&lt;/div&gt; </span><br><span class="line">            &lt;div&gt;7&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;8&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;9&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;10&lt;/div&gt;  </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">     &lt;!-- 列表list end --&gt;</span><br><span class="line">    &lt;!-- con内容开始--&gt;</span><br><span class="line">    &lt;div class=&quot;con&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;left-80&quot;&gt;左边80%&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;right-20&quot;&gt;右边20%&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;!-- con内容结束--&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>示例<br><img src="http://oqt3f60vc.bkt.clouddn.com/%E7%A7%BB%E5%8A%A8%E7%AB%AF100%25%E5%B8%83%E5%B1%80.gif" alt="示例"></li>
+</ul>
+<h3 id="Flex布局适配-最为强大"><a href="#Flex布局适配-最为强大" class="headerlink" title="Flex布局适配,最为强大"></a>Flex布局适配,最为强大</h3><ul>
+<li>同样是适合页面内容结构均匀分配,固定高度,注意要设置viewport视口内容宽度等于设备的宽度</li>
+<li>老版本的display:box与新版本的display:flex都可以实现页面的自适应<blockquote>
+<p>示例代码如下 用老版本display:box弹性盒子布局示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line"> &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line"> &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no&quot;&gt;</span><br><span class="line"> &lt;title&gt;display:box实现页面的自适应&lt;/title&gt;</span><br><span class="line"> &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">         *&#123;</span><br><span class="line">             padding:0;</span><br><span class="line">             margin:0;</span><br><span class="line">          &#125;</span><br><span class="line">          body&#123;</span><br><span class="line">              font-family:&quot;微软雅黑&quot;;</span><br><span class="line">              font-size:16px;</span><br><span class="line">          &#125;</span><br><span class="line">          .parent&#123;</span><br><span class="line">              display:-webkit-box;     /*声明弹性盒模型*/</span><br><span class="line">              box-orient:horizontal;</span><br><span class="line">              display:box; </span><br><span class="line">          &#125;</span><br><span class="line">          .left,.right&#123;</span><br><span class="line">              width:40px;</span><br><span class="line">              height:40px;</span><br><span class="line">              text-align:center;</span><br><span class="line">              line-height:40px;</span><br><span class="line">          &#125;</span><br><span class="line">          .left&#123;</span><br><span class="line">              background:#abcdef;</span><br><span class="line">          &#125;</span><br><span class="line">          .right&#123;</span><br><span class="line">              background:#DD4F43;</span><br><span class="line">          &#125;</span><br><span class="line">          .center&#123;</span><br><span class="line">              -webkit-box-flex:1; /*一定要注意加上浏览器前缀,否则就会失效*/</span><br><span class="line">              box-flex:1;</span><br><span class="line">          &#125;</span><br><span class="line">          .center input&#123;</span><br><span class="line">              width:100%;</span><br><span class="line">              height:40px;</span><br><span class="line">              outline:none;</span><br><span class="line">          &#125;</span><br><span class="line">          .banner-adv&#123;</span><br><span class="line">              width:100%;</span><br><span class="line">              height:200px;</span><br><span class="line">              display:-webkit-box;</span><br><span class="line">              display:box;</span><br><span class="line">              background:#0D6CB0;</span><br><span class="line">          &#125;</span><br><span class="line">          .list&#123;</span><br><span class="line">              width:100%;</span><br><span class="line">              height:90px;</span><br><span class="line">              display:-webkit-box;</span><br><span class="line">              box-orient:horizontal;</span><br><span class="line">              display:box;</span><br><span class="line">          &#125;</span><br><span class="line">          .list div&#123;</span><br><span class="line">               -webkit-box-flex:1;</span><br><span class="line">               box-flex:1;</span><br><span class="line">               text-align:center;</span><br><span class="line">               line-height:90px;</span><br><span class="line">          &#125;</span><br><span class="line">          .list div:nth-of-type(1)&#123;</span><br><span class="line">               background:#DE5246;</span><br><span class="line">          &#125;</span><br><span class="line">          .list div:nth-of-type(2)&#123;</span><br><span class="line">               background:#19A25F;</span><br><span class="line">          &#125;</span><br><span class="line">          .list div:nth-of-type(3)&#123;</span><br><span class="line">               background:#FF8080;</span><br><span class="line">          &#125;</span><br><span class="line">          .list div:nth-of-type(4)&#123;</span><br><span class="line">               background:#F4CD0B;</span><br><span class="line">          &#125;</span><br><span class="line">          .list div:nth-of-type(5)&#123;</span><br><span class="line">               background:#9EDA45;</span><br><span class="line">          &#125;</span><br><span class="line">          .list-Two&#123;</span><br><span class="line">              margin:15px 0 0 0;</span><br><span class="line">          &#125;</span><br><span class="line">          .list-Two div:nth-of-type(1)&#123;</span><br><span class="line">              background:#B847FF;</span><br><span class="line">          &#125;</span><br><span class="line">          .list-Two div:nth-of-type(2)&#123;</span><br><span class="line">              background:#79B900;</span><br><span class="line">          &#125;</span><br><span class="line">          .list-Two div:nth-of-type(3)&#123;</span><br><span class="line">              background:#FF2424;</span><br><span class="line">          &#125;</span><br><span class="line">          .list-Two div:nth-of-type(4)&#123;</span><br><span class="line">              background:#D2E4F0;</span><br><span class="line">          &#125;</span><br><span class="line">          .list-Two div:nth-of-type(5)&#123;</span><br><span class="line">              background:#4CDF2B;</span><br><span class="line">          &#125;</span><br><span class="line">          .con&#123;</span><br><span class="line">              height:200px;</span><br><span class="line">              display:-webkit-box;  /*声明弹性盒模型*/</span><br><span class="line">              display:box;</span><br><span class="line">          &#125;</span><br><span class="line">          .con div:nth-of-type(1)&#123;</span><br><span class="line">              -webkit-box-flex:8;   /*根据父元素分成8等分,占80%*/</span><br><span class="line">              box-flex:8;</span><br><span class="line">              background:#80B3FF;</span><br><span class="line">          &#125;</span><br><span class="line">          .con div:nth-of-type(2)&#123;</span><br><span class="line">              -webkit-box-flex:2;   /*根据父元素分成2等分,占20%*/</span><br><span class="line">              box-flex:2;</span><br><span class="line">              background:#CD8B37;</span><br><span class="line">          &#125;</span><br><span class="line"> &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">     &lt;header class=&quot;parent&quot;&gt;</span><br><span class="line">           &lt;div class=&quot;left&quot;&gt;左边&lt;/div&gt;</span><br><span class="line">           &lt;div class=&quot;center&quot;&gt;</span><br><span class="line">                   &lt;form&gt;</span><br><span class="line">                        &lt;input type=&quot;search&quot; name=&quot;&quot;&gt;</span><br><span class="line">                   &lt;/form&gt;</span><br><span class="line">           &lt;/div&gt;</span><br><span class="line">           &lt;div class=&quot;right&quot;&gt;右边&lt;/div&gt;</span><br><span class="line">     &lt;/header&gt;</span><br><span class="line">     &lt;div class=&quot;banner-adv&quot;&gt;&lt;/div&gt;</span><br><span class="line">     &lt;section class=&quot;list&quot;&gt;</span><br><span class="line">            &lt;div&gt;1&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;2&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;3&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;4&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;5&lt;/div&gt;</span><br><span class="line">     &lt;/section&gt;</span><br><span class="line">     &lt;section class=&quot;list list-Two&quot;&gt;</span><br><span class="line">            &lt;div&gt;6&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;7&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;8&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;9&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;9&lt;/div&gt;</span><br><span class="line">     &lt;/section&gt;</span><br><span class="line">     &lt;div class=&quot;con&quot;&gt;</span><br><span class="line">          &lt;div&gt;&lt;/div&gt;</span><br><span class="line">          &lt;div&gt;&lt;/div&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>示例<br><img src="http://oqt3f60vc.bkt.clouddn.com/%E7%A7%BB%E5%8A%A8%E7%AB%AFflex%E5%B8%83%E5%B1%80.gif" alt="效果示例"></li>
+</ul>
+<h4 id="新版本的display-flex弹性盒模型实现页面自适应"><a href="#新版本的display-flex弹性盒模型实现页面自适应" class="headerlink" title="新版本的display:flex弹性盒模型实现页面自适应"></a>新版本的display:flex弹性盒模型实现页面自适应</h4><blockquote>
+<p>html结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;header class=&quot;parent&quot;&gt;</span><br><span class="line">           &lt;div class=&quot;left&quot;&gt;左边&lt;/div&gt;</span><br><span class="line">           &lt;div class=&quot;center&quot;&gt;</span><br><span class="line">                   &lt;form&gt;</span><br><span class="line">                        &lt;input type=&quot;search&quot; name=&quot;&quot;&gt;</span><br><span class="line">                   &lt;/form&gt;</span><br><span class="line">           &lt;/div&gt;</span><br><span class="line">           &lt;div class=&quot;right&quot;&gt;右边&lt;/div&gt;</span><br><span class="line">     &lt;/header&gt;</span><br><span class="line">     &lt;div class=&quot;banner-adv&quot;&gt;&lt;/div&gt;</span><br><span class="line">     &lt;section class=&quot;list&quot;&gt;</span><br><span class="line">            &lt;div&gt;1&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;2&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;3&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;4&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;5&lt;/div&gt;</span><br><span class="line">     &lt;/section&gt;</span><br><span class="line">     &lt;section class=&quot;list list-Two&quot;&gt;</span><br><span class="line">            &lt;div&gt;6&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;7&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;8&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;9&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;9&lt;/div&gt;</span><br><span class="line">     &lt;/section&gt;</span><br><span class="line">     &lt;div class=&quot;con&quot;&gt;</span><br><span class="line">          &lt;div&gt;&lt;/div&gt;</span><br><span class="line">          &lt;div&gt;&lt;/div&gt;</span><br><span class="line">     &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>css层叠样式代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    padding:0;</span><br><span class="line">    margin:0;</span><br><span class="line">&#125;</span><br><span class="line">body&#123;</span><br><span class="line">    font-family:&quot;微软雅黑&quot;;</span><br><span class="line">    font-size:16px;</span><br><span class="line">&#125;</span><br><span class="line">.parent&#123;</span><br><span class="line">    display:-webkit-flex;     /*声明弹性盒模型*/</span><br><span class="line">    display:flex; </span><br><span class="line">&#125;</span><br><span class="line">.left,.right&#123;</span><br><span class="line">    width:40px;</span><br><span class="line">    height:40px;</span><br><span class="line">    text-align:center;</span><br><span class="line">    line-height:40px;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">    background:#abcdef;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    background:#DD4F43;</span><br><span class="line">&#125;</span><br><span class="line">.center&#123;</span><br><span class="line">    -webkit-flex:1; /*一定要注意加上浏览器前缀,否则就会失效*/</span><br><span class="line">    flex:1;</span><br><span class="line">&#125;</span><br><span class="line">.center input&#123;</span><br><span class="line">    width:100%;</span><br><span class="line">    height:40px;</span><br><span class="line">    outline:none;</span><br><span class="line">&#125;</span><br><span class="line">.banner-adv&#123;</span><br><span class="line">    width:100%;</span><br><span class="line">    height:200px;</span><br><span class="line">    display:-webkit-box;</span><br><span class="line">    display:box;</span><br><span class="line">    background:#0D6CB0;</span><br><span class="line">&#125;</span><br><span class="line">.list&#123;</span><br><span class="line">    width:100%;</span><br><span class="line">    height:90px;</span><br><span class="line">    display:-webkit-flex;</span><br><span class="line">    display:flex;</span><br><span class="line">&#125;</span><br><span class="line">.list div&#123;</span><br><span class="line">    -webkit-flex:1;</span><br><span class="line">    flex:1;</span><br><span class="line">    text-align:center;</span><br><span class="line">    line-height:90px;</span><br><span class="line">&#125;</span><br><span class="line">.list div:nth-of-type(1)&#123;</span><br><span class="line">    background:#DE5246;</span><br><span class="line">&#125;</span><br><span class="line">.list div:nth-of-type(2)&#123;</span><br><span class="line">    background:#19A25F;</span><br><span class="line">&#125;</span><br><span class="line">.list div:nth-of-type(3)&#123;</span><br><span class="line">    background:#FF8080;</span><br><span class="line">&#125;</span><br><span class="line">.list div:nth-of-type(4)&#123;</span><br><span class="line">    background:#F4CD0B;</span><br><span class="line">&#125;</span><br><span class="line">.list div:nth-of-type(5)&#123;</span><br><span class="line">    background:#9EDA45;</span><br><span class="line">&#125;</span><br><span class="line">.list-Two&#123;</span><br><span class="line">    margin:15px 0 0 0;</span><br><span class="line">&#125;</span><br><span class="line">.list-Two div:nth-of-type(1)&#123;</span><br><span class="line">    background:#B847FF;</span><br><span class="line">&#125;</span><br><span class="line">.list-Two div:nth-of-type(2)&#123;</span><br><span class="line">    background:#79B900;</span><br><span class="line">&#125;</span><br><span class="line">.list-Two div:nth-of-type(3)&#123;</span><br><span class="line">    background:#FF2424;</span><br><span class="line">&#125;</span><br><span class="line">.list-Two div:nth-of-type(4)&#123;</span><br><span class="line">    background:#D2E4F0;</span><br><span class="line">&#125;</span><br><span class="line">.list-Two div:nth-of-type(5)&#123;</span><br><span class="line">    background:#4CDF2B;</span><br><span class="line">&#125;</span><br><span class="line">.con&#123;</span><br><span class="line">    height:200px;</span><br><span class="line">    display:-webkit-flex;  /*声明弹性盒模型*/</span><br><span class="line">    display:flex;</span><br><span class="line">&#125;</span><br><span class="line">.con div:nth-of-type(1)&#123;</span><br><span class="line">    -webkit-flex:8;   /*根据父元素分成8等分,占80%*/</span><br><span class="line">    flex:8;</span><br><span class="line">    background:#80B3FF;</span><br><span class="line">&#125;</span><br><span class="line">.con div:nth-of-type(2)&#123;</span><br><span class="line">    -webkit-flex:2;   /*根据父元素分成2等分,占20%*/</span><br><span class="line">    flex:2;</span><br><span class="line">    background:#CD8B37;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>示例<br><img src="http://oqt3f60vc.bkt.clouddn.com/%E7%A7%BB%E5%8A%A8%E7%AB%AFflex%E5%B8%83%E5%B1%80.gif" alt="效果同上display:box"></li>
+</ul>
+<h3 id="固定宽度-设定一个标准值-比如以640为准-改变缩放比例-动态的创建meta标签-改变缩放比例"><a href="#固定宽度-设定一个标准值-比如以640为准-改变缩放比例-动态的创建meta标签-改变缩放比例" class="headerlink" title="固定宽度,设定一个标准值(比如以640为准),改变缩放比例(动态的创建meta标签,改变缩放比例)"></a>固定宽度,设定一个标准值(比如以640为准),改变缩放比例(动态的创建meta标签,改变缩放比例)</h3><ul>
+<li>固定宽度,viewport缩放(width=640)量的是640px,但是实际上缩小2倍就可以了的<br>自己设置一个640等宽度,然后进行等比例缩放(目前低版本的安卓不支持) 让640px像素的东西,缩放到iphone5 320的尺寸当中去,怎么个缩放呢,让宽度等比例缩放,高度自适应,所以这样看起来就不会失真,让宽高度等比例的缩放,按照640来进行切图</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no&quot;&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>viewport:视口宽度,设备的屏幕上能用来显示我们的网页的那一块区域()浏览器上(也可能是一个app中的webview)用来显示网页的那部分区域)<br>content:描述视口内容,width=device-width,网页内容宽度等于设备的宽度<br>initial-scale:()初始缩放比例,能够起到和width=device-width相同的效果(把理想的视窗设置为设备宽度),两个配合使用能够很好的解决移动端各设备的适配问题<br>maximum-scale:最大缩放比例<br>minimum-scale最小缩放比例<br>user-scalable:如果值是0或者no,表示禁止用户手指缩放</p>
+</blockquote>
+<blockquote>
+<p>html 内容结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  ![](img/06chugui.jpg)</span><br><span class="line">  ![](img/07shoubiao.jpg)</span><br><span class="line">  ![](img/08zhoumojiadain.jpg)</span><br><span class="line">  ![](img/09junzi.jpg)</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>css层叠样式表<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    padding:0;</span><br><span class="line">    margin:0;</span><br><span class="line">&#125;</span><br><span class="line">div&#123;</span><br><span class="line">    width:640px;</span><br><span class="line">&#125;</span><br><span class="line">img&#123;</span><br><span class="line">    width:100%;</span><br><span class="line">    display:block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>js代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * 固定页面的尺寸,做一个640的页面为标准,然后进行等比例缩放,整个页面会跟着宽度等比例缩放</span><br><span class="line">* @function scaleFun 等比例缩放函数</span><br><span class="line">* @Object &#123;Number&#125; screenWidth:获取window屏幕的宽度</span><br><span class="line">* @number fixedWidth 设置页面固定宽度</span><br><span class="line">* @number &#123;scale&#125; 缩放比例,屏幕(设备)的宽度/固定的宽度</span><br><span class="line">* @Object &#123;createMeta&#125; 动态的创建meat标签元素</span><br><span class="line">* @Object &#123;metaAttr&#125; 定义一个对象,设置添加属性</span><br><span class="line">* @for..in循环,将metaAttr的属性添加到createMeta中去</span><br><span class="line">* @将meta标签添加到head头部中去</span><br><span class="line">*/</span><br><span class="line"> window.onload = function()&#123;</span><br><span class="line">    // 等比例缩放函数</span><br><span class="line">   function scaleFun()&#123;</span><br><span class="line">     var screenWith = window.screen.width; // 获取window屏幕的宽度</span><br><span class="line">     var fixedWidth = 640;    // 固定宽度</span><br><span class="line">     var scale = screenWith/fixedWidth;  //缩放比例 window屏幕的宽度/固定宽度,这里的640看设计图纸给的像素,如果是750那么就写750,计算缩放比</span><br><span class="line">     var createMeta = document.createElement(&quot;meta&quot;);// 动态的创建meta标签 </span><br><span class="line">     // 设置属性</span><br><span class="line">     var metaAttr = &#123;</span><br><span class="line">        name:&quot;viewport&quot;,</span><br><span class="line">        content:&apos;width=&apos;+fixedWidth+&apos;, initial-scale=&apos;+scale+&apos;, maximum-scale=&apos;+scale+&apos;, user-scalable=no&apos;</span><br><span class="line">     &#125;</span><br><span class="line">    for(var key in metaAttr)&#123;</span><br><span class="line">        createMeta[key] = metaAttr[key];</span><br><span class="line">    &#125;</span><br><span class="line">    // 将createMeat添加到head头中</span><br><span class="line">document.getElementsByTagName(&quot;head&quot;)[0].appendChild(createMeta);</span><br><span class="line">/*</span><br><span class="line">createMeta.setAttribute(&apos;name&apos;,&apos;viewport&apos;);                                               createMeta.setAttribute(&apos;content&apos;,&apos;width=&apos;+fixedWidth+&apos;, initial-scale=&apos;+scale+&apos;, maximum-scale=&apos;+scale+&apos;, user-scalable=no&apos;);</span><br><span class="line">document.getElementsByTagName(&apos;head&apos;)[0].appendChild(createMeta);</span><br><span class="line">*/</span><br><span class="line">&#125;</span><br><span class="line">scaleFun();                     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>示例<br><img src="http://oqt3f60vc.bkt.clouddn.com/mate%E6%A0%87%E7%AD%BE%E9%80%82%E5%BA%94.gif" alt="效果示例"></li>
+</ul>
+<h3 id="rem做适配-在不同的设备上显示不同的效果"><a href="#rem做适配-在不同的设备上显示不同的效果" class="headerlink" title="rem做适配,在不同的设备上显示不同的效果"></a>rem做适配,在不同的设备上显示不同的效果</h3><ul>
+<li>根据不同屏幕设备分辨率动态设置html的文字大小,达到等比缩放的功能</li>
+<li>在不同的移动终端显示不同的元素等比例缩放效果</li>
+<li>把设计图的宽度分成多少分之一,根据实际情况,不是你想分成多少就多少,一般10等分,16,20等分的</li>
+<li>保证html最终算出来的字体大小,不小于12px(Google浏览器下,最小字体大小为12px,设置像素值小于它,仍是12px,但是在firefox浏览器下小于12px,仍然是可以减小生效的,太小了字体看不清,影响用户体验)<blockquote>
+<p>html内容结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;spanText&quot;&gt;欢迎关注微信itclan公众号&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;imgList&quot;&gt;</span><br><span class="line">        ![](img/06chugui.jpg)</span><br><span class="line">        ![](img/07shoubiao.jpg)</span><br><span class="line">        ![](img/08zhoumojiadain.jpg)</span><br><span class="line">        ![](img/09junzi.jpg)</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>css层叠样式</p>
+<ul>
+<li>less预处理器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@rem:40rem   // 这里的rem怎么确定,根据你设计稿尺寸,根据有js中把网页(设计图)分成多少等分,动态的设置html根节点的大小,这里分成16等分,比如设计稿是640那么1rem就等于640/16=40px,如果设计稿是320,同理320/16=20</span><br><span class="line">*&#123;</span><br><span class="line">    padding:0;</span><br><span class="line">    margin:0;</span><br><span class="line">&#125;</span><br><span class="line">body&#123;</span><br><span class="line">    overflow-x:hidden;</span><br><span class="line">&#125;</span><br><span class="line">div.imgList&#123;</span><br><span class="line">    width:720/@rem;</span><br><span class="line">&#125;</span><br><span class="line">img&#123;</span><br><span class="line">    display:block;</span><br><span class="line">&#125;</span><br><span class="line">div.spanText&#123;</span><br><span class="line">    text-align:center;</span><br><span class="line">    font-size:40/@rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>编译出来的对应的css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">   padding:0;margin:0</span><br><span class="line">&#125;</span><br><span class="line">body&#123;</span><br><span class="line">   overflow-x:hidden</span><br><span class="line"> &#125;</span><br><span class="line"> div.imgList&#123;</span><br><span class="line">    width:18rem</span><br><span class="line"> &#125;</span><br><span class="line"> img&#123;</span><br><span class="line">    width:18rem;</span><br><span class="line">    display:block</span><br><span class="line"> &#125;</span><br><span class="line"> div.spanText&#123;</span><br><span class="line">    text-align:center;</span><br><span class="line">    font-size:1rem</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>js代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">window.onload = function()&#123;</span><br><span class="line">  var html = document.querySelector(&quot;html&quot;);  // 获取根节点html,用h5新增的选择器</span><br><span class="line">  var timer = null;</span><br><span class="line">  // 动态的获取设置根节点fontSize大小</span><br><span class="line">  function changeRem()&#123; </span><br><span class="line">  var htmlWidth = html.getBoundingClientRect().width; // 获取网页的宽度,也就是屏幕的宽度</span><br><span class="line"> html.style.fontSize = htmlWidth/16+&quot;px&quot;;// 把网页(设计图)分成多少等分,动态的设置html根节点的大小,这里分成16等分</span><br><span class="line">&#125;</span><br><span class="line">// 页面尺寸发生改变时,重新计算文字等大小,功能函数</span><br><span class="line">function Time()&#123;</span><br><span class="line">    clearTimeout(timer);</span><br><span class="line">    timer = setTimeout(function()&#123;  </span><br><span class="line">       changeRem();</span><br><span class="line">    &#125;,10)</span><br><span class="line">&#125;</span><br><span class="line">// 浏览器窗口发生变化时</span><br><span class="line">   window.addEventListener(&apos;resize&apos;,function()&#123; </span><br><span class="line">   Time();</span><br><span class="line">&#125;);</span><br><span class="line">// 页面加载的时候,如果调用缓存的话,在次执行changeRem</span><br><span class="line"> window.addEventLister(&apos;pageshow&apos;,function(e)&#123;</span><br><span class="line">      if(e.persisted)&#123;  // 判断有没有缓存</span><br><span class="line">         Time();</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>示例<br><img src="http://oqt3f60vc.bkt.clouddn.com/rem%E9%80%82%E9%85%8D%E7%A7%BB%E5%8A%A8%E7%AB%AF.gif" alt="效果示例"></li>
+</ul>
+<blockquote>
+<p>考拉工具的使用</p>
+<ul>
+<li>使用方式：直接打开koala工具,找到对应的less文件夹,添加到考拉工具当中,直接刷新编译less或者sass文件即可,会自动的生成对应的css文件,注意在html内容页面中引入的是css文件,而不是less文件</li>
+</ul>
+<ul>
+<li>示例<br><img src="http://oqt3f60vc.bkt.clouddn.com/Koala.gif" alt="使用示例"></li>
+</ul>
+<ul>
+<li>如果不喜欢使用考拉工具,也可以使用cssrem插件,在sublime,autom,webstorm等编辑器中安装cssrem插件,会自动的将px转换为rem<br>/<em>  如何安装cssrem插件,自动的将px转换成rem,这里以sublimeText3为例  </em>/<br>打开sublimeText编辑器=&gt;菜单栏找到perferences菜单=&gt;Browse Package浏览程序包=&gt;将cssrem文件夹复制粘贴到packages目录下=&gt;perferences菜单栏-&gt;Package settings-&gt;cssrem-&gt;settings-Default-&gt;把 “px_to_rem” 的值变为设计稿的 rem基准值(设计稿宽度/html根节点设置的多少等分).保存<ul>
+<li>示例<br><img src="http://oqt3f60vc.bkt.clouddn.com/%E5%AE%89%E8%A3%85cssrem%E7%A8%8B%E5%BA%8F%E5%8C%85.gif" alt="过程示例"></li>
+</ul>
+</li>
+<li>验证cssrem是否安装成功,在给元素设定具体px时自动转换就已经证明cssrem插件安装成功了.这远比拿着计算器算什么的要快得多,如果一个一个算,那简直是噩梦,如果有怀疑,其实你借助控制台计算也是可以的</li>
+</ul>
+<ul>
+<li>示例<br><img src="http://oqt3f60vc.bkt.clouddn.com/cssrem%E8%BD%AC%E6%8D%A2.gif" alt="示例"></li>
+</ul>
+</blockquote>
+<h3 id="别人说"><a href="#别人说" class="headerlink" title="别人说"></a>别人说</h3><ul>
+<li>用rem是最不好控制效果最差，百分比最老，flex的话应该说适合单纯的展示布局而不是真正多平台响应式布局</li>
+<li>如果高清适配，个人推荐用flexible.js这种方法</li>
+<li>如果非高清直接定宽viewport缩放或者css3的缩放</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>客官，赏一个吧~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oqt3f60vc.bkt.clouddn.com/wechat.jpg" alt="zhangxiaolei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rem-移动端布局/" rel="tag"># rem 移动端布局</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/24/版本控制/" rel="next" title="版本控制">
+                <i class="fa fa-chevron-left"></i> 版本控制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/27/JSON/" rel="prev" title="JSON">
+                JSON <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://zxl-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zhangxiaolei" />
+          <p class="site-author-name" itemprop="name">zhangxiaolei</p>
+           
+              <p class="site-description motion-element" itemprop="description">To be a better me</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/Z-Leila" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5295149870/profile?rightmod=1&wvr=6&mod=personnumber" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59196dbe8d6d8100588313fd" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-group"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/ef5764c88470/timeline" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#pc端网站与移动端-手机-网站区别"><span class="nav-number">1.</span> <span class="nav-text">pc端网站与移动端(手机)网站区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做适配的原因"><span class="nav-number">2.</span> <span class="nav-text">做适配的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何做适配-有哪些适配方案"><span class="nav-number">3.</span> <span class="nav-text">如何做适配,有哪些适配方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用100-布局适配"><span class="nav-number">4.</span> <span class="nav-text">用100%布局适配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex布局适配-最为强大"><span class="nav-number">5.</span> <span class="nav-text">Flex布局适配,最为强大</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新版本的display-flex弹性盒模型实现页面自适应"><span class="nav-number">5.1.</span> <span class="nav-text">新版本的display:flex弹性盒模型实现页面自适应</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#固定宽度-设定一个标准值-比如以640为准-改变缩放比例-动态的创建meta标签-改变缩放比例"><span class="nav-number">6.</span> <span class="nav-text">固定宽度,设定一个标准值(比如以640为准),改变缩放比例(动态的创建meta标签,改变缩放比例)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem做适配-在不同的设备上显示不同的效果"><span class="nav-number">7.</span> <span class="nav-text">rem做适配,在不同的设备上显示不同的效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#别人说"><span class="nav-number">8.</span> <span class="nav-text">别人说</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+    <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413812606&auto=0&height=66"></iframe>
+    </div>
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxiaolei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问用户：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">访问次数：</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zxl-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://LeilaBlog.site/2017/07/25/移动端/';
+          this.page.identifier = '2017/07/25/移动端/';
+          this.page.title = '移动端';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zxl-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("B0sEo3Dcp8shIdhQAMX1UsF2-gzGzoHsz", "nXCJLkKot6EdDiY1R8eHgiPz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  <div class="bg_content">
+      <div class="landscape"></div>
+      <div class="filter"></div>
+      <canvas id="canvas"></canvas>
+  </div>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  <!-- 背景动画 -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+  
+  <!-- 更换的背景和背景随机色 -->
+  <script type="text/javascript" src="/js/src/canvas.js"></script>
+
+</body>
+</html>

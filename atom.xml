@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LeilaBlog.site/"/>
-  <updated>2017-05-26T03:15:30.000Z</updated>
+  <updated>2018-05-01T09:26:24.647Z</updated>
   <id>http://LeilaBlog.site/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客迁移</title>
+    <link href="http://LeilaBlog.site/2018/05/01/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/"/>
+    <id>http://LeilaBlog.site/2018/05/01/博客迁移/</id>
+    <published>2018-05-01T09:18:17.000Z</published>
+    <updated>2018-05-01T09:26:24.647Z</updated>
+    
+    <content type="html"><![CDATA[<p>(<em>^__^</em>) 嘻嘻……今天把这个博客迁移仓库啦 哈哈哈 开心O(∩_∩)O~~</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;(&lt;em&gt;^__^&lt;/em&gt;) 嘻嘻……今天把这个博客迁移仓库啦 哈哈哈 开心O(∩_∩)O~~&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -466,33 +488,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>浏览器调试PWA</title>
-    <link href="http://LeilaBlog.site/2017/10/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95PWA/"/>
-    <id>http://LeilaBlog.site/2017/10/31/浏览器调试PWA/</id>
-    <published>2017-10-31T03:27:02.000Z</published>
-    <updated>2017-11-01T09:41:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="什么是PWA"><a href="#什么是PWA" class="headerlink" title="什么是PWA"></a>什么是PWA</h3><p>首先，一个PWA是一个根据设备的支持情况，提供了额外特性的应用，比如：</p><ol><li>离线工作能力</li><li>推送通知</li><li>乎原生应用的展现和速度</li><li>资源的本地和缓存</li></ol><p>但是PWA并不能在不支持最新技术的设备上像正常网站那样工作。</p><h3 id="Chrome开发者工具概览"><a href="#Chrome开发者工具概览" class="headerlink" title="Chrome开发者工具概览"></a>Chrome开发者工具概览</h3><p>我们从Chrome开始。打开开发者工具，你会看到很多面板。你可能比较熟悉其中的一些面板，比如控制台（Console）、元素面板（Elements）、网络（Network），因为你在构建网站和网络应用程序的时候天天都在用。</p><p>应用程序面板（Application）是不久前加的，包含了很多熟悉的工具。在2016年夏天时，资源面板（Resources）被重命名为应用程序面板（Application）。这个面板把所有Web应用程序区别于Web网页的特点都集合在一起。稍后，我们将详细解释。<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa1.jpg" alt="图片"></p><h3 id="一个实际的例子"><a href="#一个实际的例子" class="headerlink" title="一个实际的例子"></a>一个实际的例子</h3><p>本教程完整的探索了一个PWA，<img src="https://events.google.com/io2016/" alt="这个PWA可以这里获得">。你打开Chrome，严格按照我们的步骤走，不用在本地建立其他任何的东西。</p><p>** 模拟设备</p><p>首先设置Chrome开发者工具的『设备模拟』。这样你就可以在浏览器中模拟一个设备了。我们选择Android设备，因为最新的PWA只有在Android上才能完全展示出它的潜力。对iOS和Safari桌面版的支持者来说，Safari将要开始支持Service Workers，似乎是朝着正确的方向前进了一步。<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa2.jpg" alt="图片2"><br>详细的应用程序面板</p><p>应用程序面板包含了很多PWA的元素。</p><p>** 清单（Manifest）</p><p>清单让用户可以选择把应用『添加到主屏幕』。清单提供了很多应用被安装到到设备该如何表现的细节说明。任何的错误定义清单将会报告问题。<br><img src="http://oqt3f60vc.bkt.clouddn.com/Manifest.jpg" alt="清单界面"></p><p>清单中可以看到应用的名字（首屏上的简短名字），图表预览，以及一些展现的细节。</p><p>启动地址：当用户从主屏首屏上启动Web应用是，设备要加载的地址。您可以添加一个活动标识符来区分统计分析中的PWA。<br>主题颜色：指示你网站的主题。Chrome使用这个主题颜色来着色浏览器的一些UI部分，比如地址栏。可以使用meta标签来自定义每个页面的颜色，但是当应用从主屏启动时，在清单中指定的主题颜色提供站点范围的主题颜色。</p><p><img src="http://oqt3f60vc.bkt.clouddn.com/pwa3.jpg" alt=""><br>图为使用主题颜色选项来改变浏览器UI颜色的例子</p><ol><li>背景颜色：在清单中指定Web应用程序的背景颜色，这使得浏览器在CSS不可用之前的加载过程可以展示背景颜色。这为用户带来更好的体验。一旦CSS可用，该值将被实际的Web应用程序样式覆盖。</li><li>方向（Orientation）：指定默认的方向，可选值包括「any」、「natural」、「landscape」、「portrait」和其他在「屏幕方向API工作草案」中详细介绍的选项。</li><li>展示：定了应用程序如何呈现。有效值包括「fullscreen」（打开应用时全屏展示）、「standalone」（显示设备标准的状态栏和系统返回按钮）、「minimal-ui」(只有返回、前进、重新加载按钮)和「browser」（包括地址栏正常的浏览器UI）。</li></ol><p>在清单面板顶部，点击「manifest.json」链接，将会打开源码面板，包括了清单的所有代码。<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa4.jpg" alt="查看代码"><br>「manifest.json」代码例子</p><p>清单允许定义许多其他的字段，建议直接看「Web应用清单工作草案」了解更多。</p><p>最后，也是非常重要的，就是添加到首屏链接。在桌面Chrome上，它会触发浏览器将应用添加到货架（shelf）。 在移动设备上，它提示安装应用程序（将图标添加到主屏幕）:<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa5.jpg" alt="浏览器货架"></p><h3 id="Service-Workers"><a href="#Service-Workers" class="headerlink" title="Service Workers"></a>Service Workers</h3><p>列表中的下一个是『Service Workers』选项卡。Service Workers技术使得PWA可以离线工作，同时允许您拦截网络请求并使用Cache API在本地存储资源。<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa6.jpg" alt="Service Workers"></p><p>通过此屏幕，您可以通过启用选项卡中离线复选框来强制离线模式： </p><p><img src="http://oqt3f60vc.bkt.clouddn.com/pwa7.jpg" alt="offline"></p><p>强制离线模式，反映在应用程序中。</p><p>在设备模式屏幕下，离线也是强制的，除网络节流。</p><p>重新加载更新：当调试时，这个非常有用。Service Workers首次加载时会将其安装在设备上。 在Service Workers代码更改之前，它们不会更新，因此它们不像常规资源。</p><p>但是，即使您更新Service Workers，直到旧的Service Workers可以被删除为止，也就网页也不会使用 - 也就是说，直到用户关闭指向网络应用程序的所有选项卡。 此复选框才强制更新。</p><p>绕过网络可以完全关闭Service Worker启用的缓存。 当您希望从网络直接访问时，这会阻止应用程序使用缓存的资源。调试时也非常有用。</p><p>显示所有是一个选项，可以快速访问所有安装在设备上Service Worker。</p><p>每个Service Worker都有一个状态指示器，您可以停止并重新启动。 通过单击文件名，您可以使用内置的JavaScript调试器检查源代码并将其挂接到其中：<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa8.jpg" alt=""> </p><p>您最有可能使用的是Service Worker生命周期事件模拟。 您可以强制触发以下事件：</p><ol><li>Update 将强制更新Service Worker</li><li>Push 模拟一个推送事件</li><li>Sync 模拟后台同步事件，这允许用户脱机执行操作，服务器上线后，再与服务器通信。</li><li>Unregister 取消注册Service Worker, 以便用户可以一个干净的状态启动。</li></ol><p>**　清除存储</p><p>清除存储选项卡显示您的Web应用程序使用的总存储大小，剩余的存储空间，并允许您选择要清除的存储空间。<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa9.jpg" alt="清除缓存"></p><p>** 存储</p><p>存储选项卡包含与通常存储选项（如本地/会话存储，IndexedDB和Cookies）进行交互的工具。 对于Service Worker来说存储并不是唯一的，所以我不会在这里详细介绍。<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa10.jpg" alt=""></p><p>** 缓存</p><p>忽略应用程序缓存选项卡 - 这是一种不推荐的技术 - 缓存存储选项卡是Service Worker的关键。 它使用Cache API（Service Workers规范的一部分）显示存储的资源内容。 Service Worker使用缓存没有限制。</p><p>通过Google Chrome缓存存储演示项目可以更清楚看到具发生了什么，当把内容添加到缓存时。<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa11.jpg" alt=""></p><p>首先，先不使用缓存。<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa12.jpg" alt=""></p><p>按住创建WNDT62缓存按钮触发缓存的创建：<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa13.jpg" alt=""></p><p>然后通过WNDT62中的创建 RESOURCE_A，添加一项内容到缓存。<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa14.jpg" alt=""><br>按住 更新RESOURCE_A增加主体内容大小，这个可以通过以下代码查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">caches.open(&apos;WNDT62&apos;).then(function(cache) &#123;</span><br><span class="line">  return cache.match(&apos;RESOURCE_A&apos;).then((res) =&gt; &#123;</span><br><span class="line">    res.text().then(body =&gt; console.log(body));</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p><p>每次你按更新RESOURCE_A时，返回值都会增加。</p><p>按住删除WNDT62来删除缓存，释放资源所使用的空间，并把应用的状态重置为初始状态。</p><p>当加载Service Workers使用Cache API缓存的资源时，DevTools的网络面板显示为来自Service Workers的：<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa15.jpg" alt=""></p><h3 id="Firefox如何？"><a href="#Firefox如何？" class="headerlink" title="Firefox如何？"></a>Firefox如何？</h3><p>Firefox对PWA以及Service Workers有很大的支持。 但是，它的开发者工具不会像Chrome开发工具那样显示出来。 Firefox可以在“工具”&gt; “Web开发人员”&gt;“Sevice Worker”菜单下找到。 </p><p>我的火狐是“打开菜单”&gt; “开发者”&gt;“Sevice Worker”菜单下找到<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa16.jpg" alt=""></p><p>从这里您可以取消注册任何Service Worker，并在调试器中为任何类型的工作线程（也包括Web Workers）打开线程代码。 您还可以触发Push APIpush 事件来调试Push事件。</p><p>您无法模拟事件或强制更新或绕过Service Workers，如Chrome。 我希望，在Firefox这很快将变成可能，以便有更容易的测试体验。</p><p>像Chrome一样，当用Cache API使用被“开发工具”的“网络”面板中的Service Worker缓存的资源时，在Transferred列下列出了『Service Worker』：<br><img src="http://oqt3f60vc.bkt.clouddn.com/pwa17.jpg" alt=""></p><h3 id="整体来说"><a href="#整体来说" class="headerlink" title="整体来说"></a>整体来说</h3><p>PWA是使移动Web变得更好的一个转折点，并为用户提供了原生应用程序之外的良好体验。</p><p>浏览器，尤其是Chrome，可以为他们提供很好的工具。</p><p>Google还提供Lighthouse作为其浏览器工具的一部分，可以在Chrome DevTools中单独安装。 它提供自动检查，以确保您的Web应用程序是最佳构建的，并且包括对Service Worker的支持。 一个非常有用的工具，千万不要错过。</p><p><del>因为刘巍峰哦</del></p><p>技术上不想说太深，我也不懂，所以从用户角度来说，列举一下和传统网页应用相比的优势。</p><ol><li>消息推送。用户只要允许，即使网页关闭后仍然可以在系统通知栏收到推送消息。（自从知道 Facebook 应用为了消息的即时性强制阻止安卓系统进入节电模式后，我就卸载了 Facebook 原生应用改用他们的网页推送了）</li><li>后台加载。往常的网页应用只要关闭了网页他的生命就结束了，现在引入了一个 Service Worker 的概念，即使网页关闭，PWA 仍然可以在后台运行获取数据更新（当然有限制）。</li><li>离线使用。PWA 打开后会缓存一些内容，之后再次访问即使没有网络也可以浏览之前的页面（如同IE时代的离线浏览）。<br>原生应用界面。在某些情况下 PWA 应用可以隐藏浏览器本身的所有视觉成分，光从UI和UX上看，很容易认为这就是一个原生界面，如下图其实都是PWA而不是原生应用。</li><li>桌面图标。PWA只要配上一个图标，再放快捷方式在桌面上（比如一定时间内第二次访问PWA会自动询问是否添加快捷方式到桌面），就真的和原生系统无异了，打开的速度也很快（当然功能不能很庞大）。</li><li>另一方面，和原生应用比，PWA 又不需要用户安装，只需要浏览器支持 PWA 就可以了。<br>棒！</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;什么是PWA&quot;&gt;&lt;a href=&quot;#什么是PWA&quot; class=&quot;headerlink&quot; title=&quot;什么是PWA&quot;&gt;&lt;/a&gt;什么是PWA&lt;/h3&gt;&lt;p&gt;首先，一个PWA是一个根据设备的支持情况，提供了额外特性的应用，比如：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;离线工作能
-      
-    
-    </summary>
-    
-      <category term="PWA 浏览器调试" scheme="http://LeilaBlog.site/categories/PWA-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95/"/>
-    
-    
-      <category term="如何使用浏览器开发工具调试 PWA（Progressive Web Apps）" scheme="http://LeilaBlog.site/tags/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E8%B0%83%E8%AF%95-PWA%EF%BC%88Progressive-Web-Apps%EF%BC%89/"/>
     
   </entry>
   

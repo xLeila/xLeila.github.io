@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LeilaBlog.site/"/>
-  <updated>2018-05-01T09:26:24.647Z</updated>
+  <updated>2019-07-02T16:49:44.001Z</updated>
   <id>http://LeilaBlog.site/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>入职感悟</title>
+    <link href="http://LeilaBlog.site/2019/07/03/%E5%85%A5%E8%81%8C%E6%84%9F%E6%82%9F/"/>
+    <id>http://LeilaBlog.site/2019/07/03/入职感悟/</id>
+    <published>2019-07-02T16:43:09.000Z</published>
+    <updated>2019-07-02T16:49:44.001Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="入职感悟"><a href="#入职感悟" class="headerlink" title="入职感悟"></a>入职感悟</h4><p>认真学习  好好工作 什么都不会欺骗你的啊  想得到的就要认真去争取<br>typescript node react 好多需要学习深化的知识<br>学习真是一辈子的事情啊<br>任何时候都不能松懈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;入职感悟&quot;&gt;&lt;a href=&quot;#入职感悟&quot; class=&quot;headerlink&quot; title=&quot;入职感悟&quot;&gt;&lt;/a&gt;入职感悟&lt;/h4&gt;&lt;p&gt;认真学习  好好工作 什么都不会欺骗你的啊  想得到的就要认真去争取&lt;br&gt;typescript node react 好多
+      
+    
+    </summary>
+    
+      <category term="感悟" scheme="http://LeilaBlog.site/categories/%E6%84%9F%E6%82%9F/"/>
+    
+    
+      <category term="随笔" scheme="http://LeilaBlog.site/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="生活" scheme="http://LeilaBlog.site/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="入职" scheme="http://LeilaBlog.site/tags/%E5%85%A5%E8%81%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>博客迁移</title>
@@ -467,27 +496,6 @@
     
     
       <category term="css scss" scheme="http://LeilaBlog.site/tags/css-scss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS 属性 calc()</title>
-    <link href="http://LeilaBlog.site/2017/11/06/CSS-%E5%B1%9E%E6%80%A7-calc/"/>
-    <id>http://LeilaBlog.site/2017/11/06/CSS-属性-calc/</id>
-    <published>2017-11-06T08:12:59.000Z</published>
-    <updated>2017-11-06T10:32:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>预处理可以实现逻辑运算。但是预处理器只能同单位的运算，如角度单位，时间单位，频率单位，分辨率单元和固定长度单位。/<em> 而calc()可以实现混合单位的逻辑运算。</em>/<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">   font-size: calc(3em + 5px);</span><br><span class="line">   padding: calc(1vmax + -1vmin);</span><br><span class="line">   transform: rotate(calc(1turn - 32deg));</span><br><span class="line">   background: hsl(180, calc(2*25%), 65%); </span><br><span class="line">   line-height: calc(8/3);</span><br><span class="line">   width: calc(23vmin - 2*3rem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>在一些情况下，我们可能需要在calc()函数里传变量。这个在主流的预处理器可以实现。</p><p>首先，用 Sass，我们就像任何其他原生的CSS功能一样，插入变量：</p><p>$a: 4em<br>height: calc(#{$a} + 7px)<br>LESS写法如下：</p><p>@a: 4em;<br>height: ~”calc(@{a} + 7px)”;<br>还有Stylus：</p><p>a = 4em<br>height: “calc(%s + 7px)” % a<br>我们也可以使用原生的CSS变量，但要注意的是，只有在Firefox 31+支持，其他的浏览器暂时还不支持CSS的变量呢。</p><p>–a: 4em;<br>height: calc(var(–a) + 7px);<br>为了能够使得calc()函数正常的起作用，有以下几点要注意的事情。首先，除以零显然是行不通的。函数名和括号之间不可有空格。加号和减号运算符之间必须用空格分隔。</p><p>下面是几种错误的写法：</p><p>calc(50% / 0)<br>calc (1em + 7px)<br>calc(2rem+2vmin)<br>calc(2vw-2vh)</p><p>calc()函数的参数必须是数字，有或无指定单位，都是可以的。虽然基本的支持是非常好的，但是我们可能还是会遇到一些麻烦。接下来让我们看几个例子，看下有哪些兼容性问题，以及是否是最佳的解决方案。</p><h3 id="进一步了解运算属性"><a href="#进一步了解运算属性" class="headerlink" title="进一步了解运算属性"></a>进一步了解运算属性</h3><p>实现一个彩虹渐变。<br><a href="https://codepen.io/thebabydino/pen/VLOWaX" target="_blank" rel="noopener">例子链接</a><br>background: linear-gradient(#f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);<br>1<br>但是，这些十六进制值看着不易理解。如果使用HSL()和calc()，就会更清晰些：</p><p>background: linear-gradient(hsl(calc(0<em>60), 100%, 50%),<br>                            hsl(calc(1</em>60), 100%, 50%),<br>                            hsl(calc(2<em>60), 100%, 50%),<br>                            hsl(calc(3</em>60), 100%, 50%),<br>                            hsl(calc(4<em>60), 100%, 50%),<br>                            hsl(calc(5</em>60), 100%, 50%),<br>                            hsl(calc(6*60), 100%, 50%));</p><p>可悲的是，在Firefox或Internet Explorer（IE）下，HSL() ，RGB()，HSLA()或RGBA()里使用calc()不起作用。也就是说demo只在WebKit浏览器下运行。因此，在实践中，在这一点上，最好让预处理来执行运算。而且使用预处理还有一个优点是，循环生成列表：</p><p>$n: 6;<br>$l: ();</p><p>@for $i from 0 through $n {<br>   $l: append($l, hsl($i*360/$n, 100%, 50%), comma);<br>}<br>background: linear-gradient($l);</p><h3 id="为弹性元素添加渐变背景色"><a href="#为弹性元素添加渐变背景色" class="headerlink" title="为弹性元素添加渐变背景色"></a>为弹性元素添加渐变背景色</h3><p>比方说，我们希望背景上顶部和底部有固定的1em的条纹。唯一的问题是我们不知道元素的高度。一种解决办法是使用两个渐变：</p><p>background:<br>   linear-gradient(#e53b2c 1em, transparent 1em),<br>   linear-gradient(0deg, #e53b2c 1em, #f9f9f9 1em);</p><p>但是，如果我们使用calc()就只需要一个渐变 就能搞定：</p><p>background:<br>   linear-gradient(#e53b2c 1em, #f9f9f9 1em, </p><pre><code>#f9f9f9 calc(100% - 1em), #e53b2c calc(100% - 1em));</code></pre><p>这种写法在所有支持calc()和渐变的浏览器里都可以工作正常，因为涉及的混合单位，它和预处理器的逻辑运算是不能等效的。另外，我们可以通过定义变量使其更易于维护：</p><p>$s: 1em;<br>$c: #e53b2c;<br>$bg: #f9f9f9;</p><p>background:<br>   linear-gradient($c $s,<br>                   $bg $s,<br>                   $bg calc(100% - #{$s}),<br>                   $c calc(100% - #{$s}));<br>注：出于一些原因，在chrome和opera里，有一个条纹比另一条略微的模糊、细。</p><p>上面只是几个简单的例子,且学且研究calc()在css中的应用吧</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;预处理可以实现逻辑运算。但是预处理器只能同单位的运算，如角度单位，时间单位，频率单位，分辨率单元和固定长度单位。/&lt;em&gt; 而calc()可
-      
-    
-    </summary>
-    
     
   </entry>
   
